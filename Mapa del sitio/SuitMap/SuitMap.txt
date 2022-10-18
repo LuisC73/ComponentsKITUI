@@ -1,0 +1,55 @@
+<link rel="stylesheet" href="/script/SuitMap/SuitMap.css" type="text/css" media="all">
+
+<div class="section-tit">Mapa del sitio</div>
+<div class="site-map" style="font-family: Montserrat,sans-serif;">
+	<ul>
+		<li class="none-line">
+			<a class="none-line" href="#">
+				Alcaldia de Popayan
+			</a>
+			<ul>
+				<li class="color-default">
+					<a href="/">HOME</a>
+					<ul>
+						<li class="color-default">
+							<a href="#">Transparencia</a>
+							<ul id="iteradorTransparencia">
+								
+							</ul>
+						</li>
+						<li class="color-default">
+							<a  href="#">Ciudadanos</a>
+							<ul id="iteradorCiudadanos">
+								
+							</ul>
+						</li>
+						<li class="color-default">
+							<a href="#">Mi Municipio</a>
+							<ul id="iteradorMiMunicipio">
+							</ul>
+						</li>
+						<li class="color-default">
+							<a href="#">Nuestra Alcaldia</a>
+							<ul id="iteradorNuestraAlcaldia">
+							</ul>
+							
+						</li>
+						<li class="color-default">
+							<a href="#">Comunicaciones</a>
+							<ul id="iteradorComunicaciones">
+							</ul>
+							
+						</li>
+						<li class="color-default">
+							<a href="#">Secretarias y Entidades</a>
+							<ul id="iteradorSecretariasyEntidades">
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+	</ul>
+</div>
+
+<script type="text/javascript" src="/scripts/SuitMap/SuitMap.js"></script>
