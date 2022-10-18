@@ -1,0 +1,137 @@
+
+/************************************
+	 ESTILOS CDN MIN .GOV
+************************************/
+
+#s4-workspace{
+    scroll-behavior: smooth;
+}
+
+/*contenedor*/
+.scroll-to-top{
+    position:fixed;
+    bottom:1rem;
+    right:2rem;
+    border-radius: 1rem;
+    overflow:hidden;
+    box-shadow: 1px 1px 10px #000;
+    z-index:110;
+   	transition: .3s ease-out;
+   	border: 1px solid #F2F2F2;
+   	outline:none;
+   	width: 4.1rem;
+    min-width: 2rem;
+    height: 4rem;
+    background:#F2F2F2;
+}
+
+.scroll-to-top:hover{
+	border: 1px solid #0A7CC0;
+	width: 16rem;
+	border-radius: .6rem;
+	
+}
+
+/*contenedor al darle click*/
+.scroll-to-top:active{
+	background: #0A7CC0;
+}
+
+.scroll-to-top:active > button{
+	background: #0A7CC0;
+}
+
+.scroll-to-top:active span.fa.fa-angle-up.btn-svg-up-hover.btn-top-up {
+    color: #0A7CC0;
+    background: #fff;
+}
+
+.scroll-to-top:active span.label-button-star-up.btn-text-top-up{
+	color: #fff;
+}
+
+/*contenedor boton interno*/
+
+.scroll-to-top button{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding: 0;
+    background:#F2F2F2;
+    cursor:pointer;
+    min-width: 2rem;
+    height: 3.6rem;
+    outline:none;
+    transition: .3s ease-out;
+    border:unset;
+}
+
+/*icono de flecha*/
+span.fa.fa-angle-up.btn-svg-up-hover.btn-top-up {
+    color: #fff;
+    background: #0A7CC0;
+}
+
+
+.scroll-to-top button .btn-svg-up-hover{
+    font-size: 2.7rem;
+    line-height: 28px;
+    color: white;
+    margin-top: 2px;
+}
+
+.scroll-to-top button .label-button-star-up{
+	margin-left: .8rem;
+    width: max-content;
+}
+.show-scrollTop{
+    opacity:1;
+    transition: .3s ease-out; 
+}
+
+.block--gov-accessibility .block-options a:hover label{
+    cursor:pointer;
+    display:inline-block;
+    margin-bottom:0;
+    margin-left:0;
+    font-size:0.8rem;
+}
+
+.btn-top-up{
+    width: 31px;
+    height: 31px;
+    margin-left: 4px;
+    border-radius: 8px;
+}
+
+/*letra de volver a arriba */
+span.label-button-star-up.btn-text-top-up {
+    font-size: 1.45rem;
+    color:  #0A7CC0;
+    display: block;
+    transition: .2s;
+    margin-bottom: 2rem;
+    opacity: 0;
+}
+
+.scroll-to-top:hover > button >span.label-button-star-up.btn-text-top-up{
+   margin-bottom: 0rem;
+   opacity: 1;
+}
+
+
+body::-webkit-scrollbar {
+    width: 6px;
+    background: #fff;
+  }
+  
+  body::-webkit-scrollbar-thumb {
+    background: #00b300;
+    border-radius: 10px;
+  }
+  
+  @media (max-width: 600px) {
+    body::-webkit-scrollbar {
+      width: 0px;
+    }
+  }
