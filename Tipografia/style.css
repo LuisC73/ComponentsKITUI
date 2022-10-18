@@ -1,0 +1,57 @@
+
+@font-face {
+    font-family: "Montserrat-Regular";
+    src: url("/SiteAssets/V2/fonts/Montserrat-Regular.ttf");
+  }
+  
+  
+  @font-face {
+    font-family: "WorkSans-Regular";
+    src: url("/SiteAssets/V2/fonts/WorkSans-Regular.ttf");
+  }
+  
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .titulos,
+  .titulos1 {
+    font-family: "Montserrat-Regular", sans-serif;
+  }
+  
+  .titulos,
+  .titulos1 {
+    font-size: 24px;
+    font-weight: 600;
+  }
+  
+  .card-title,
+  .mt-3 {
+    font-size: 18px !important;
+    font-weight: 600;
+  }
+  
+  ::selection {
+    background-color: #005dca;
+    color: #fff;
+  }
+  
+  p,
+  a,
+  button,
+  span,div {
+    font-family: "WorkSans-Regular", sans-serif;
+  }
+  
+  td {
+    font-family: "WorkSans-Regular", sans-serif;
+  }
+  
+  #ctl00_PlaceHolderMain_g_f82eaf10_0cd0_4885_90b8_4595555cb7d1_ctl00_divPregunta,
+  .ItemOpRtaV3,
+  p {
+    font-size: 14px;
+  }
+  
