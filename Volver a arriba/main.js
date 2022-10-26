@@ -1,4 +1,3 @@
-
 //Inicio scroll top
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -25,9 +24,8 @@ window.addEventListener("DOMContentLoaded", () => {
 
 //Inicio scroll top
 
-const $buttonScroll = document.getElementById("scrollUp");
-
 window.addEventListener("scroll", () => {
+  const $buttonScroll = document.getElementById("scrollUp");
   let scrollTop = document.documentElement.scrollTop;
   if (scrollTop > 0) {
     $buttonScroll.style.transform = "scale(1)";
