@@ -1,19 +1,21 @@
-.headerGov{
-    width: 100vw;
-    height: 40px;
-    background-color: #0c5eca;
+/* Inicio Barra gov superior */
+.headerGov {
+  width: 100vw;
+  height: 40px;
+  background-color: #0c5eca;
 }
 
-.headerGov__content{
-    width: 1140px;  
-    margin: 0 auto;
+.headerGov__content {
+  width: 1140px;
+  margin: 0 auto;
 }
 
-.headerGov__a{
-    margin-right: auto;
+.headerGov__a {
+  margin-right: auto;
 }
 
-.headerGov__img{
-    width: 100px;
-    height: 40px;
+.headerGov__img {
+  width: 100px;
+  height: 40px;
 }
+/* Fin Barra gov superior */
