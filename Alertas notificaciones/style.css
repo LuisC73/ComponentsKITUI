@@ -1,0 +1,62 @@
+/* Inicio Ventana modal de encuesta */
+
+.ja_title {
+  background-color: #069169;
+  border-top-right-radius: 10px !important;
+  border-top-left-radius: 10px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.ja_green .ja_title > div,
+.ja_black .ja_title > div,
+.ja_blue .ja_title > div,
+.ja_red .ja_title > div {
+  font-family: "Montserrat", sans-serif;
+  color: #fff !important;
+}
+
+.ja_body {
+  font-family: "Work Sans", sans-serif;
+  text-align: center;
+  border-bottom-left-radius: 10px !important;
+  border-bottom-right-radius: 10px !important;
+}
+
+.ja_close {
+  background: none !important;
+  color: #fff !important;
+}
+
+.ja_blue {
+  border: none !important;
+  border-radius: 10px !important;
+}
+
+.ja_btn_wrap.optBack {
+  background: #fff !important;
+  padding: 11px 0px !important;
+  border-radius: 10px !important;
+}
+
+.ja_btn_default,
+.ja_btn_default:link,
+.ja_btn_default:visited {
+  background: #005dca !important;
+  padding: 0.4rem 0.8rem !important;
+  border-radius: 2rem !important;
+  width: 40% !important;
+  color: #fff !important;
+}
+
+.TblEncuss > tbody > tr > td {
+  border-radius: 6px !important;
+}
+
+.TblEncuss > tbody > tr > td > table > tbody > tr > td {
+  border-radius: 6px !important;
+}
+
+/* Fin Ventana modal de encuesta */
