@@ -43,9 +43,13 @@
 /* Inicio botones */
 
 button {
-  border-radius: 2rem;
+  border-radius: 2rem !important;
   transition: 0.3s;
   font-size: 15px;
+}
+
+#encuesta .btn-primary, #testimonios .btn-primary{
+  width: 100%;
 }
 
 /* Fin botones */

@@ -113,7 +113,7 @@
 
 /* Fin iconos laterales */
 
-/* iconos mejorados */
+/* Inicio iconos mejorados */
 
 #iconos-principales .item {
   text-align: center;
@@ -186,6 +186,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0 !important;
 }
 
 #iconos-principales .circulo-link i {
@@ -208,3 +209,5 @@
     opacity: 1;
   }
 }
+
+/* Fin iconos mejorados */
