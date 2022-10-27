@@ -30,5 +30,5 @@ let itemsNoticias = document.querySelectorAll("#news .agileits_w3layouts_event_g
 let itemsCambiando = document.querySelectorAll("#cambiando .agileits_w3layouts_event_grid1 a").forEach((el) => el.setAttribute("tabindex", "-1"))
 
 // enlaces sitios de interes
-let itemsInteres = document.querySelectorAll("#iconos-principales .nbs-flexisel-item a").forEach((el) => el.setAttribute("tabindex", "-1"))
+let itemsInteres = document.querySelectorAll("#iconos-principales .item a").forEach((el) => el.setAttribute("tabindex", "-1"))
 
