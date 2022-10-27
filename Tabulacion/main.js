@@ -12,10 +12,10 @@ setTimeout(() => {
 }, 4000);
 
 // no seleccionar imagenes
-let images = document.querySelectorAll("img").forEach((img) => { img.setAttribute("tabindex", "-1") });
-
-//lazy loading a imagenes
-images.forEach((img) => { img.setAttribute("loading", "lazy") });
+let images = document.querySelectorAll("img").forEach((img) => { 
+  img.setAttribute("tabindex", "-1") 
+  img.setAttribute("loading", "lazy")
+});
 
 // enlaces de carrusel
 let itemsCarousel = document.querySelectorAll("#carousel1 > div > .carousel-item > a").forEach((el) => el.setAttribute("tabindex", "-1"));

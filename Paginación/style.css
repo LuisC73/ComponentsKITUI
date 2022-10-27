@@ -1,0 +1,32 @@
+/* Inicio Paginador */
+
+.paginador > a,
+.paginador > span {
+  font-weight: 300 !important;
+}
+
+.apagination,
+.spanpagination {
+  background: none !important;
+  box-shadow: none !important;
+  font-size: 13px !important;
+  color: #0b457f !important;
+  padding: 5px 12px !important;
+  margin-right: 4px !important;
+  border-radius: 3px !important;
+  font-weight: 300 !important;
+}
+
+.apagination:hover,
+.spanpagination:hover {
+  background: #e6effd !important;
+  color: #0b457f !important;
+  text-decoration: none !important;
+}
+
+.spanpagination {
+  background: #3366cc !important;
+  color: #fff !important;
+}
+
+/* Fin Paginador */

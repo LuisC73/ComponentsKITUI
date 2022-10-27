@@ -1,0 +1,29 @@
+/* Inicio Boton de encuesta*/
+
+#encuesta .list-group i {
+  border-radius: 4px !important;
+  color: white !important;
+  font-size: 10px !important;
+  border: 2px solid #005dca;
+  background: #fff;
+  margin-right: 7px !important;
+  padding: 2px !important;
+}
+
+.ItemOpRtaV3:hover,
+.ItemOpRtaV3,
+.ItemOpRtaV3:active {
+  background: none !important;
+  color: #606060 !important;
+}
+
+.ItemOpRtaV3:not(:first-child) {
+  margin-top: 1rem;
+}
+
+#encuesta .list-group .icon--color {
+  color: #fff !important;
+  background-color: #005dca !important;
+}
+
+/* Fin Boton de encuesta*/
