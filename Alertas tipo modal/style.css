@@ -1,4 +1,4 @@
-/* inicio ventana modal */
+/* Inicio ventana modal */
 
 .modal-content {
   position: relative;
@@ -60,3 +60,5 @@
   padding: 0.3rem 2rem;
   border-radius: 15px;
 }
+
+/* Fin ventana modal */

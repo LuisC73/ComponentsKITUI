@@ -1,3 +1,4 @@
+/* Inicio control de sliders */
 .carrouselButton {
   display: flex;
   align-items: center;
@@ -25,3 +26,4 @@
   background-color: #008337;
   color: white;
 }
+/* Fin control de sliders */
