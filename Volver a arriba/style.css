@@ -1,6 +1,4 @@
-/************************************
-	 ESTILOS CDN MIN .GOV
-************************************/
+/* Inicio estilos scroll top */
 
 #s4-workspace {
   scroll-behavior: smooth;
@@ -117,18 +115,4 @@ span.label-button-star-up.btn-text-top-up {
   opacity: 1;
 }
 
-#s4-workspace::-webkit-scrollbar {
-  width: 6px;
-  background: #fff;
-}
-
-#s4-workspace::-webkit-scrollbar-thumb {
-  background: #00b300;
-  border-radius: 10px;
-}
-
-@media (max-width: 600px) {
-  #s4-workspace::-webkit-scrollbar {
-    width: 0px;
-  }
-}
+/* Fin estilos scroll top */
