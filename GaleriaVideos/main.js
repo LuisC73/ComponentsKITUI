@@ -34,11 +34,18 @@ window.addEventListener("DOMContentLoaded", () => {
 
       if (urlVideo[1] === "mp4")
         strhtml +=
-          '<div class="galeriaLocal__item"><video class="galeriaLocal__video" src="' +urlVideo.join(".") +'" type="video/mp4" loading="lazy"></video><i class="fa fa-play-circle fa-lg galeriaLocal__play" aria-hidden="true"></i></div>';   
+          '<div class="galeriaLocal__item"><video class="galeriaLocal__video" src="' +
+          urlVideo.join(".") +
+          '" type="video/mp4" loading="lazy"></video><i class="fa fa-play-circle fa-lg galeriaLocal__play" aria-hidden="true"></i></div>';
     }
 
     containerGaleria.innerHTML = strhtml;
   };
 
   galeriaVideoLocal();
+
+  $(".galeriaLocal").jPaginate({
+    items: 6,
+  });
 });
+

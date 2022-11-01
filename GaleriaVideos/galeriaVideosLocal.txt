@@ -1,5 +1,5 @@
 <section class="galeriaLocal">
-  <h2 class="galeriaLocal__h2">Galer&iacutea Videos Loales</h2>
+  <h2 class="galeriaLocal__h2">Galer&iacutea Videos Locales</h2>
   <div class="galeriaLocal__main">
     <video src="#" autoplay muted controls></video>
     <i class="fa fa-times fa-lg galeriaLocal__close" aria-hidden="true"></i>
@@ -9,36 +9,82 @@
 
 <link rel="stylesheet" href="/Scripts/GaleriaVideos/style.css" />
 
+
 <script src="/Scripts/GaleriaVideos/main.js"></script>
+<script type="text/javascript" src="/js/1291523190-jpaginateVideos.js"></script>
 
 <script>
-  const efectoGaleriaVideolocal = () => {
-    setTimeout(() => {
-      const videos = document.querySelectorAll(".galeriaLocal__video"),
-        videoClose = document.querySelector(".galeriaLocal__close"),
-        videoMain = document.querySelector(".galeriaLocal__main video"),
-        sectionVideos = document.querySelector(".galeriaLocal");
+const efectoGaleriaVideolocal = () => {
+  setTimeout(() => {
+    const videos = document.querySelectorAll(".galeriaLocal__video"),
+      videoClose = document.querySelector(".galeriaLocal__close"),
+      videoMain = document.querySelector(".galeriaLocal__main video"),
+      sectionVideos = document.querySelector(".galeriaLocal");
 
-      for (let i = 0; i < videos.length; i++) {
-        videos[i].addEventListener("click", (e) => {
+    document.addEventListener("click", (e) => {
+      videos.forEach((video) => {
+        if (e.target === video || e.target === ".galeriaLocal__play") {
           const target = e.target;
           sectionVideos.classList.add("active");
           target.classList.add("active");
-          let src = document.querySelector(
-            ".galeriaLocal__video.active"
-          ).src;
+          let src = document.querySelector(".galeriaLocal__video.active").src;
           videoMain.src = src;
 
-          videoClose.addEventListener("click", ()=>{
+          videoClose.addEventListener("click", () => {
             sectionVideos.classList.remove("active");
             target.classList.remove("active");
             videoMain.src = "";
           });
-          
-        });
-      }
-    }, 4000);
-  };
+        }
+      });
+    });
+  }, 4000);
+};
 
-  efectoGaleriaVideolocal();
+efectoGaleriaVideolocal();
 </script>
+
+
+
+<style type="text/css">
+  .pagination {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    margin-top: 30px;
+
+  }
+
+  .pagination li {
+    float: left;
+    margin: 3px;
+  }
+
+  .pagination .active {
+    border: none;
+    background: #39ae2a !important;
+    color: white !important;
+    display: inline-block;
+    padding: 5px 12px;
+    margin-right: 4px;
+    font-size: 15px;
+    font-weight: 300;
+    text-decoration: none;
+    border-radius: 3px;
+  }
+
+  .goto,
+  .goto_next,
+  .inactive,
+  .goto_previous {
+    display: inline-block;
+    padding: 5px 12px;
+    margin-right: 4px;
+    border-radius: 3px;
+    background: #ff4e00 !important;
+    font-size: 15px;
+    font-weight: 300;
+    text-decoration: none;
+    color: white !important;
+  }
+</style>
