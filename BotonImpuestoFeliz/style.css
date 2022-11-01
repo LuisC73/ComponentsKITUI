@@ -1,0 +1,40 @@
+/* Inicio boton de impuesto feliz */
+
+.impuesto__container {
+  position: fixed;
+  right: 40px;
+  bottom: 161px;
+  width: 180px;
+  height: 140px;
+  z-index: 10;
+}
+
+.impuesto__img {
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 768px) {
+  .impuesto__container {
+    right: 12px;
+    bottom: 160px;
+    width: 154px;
+    height: 111px;
+  }
+}
+
+/* Fin boton de impuesto feliz */
+
+/* Inicio banner Impuesto feliz */
+
+.impuesto__banner {
+    width: 100%;
+    height: 200px;
+}
+
+.impuesto__banner img{
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+/* Fin banner Impuesto feliz */

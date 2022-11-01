@@ -1,0 +1,44 @@
+<section class="galeriaLocal">
+  <h2 class="galeriaLocal__h2">Galer&iacutea Videos Loales</h2>
+  <div class="galeriaLocal__main">
+    <video src="#" autoplay muted controls></video>
+    <i class="fa fa-times fa-lg galeriaLocal__close" aria-hidden="true"></i>
+  </div>
+  <div class="galeriaLocal__container"></div>
+</section>
+
+<link rel="stylesheet" href="/Scripts/GaleriaVideos/style.css" />
+
+<script src="/Scripts/GaleriaVideos/main.js"></script>
+
+<script>
+  const efectoGaleriaVideolocal = () => {
+    setTimeout(() => {
+      const videos = document.querySelectorAll(".galeriaLocal__video"),
+        videoClose = document.querySelector(".galeriaLocal__close"),
+        videoMain = document.querySelector(".galeriaLocal__main video"),
+        sectionVideos = document.querySelector(".galeriaLocal");
+
+      for (let i = 0; i < videos.length; i++) {
+        videos[i].addEventListener("click", (e) => {
+          const target = e.target;
+          sectionVideos.classList.add("active");
+          target.classList.add("active");
+          let src = document.querySelector(
+            ".galeriaLocal__video.active"
+          ).src;
+          videoMain.src = src;
+
+          videoClose.addEventListener("click", ()=>{
+            sectionVideos.classList.remove("active");
+            target.classList.remove("active");
+            videoMain.src = "";
+          });
+          
+        });
+      }
+    }, 4000);
+  };
+
+  efectoGaleriaVideolocal();
+</script>

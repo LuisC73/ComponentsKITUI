@@ -1,0 +1,126 @@
+.galeriaLocal {
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+
+/* .galeriaLocal.active .galeriaLocal__container{
+  visibility: hidden;
+} */
+
+.galeriaLocal__h2 {
+  color: #2a2a2a;
+  font-family: oswald, sans-serif;
+  font-size: 24px;
+  text-transform: uppercase;
+}
+
+.galeriaLocal__container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.galeriaLocal__main{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 400px;
+  box-shadow: 0 0 0 100vh rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  pointer-events: none;
+  visibility: visible;
+  transition: all 0.4s ease;
+  z-index:9999;
+}
+
+.galeriaLocal__main video{
+  height: 100%;
+}
+
+.galeriaLocal.active .galeriaLocal__main{
+  transform:translate(-50%, -50%) scale(1);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.galeriaLocal.active .galeriaLocal__item{
+  pointer-events: none;
+}
+
+.galeriaLocal__container .galeriaLocal__main video{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  outline: none;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.galeriaLocal__close{
+  position: absolute;
+  top: -10px;
+  right: -36px;
+  font-size: 35px;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 1000;
+  pointer-events: auto;
+  opacity: 0.6;
+}
+.galeriaLocal__close:hover{
+  opacity: 1;
+}
+
+.galeriaLocal__item {
+  width: 300px;
+  height: 200px;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  border-radius: 9px;
+  position: relative;
+  transition: .4s linear;
+  z-index: 0;
+}
+
+.galeriaLocal__item::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+
+.galeriaLocal__play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 50px;
+  color: #fff;
+  transform: translate(-50%, -50%);
+}
+
+.galeriaLocal__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+
+@media (max-width: 768px) {
+  .galeriaLocal__container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
