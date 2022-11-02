@@ -1,0 +1,50 @@
+.bannerInterna {
+  margin: 0 auto;
+  width: 1140px;
+  height: 213px;
+  position: relative;
+  overflow: hidden;
+}
+.bannerInterna__slider {
+  display: flex;
+  height: 100%;
+}
+.bannerInterna__item {
+  min-width: 100%;
+  position: relative;
+}
+.bannerInterna__img {
+  width: 100%;
+  height: 100%;
+}
+.bannerInterna__controls {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#next-btn,
+#prev-btn {
+  cursor: pointer;
+  background: transparent;
+  font-size: 30px;
+  border: none;
+  padding: 10px;
+  color: white;
+}
+#next-btn:focus,
+#prev-btn:focus {
+  outline: none;
+}
+.bannerInterna__content {
+  position: absolute;
+  top: 50%;
+  left: 50px;
+  transform: translateY(-50%);
+  font-size: 60px;
+  color: white;
+}
