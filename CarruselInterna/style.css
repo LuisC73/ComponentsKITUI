@@ -4,6 +4,8 @@
   height: 213px;
   position: relative;
   overflow: hidden;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 .bannerInterna__slider {
   display: flex;
@@ -17,7 +19,7 @@
   width: 100%;
   height: 100%;
 }
-.bannerInterna__controls {
+.bannerInterna__controls{
   position: absolute;
   top: 50%;
   left: 0;
@@ -31,7 +33,7 @@
 #prev-btn {
   cursor: pointer;
   background: transparent;
-  font-size: 30px;
+  font-size: 20px;
   border: none;
   padding: 10px;
   color: white;
@@ -42,9 +44,23 @@
 }
 .bannerInterna__content {
   position: absolute;
-  top: 50%;
+  bottom: 0%;
   left: 50px;
   transform: translateY(-50%);
-  font-size: 60px;
+  font-size: 15px;
   color: white;
+  text-decoration: underline;
+  transition: .4s;
+  text-shadow: 0 0 5px #000;
+}
+
+.bannerInterna__content:hover{
+    color: #000;
+}
+
+
+@media (max-width:768px) {
+    .bannerInterna{
+        width: 98%;
+    }
 }
