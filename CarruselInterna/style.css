@@ -19,7 +19,7 @@
   width: 100%;
   height: 100%;
 }
-.bannerInterna__controls{
+.bannerInterna__controls {
   position: absolute;
   top: 50%;
   left: 0;
@@ -50,17 +50,16 @@
   font-size: 15px;
   color: white;
   text-decoration: underline;
-  transition: .4s;
+  transition: 0.4s;
   text-shadow: 0 0 5px #000;
 }
 
-.bannerInterna__content:hover{
-    color: #000;
+.bannerInterna__content:hover {
+  color: #000;
 }
 
-
-@media (max-width:768px) {
-    .bannerInterna{
-        width: 98%;
-    }
+@media (max-width: 768px) {
+  .bannerInterna {
+    width: 98%;
+  }
 }
