@@ -1,0 +1,15 @@
+.suitBar--fixed {
+  position: fixed;
+  z-index: 99999;
+  width: 100vw;
+  top: 0;
+  left: 0;
+}
+
+#s4-ribbonrow {
+  background: #f2f2f2;
+}
+
+.ms-cui-menu {
+  position: fixed !important;
+}
