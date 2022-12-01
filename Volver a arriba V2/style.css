@@ -6,7 +6,7 @@ html,#s4-workspace{
 
 .scrollTop {
   position: fixed;
-  bottom: 15px;
+  bottom: 30px;
   right: 15px;
   width: 54px;
   height: 54px;
@@ -20,12 +20,14 @@ html,#s4-workspace{
   text-align: center;
   overflow: hidden;
   cursor: pointer;
+  z-index: 99;
 }
 
 .scrollTop__div {
   background-color: #fff;
   border-radius: 50%;
   width: 36px;
+  min-width: 36px;
   height: 36px;
   display: flex;
   align-items: center;
@@ -47,6 +49,7 @@ html,#s4-workspace{
   width: 30px;
   text-align: center;
   margin-right: 20px;
+  margin-bottom: 0;
 }
 
 .scrollTop:hover {
