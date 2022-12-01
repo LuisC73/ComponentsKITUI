@@ -16,3 +16,24 @@ window.addEventListener("scroll", () => {
 });
 
 /* Fin funcion boton subir arriba  */
+
+// ---------------- El siguiente codigo es por si no funciona el primero ---------------- 
+
+/* Inicio funcion boton subir arriba  */
+document.addEventListener("DOMContentLoaded", () => {
+  const $workpace = document.getElementById('s4-workspace'),
+    $buttonScroll = document.querySelector('.scrollTop');
+
+  $workpace.addEventListener('scroll', () => {
+    ($workpace.scrollTop >= 400) 
+    ? $buttonScroll.style.transform = "scale(1)": $buttonScroll.style.transform = "scale(0)"
+
+    if ($workpace.scrollTop == 0) $buttonScroll.style.opacity = "1"
+  })
+
+  $buttonScroll.addEventListener('click', () => {
+    if ($workpace.scrollTop > 0) $workpace.scrollTo(0, 0)
+    $buttonScroll.style.opacity = "0"
+  })
+})
+/* Fin funcion boton subir arriba  */
