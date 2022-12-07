@@ -1,0 +1,23 @@
+#canvas {
+  border: 1px solid black;
+  position: absolute;
+  z-index: 10000;
+}
+
+#flake {
+  color: #00509d;
+  position: absolute;
+  font-size: 25px;
+  top: -50px;
+  z-index: 999;
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer */
+  -khtml-user-select: none; /* KHTML browsers (e.g. Konqueror) */
+  -webkit-user-select: none; /* Chrome, Safari, and Opera */
+  -webkit-touch-callout: none; /* Disable Android and iOS callouts*/
+  user-select: none;
+}
+
+#page {
+  position: relative;
+}
