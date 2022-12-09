@@ -25,6 +25,15 @@
 /* Fin copo de nieve */
 
 /* Inicio de luces de navidad */
+
+:root {
+  --globe-width: 12px;
+  --globe-height: 28px;
+  --globe-spacing: 40px;
+  --globe-spread: 3px;
+  --light-off-opacity: 0.4;
+}
+
 .lightrope {
   text-align: center;
   white-space: nowrap;
