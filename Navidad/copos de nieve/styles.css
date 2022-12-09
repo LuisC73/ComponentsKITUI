@@ -1,3 +1,4 @@
+/* Inicio copo de nieve  */
 #canvas {
   border: 1px solid black;
   position: absolute;
@@ -21,3 +22,4 @@
 #page {
   position: relative;
 }
+/* Fin copo de nieve */
