@@ -1,8 +1,4 @@
-:root {
-  --botonColor1: #42a5f5;
-  --botonColor2: #4caf50;
-  --botonColor3: #ff9800;
-}
+/* Inicio estilos de boton de herramientas */
 
 .floatButton {
   width: 40px;
@@ -101,27 +97,6 @@
   pointer-events: all;
 }
 
-.floatButton__item--color1 {
-  -webkit-transition-duration: 180ms;
-  transition-duration: 180ms;
-  background: var(--botonColor1);
-  box-shadow: 0 20px 20px -10px var(--botonColor1);
-}
-
-.floatButton__item--color2 {
-  -webkit-transition-duration: 180ms;
-  transition-duration: 180ms;
-  background: var(--botonColor2);
-  box-shadow: 0 20px 20px -10px var(--botonColor2);
-}
-
-.floatButton__item--color3 {
-  -webkit-transition-duration: 180ms;
-  transition-duration: 180ms;
-  background: var(--botonColor3);
-  box-shadow: 0 20px 20px -10px var(--botonColor3);
-}
-
 @keyframes come-in {
   0% {
     -webkit-transform: translatey(100px);
@@ -195,3 +170,5 @@
   height: 80%;
   object-fit: fill;
 }
+
+/* Fin estilos de boton de herramientas */
