@@ -7,6 +7,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
 }
 
 .header__img {
@@ -80,7 +81,7 @@ input.gsc-input {
 
 div#gsc-iw-id1 {
   width: 330px;
-  margin-left: -88px;
+  /* margin-left: -88px; */
   border-radius: 8px !important;
   height: 40px;
   padding: 0 16px;
@@ -129,7 +130,7 @@ button.gsc-search-button.gsc-search-button-v2 svg {
 
 .header__aut {
   position: absolute;
-  right: 70px;
+  right: 10px;
   top: 20px;
 }
 

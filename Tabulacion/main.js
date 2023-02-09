@@ -9,26 +9,35 @@ setTimeout(() => {
     el.setAttribute("tabindex", "-1");
     el.setAttribute("loading", "lazy");
   });
+
+  // no seleccionar imagenes
+  let images = document.querySelectorAll("img").forEach((img) => {
+    img.setAttribute("tabindex", "-1");
+    img.setAttribute("loading", "lazy");
+  });
 }, 4000);
 
-// no seleccionar imagenes
-let images = document.querySelectorAll("img").forEach((img) => { 
-  img.setAttribute("tabindex", "-1") 
-  img.setAttribute("loading", "lazy")
-});
-
 // enlaces de carrusel
-let itemsCarousel = document.querySelectorAll("#carousel1 > div > .carousel-item > a").forEach((el) => el.setAttribute("tabindex", "-1"));
+let itemsCarousel = document
+  .querySelectorAll("#carousel1 > div > .carousel-item > a")
+  .forEach((el) => el.setAttribute("tabindex", "-1"));
 
 // imagenes seccion patrocinadores
-let imgPatrocinadores = document.querySelectorAll("#patrocinadores > li > a").forEach((el) => el.setAttribute("tabindex", "-1"));
+let imgPatrocinadores = document
+  .querySelectorAll("#patrocinadores > li > a")
+  .forEach((el) => el.setAttribute("tabindex", "-1"));
 
 //enlaces en seccion de noticias
-let itemsNoticias = document.querySelectorAll("#news .agileits_w3layouts_event_grid1 a").forEach((el) => el.setAttribute("tabindex", "-1"))
+let itemsNoticias = document
+  .querySelectorAll("#news .agileits_w3layouts_event_grid1 a")
+  .forEach((el) => el.setAttribute("tabindex", "-1"));
 
 //enlaces en seccion de cambiando
-let itemsCambiando = document.querySelectorAll("#cambiando .agileits_w3layouts_event_grid1 a").forEach((el) => el.setAttribute("tabindex", "-1"))
+let itemsCambiando = document
+  .querySelectorAll("#cambiando .agileits_w3layouts_event_grid1 a")
+  .forEach((el) => el.setAttribute("tabindex", "-1"));
 
 // enlaces sitios de interes
-let itemsInteres = document.querySelectorAll("#iconos-principales .item a").forEach((el) => el.setAttribute("tabindex", "-1"))
-
+let itemsInteres = document
+  .querySelectorAll("#iconos-principales .item a")
+  .forEach((el) => el.setAttribute("tabindex", "-1"));

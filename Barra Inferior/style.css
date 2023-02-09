@@ -35,6 +35,8 @@
   display: flex;
   justify-content: flex-end;
   width: 1140px;
+  position: relative;
+  top: -20px;
 }
 
 .footer__firma {
@@ -114,13 +116,13 @@
   margin: 0 5px 10px 5px;
 }
 
-.footer__sep{
+.footer__sep {
   height: 66px;
   width: 1.5px;
   background: #fff;
 }
 
-.footer__icons{
+.footer__icons {
   display: flex;
   column-gap: 10px;
 }
@@ -208,6 +210,66 @@
   margin-top: 20px;
 }
 
+.footer__button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  padding: 0;
+  color: #000;
+  text-decoration: underline;
+  font-weight: 700;
+  margin: 5px 0 0 5px;
+  position: relative;
+}
+
+.footer__dropdown {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  list-style: none;
+  background: #fff;
+  align-items: flex-start;
+  padding: 10px;
+  row-gap: 10px;
+  width: 170px;
+  top: 0;
+  left: 110%;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  box-shadow: 1px 4px 7px #f4f4f4;
+}
+
+.footer__dropdown::before {
+  content: "";
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #000;
+  position: absolute;
+  top: 9px;
+  left: -8px;
+  transform: rotate(90deg);
+}
+
+.footer__a--menu {
+  margin: 0;
+  text-align: start;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.footer__a--menu:hover {
+  text-decoration: underline;
+}
+
+.footer__item {
+  width: 100%;
+}
+
+.footer__dropdown--active {
+  display: flex;
+}
+
 @media (max-width: 768px) {
   .footer__container {
     width: 90vw;
@@ -217,7 +279,7 @@
     padding: 14px;
   }
 
-  .footer__content{
+  .footer__content {
     height: max-content;
   }
 
@@ -250,6 +312,7 @@
   .footer__empresa {
     width: 100vw;
     justify-content: center;
+    top: 0;
   }
 
   .footer__firma {
