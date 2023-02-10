@@ -1,0 +1,17 @@
+/* Inicio Miga de pan */
+
+.migadepan {
+  font-size: 14px !important;
+}
+
+.migadepan > span > .active {
+  font-weight: 500 !important;
+}
+
+.crumb-sep {
+  color: #bababa !important;
+  font-size: 11px !important;
+  margin: 0 8px;
+}
+
+/* Fin Miga de pan */

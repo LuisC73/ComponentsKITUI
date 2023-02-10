@@ -1,0 +1,64 @@
+/* Inicio ventana modal */
+
+.modal-content {
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+  pointer-events: auto;
+  background-color: #fff;
+  background-clip: padding-box;
+  border-radius: 15px;
+  outline: 0;
+}
+
+.modal-header {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: start;
+  align-items: center;
+  -ms-flex-pack: justify;
+  justify-content: center;
+  padding: 1rem 1rem;
+  border-top-left-radius: calc(0.3rem - 1px);
+  border-top-right-radius: calc(0.3rem - 1px);
+}
+
+.modal-body {
+  position: relative;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  height: 100% !important;
+  padding: 1rem 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-footer {
+  display: none;
+}
+
+#myModalLabel {
+  margin-left: 11rem;
+  font-weight: 700 !important;
+  font-size: 1.4rem;
+}
+
+#ctl00_PlaceHolderMain_g_51a72b3c_c96a_4525_b912_9987f496baba_ctl00_divPregunta {
+  text-align: center;
+  font-size: 14px;
+}
+
+#encuesta .btn-primary {
+  background-color: #007cb0 !important;
+  border-color: #007cb0;
+  font-size: 15px;
+  padding: 0.3rem 2rem;
+  border-radius: 15px;
+}
+
+/* Fin ventana modal */

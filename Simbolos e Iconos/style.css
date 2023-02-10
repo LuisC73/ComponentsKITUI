@@ -1,0 +1,213 @@
+/* Inicio carrusel de iconos */
+
+#iconos-principales .iconos-2 {
+  border-radius: 6px;
+}
+
+#iconos-principales .item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.fa-4x {
+  font-size: 3em;
+}
+
+#iconos-principales .titulo_enlace {
+  font-size: 1.2rem;
+}
+
+.mas_enlace p {
+  font-size: 1rem;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.iconos-2 {
+  height: 13rem !important;
+  margin: 3rem 0;
+  background-color: #fff !important;
+  scroll-behavior: smooth;
+}
+
+#logos-p > .nbs-flexisel-item {
+  width: 225px !important;
+}
+
+#logos-p > .nbs-flexisel-item > .item {
+  background-color: #0072c6;
+  border-radius: 16px;
+  padding: 2.2rem;
+  width: 14rem;
+  height: 14rem;
+}
+
+@media (max-width: 768px) {
+  #logos-p > .nbs-flexisel-item {
+    width: 274.5px !important;
+  }
+}
+
+/* Fin carrusel de iconos */
+
+/* Inicio iconos laterales */
+
+#modal-left-iconos-2 .btn,
+#modal-left-iconos .btn,
+#modal-left-iconos-3 .btn,
+#modal-left-iconos-4 .btn,
+#modal-left-iconos-5 .btn {
+  border-radius: 16px;
+  transition: 0.4s;
+}
+
+.modal__btn:focus {
+  border: none;
+  outline: none;
+}
+
+.modal__btn:active {
+  border: none;
+  outline: none;
+}
+
+.modal__p {
+  margin-top: 0.2rem;
+  font-size: 1rem;
+}
+
+#modal-left-iconos i,
+#modal-left-iconos-2 i,
+#modal-left-iconos-3 i,
+#modal-left-iconos-4 i,
+#modal-left-iconos-5 i {
+  font-size: 25px;
+  padding: 5px 0 1px 0;
+  margin-top: 0.4rem;
+  color: #fff;
+}
+
+#modal-left-iconos .btn:hover,
+#modal-left-iconos-2 .btn:hover,
+#modal-left-iconos-3 .btn:hover,
+#modal-left-iconos-4 .btn:hover,
+#modal-left-iconos-5 .btn:hover {
+  background: #005dca;
+  border: none;
+  outline: none;
+  transform: translateX(-20%);
+}
+
+#modal-left-iconos-5 .btn,
+#modal-left-iconos-5 .btn:hover {
+  background: none;
+  display: none;
+}
+
+.modal__impuesto {
+  width: 100%;
+  height: 100%;
+}
+
+/* Fin iconos laterales */
+
+/* Inicio iconos mejorados */
+
+#iconos-principales .item {
+  text-align: center;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 5px 10px rgb(0 0 0 / 5%);
+  padding: 25px 10px;
+  border-radius: 10px;
+  height: 220px;
+  margin-bottom: 10px;
+  justify-content: center;
+  width: 210px;
+  row-gap: 2.4rem;
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+#iconos-principales .item:hover {
+  box-shadow: 0 8px 50px #23232333;
+  transform: translateY(-10px);
+}
+
+#iconos-principales .titulo_enlace {
+  padding: 0 0 0 0;
+  color: #003574;
+  font-weight: 500;
+  text-transform: uppercase;
+  line-height: 1em;
+  margin: 10px 0 0 0;
+}
+#iconos-principales .titulo_enlace p {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+#iconos-principales .desc {
+  padding: 10px 0 0 0;
+}
+#iconos-principales .mas_enlace {
+  padding: 10px 0 0 0;
+}
+#iconos-principales .item a {
+  color: #003574 !important;
+  transform: translateY(200%);
+  opacity: 0;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  margin-top: 0.4rem;
+  text-decoration: underline;
+  font-weight: 700;
+}
+
+#iconos-principales .item:hover a {
+  transform: translateY(100%);
+  opacity: 1;
+}
+#iconos-principales .iconos-2 {
+  background-color: transparent;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 2em 0;
+  height: 220px;
+}
+#iconos-principales .circulo-link {
+  width: 8.2rem;
+  height: 8.2rem;
+  border-radius: 50%;
+  background-image: linear-gradient(-180deg, #003574, #2d9700);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 !important;
+}
+
+#iconos-principales .circulo-link i {
+  font-size: 4rem !important;
+  transform: 0.2s;
+}
+
+#iconos-principales .item:hover .circulo-link > i {
+  transition: all 0.5s;
+  transform: rotate(360deg);
+}
+
+@media (max-width: 800px) {
+  #iconos-principales .item {
+    width: 100%;
+  }
+
+  #iconos-principales .item a {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+/* Fin iconos mejorados */
