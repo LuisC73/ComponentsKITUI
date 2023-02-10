@@ -1,0 +1,12 @@
+        <link rel="stylesheet" href="/style.css" />
+
+        <div class="searchDocuments">
+        	<label for="searchDocument" class="searchDocuments__label">Buscador</label>
+        	<input type="text" class="searchDocuments__input" id="searchDocument" placeholder="Ej: normas"
+        		autocomplete="off" autocorrect="off" />
+        	<div class="searchDocuments__button">
+        		<i class="bx bx-search searchDocuments__icon"></i>
+        	</div>
+        </div>
+
+        <script src="/main.js"></script>
