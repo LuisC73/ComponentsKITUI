@@ -14,7 +14,7 @@
 
 ```bash
 # Clonar o descargar el repositorio
-$ git clone https://github.com/LuisC73/ScreenReader.git
+$ git clone https://github.com/LuisC73/ComponentsKITUI.git
 
 ```
 
