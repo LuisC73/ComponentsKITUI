@@ -10,6 +10,7 @@
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="./paginador/style.css" />
   </head>
 
   <body>
@@ -34,106 +35,32 @@
 
         <section class="searchResults">
           <h3 class="searchResults__h3">Resultados</h3>
-          <div class="searchResults__container">
-            <div class="searchResults__item">
-              <div class="searchResults__title">
-                <img src="img/pdf.png" alt="pdf" class="searchResults__img" />
-                <a class="searchResults__a" href="#"
-                  >ACUERDO N° 217 DE 18 DE JULIO 2018</a
-                >
-              </div>
-              <div class="searchResults__content">
-                <p class="searchResults__p">
-                  <span class="searchResults__span">Clasificación:</span
-                  >Acuerdos
-                </p>
-                <p class="searchResults__p">
-                  <span class="searchResults__span">Fecha:</span>18 de Julio
-                </p>
-                <p class="searchResults__p">
-                  <span class="searchResults__span">Año:</span>2018
-                </p>
-                <div class="searchResults__buttons">
-                  <a class="searchResults__button searchResults__button--des"
-                    >Descripción</a
-                  >
-                  <a
-                    class="searchResults__button searchResults__button--dow"
-                    download="/"
-                    >Descargar</a
-                  >
-                </div>
-              </div>
-              <div class="searchResults__modalContainer">
-                <div class="searchResults__modalContent">
-                  <h4 class="searchResults__h4">
-                    ACUERDO N° 323 DE 18 DE JULIO 2018
-                  </h4>
-                  <p>
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it to make a
-                    type specimen book.
-                  </p>
-                  <a class="searchResults__button searchResults__button--close"
-                    >Cerrar</a
-                  >
-                </div>
-              </div>
-            </div>
-            <div class="searchResults__item">
-              <div class="searchResults__title">
-                <img src="img/pdf.png" alt="pdf" class="searchResults__img" />
-                <a class="searchResults__a" href="#"
-                  >ACUERDO N° 323 DE 18 DE JULIO 2018</a
-                >
-              </div>
-              <div class="searchResults__content">
-                <p class="searchResults__p">
-                  <span class="searchResults__span">Clasificación:</span
-                  >Acuerdos
-                </p>
-                <p class="searchResults__p">
-                  <span class="searchResults__span">Fecha:</span>18 de Julio
-                </p>
-                <p class="searchResults__p">
-                  <span class="searchResults__span">Año:</span>2018
-                </p>
-                <div class="searchResults__buttons">
-                  <a class="searchResults__button searchResults__button--des"
-                    >Descripción</a
-                  >
-                  <a
-                    class="searchResults__button searchResults__button--dow"
-                    download="/"
-                    >Descargar</a
-                  >
-                </div>
-              </div>
-              <div class="searchResults__modalContainer">
-                <div class="searchResults__modalContent">
-                  <h4 class="searchResults__h4">
-                    ACUERDO N° 323 DE 18 DE JULIO 2018
-                  </h4>
-                  <p>
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it to make a
-                    type specimen book.
-                  </p>
-                  <a class="searchResults__button searchResults__button--close"
-                    >Cerrar</a
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
+          <div class="searchResults__container"></div>
+          <nav class="paginationItems">
+            <button
+              class="paginationItems__button"
+              id="pagPrev-button"
+              aria-label="Previous page"
+              title="Pagina Anterior"
+            >
+              Anterior
+            </button>
+
+            <div class="paginationItems__numbers"></div>
+
+            <button
+              class="paginationItems__button"
+              id="pagNext-button"
+              aria-label="Next page"
+              title="Pagina Siguiente"
+            >
+              Siguiente
+            </button>
+          </nav>
         </section>
       </section>
     </main>
   </body>
 
-  <script src="./main.js"></script>
+  <script src="./main.js" type="module"></script>
 </html>

@@ -8,7 +8,6 @@
 
 body {
   background-color: #fff;
-  overflow: hidden;
   font-family: "Work Sans", sans-serif;
 }
 
@@ -214,6 +213,25 @@ section {
   opacity: 1;
   pointer-events: all;
   transform: translateY(0);
+}
+
+.searchResults__h4 {
+  color: #c0272d;
+}
+
+.searchResults__text {
+  text-align: center;
+  font-weight: 600;
+}
+
+.searchResults__button--close {
+  width: 40%;
+  height: 30px;
+  text-align: center;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media (max-width: 768px) {
