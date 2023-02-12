@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Funcionalidad botones modal
 
-  const modalItems = document.querySelectorAll(".searchResults__modal"),
+  const modalItems = document.querySelectorAll(".searchResults__modalContainer"),
     modalButtonsOpen = document.querySelectorAll(".searchResults__button--des"),
     modalButtonsClose = document.querySelectorAll(
       ".searchResults__button--close"
@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
   modalButtonsOpen.forEach((btn, indexBtn) => {
     modalItems.forEach((item, indexItem) => {
       btn.addEventListener('click',() => {
-        if(indexBtn == indexItem) item.classList.add('searchResults__modal--active') 
+        if(indexBtn == indexItem) item.classList.add('searchResults__modalContainer--active') 
       })
     });
   });
@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
   modalButtonsClose.forEach((btn, indexBtn) => {
     modalItems.forEach((item, indexItem) => {
       btn.addEventListener('click',() => {
-        if(indexBtn == indexItem) item.classList.remove('searchResults__modal--active') 
+        if(indexBtn == indexItem) item.classList.remove('searchResults__modalContainer--active') 
       })
     });
   });
