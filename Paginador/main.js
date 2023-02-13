@@ -76,26 +76,24 @@ export default function paginationItems(pagNumbers, pagItemContainer, pagItem) {
     });
   };
 
-  window.addEventListener("load", () => {
-    getPaginationNumbers();
-    setCurrentPage(1);
+  getPaginationNumbers();
+  setCurrentPage(1);
 
-    prevButton.addEventListener("click", () => {
-      setCurrentPage(currentPage - 1);
-    });
+  prevButton.addEventListener("click", () => {
+    setCurrentPage(currentPage - 1);
+  });
 
-    nextButton.addEventListener("click", () => {
-      setCurrentPage(currentPage + 1);
-    });
+  nextButton.addEventListener("click", () => {
+    setCurrentPage(currentPage + 1);
+  });
 
-    document.querySelectorAll(".paginationItems__number").forEach((button) => {
-      const pageIndex = Number(button.getAttribute("page-index"));
+  document.querySelectorAll(".paginationItems__number").forEach((button) => {
+    const pageIndex = Number(button.getAttribute("page-index"));
 
-      if (pageIndex) {
-        button.addEventListener("click", () => {
-          setCurrentPage(pageIndex);
-        });
-      }
-    });
+    if (pageIndex) {
+      button.addEventListener("click", () => {
+        setCurrentPage(pageIndex);
+      });
+    }
   });
 }

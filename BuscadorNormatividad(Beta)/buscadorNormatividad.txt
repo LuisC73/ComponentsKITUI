@@ -1,14 +1,18 @@
-<link rel="stylesheet" href="/style.css" />
+<link rel="stylesheet" href="/SiteAssets/matriz-ITA/Components/BuscadorNormatividad/style.css" />
+<link rel="stylesheet" href="/SiteAssets/matriz-ITA/Components/BuscadorNormatividad/paginador/style.css" />
 
 <div class="searchDocuments">
     <label for="searchDocument" class="searchDocuments__label">Buscador</label>
     <input type="text" class="searchDocuments__input" id="searchDocument" placeholder="Ej: normas"
         autocomplete="off" autocorrect="off" />
     <div class="searchDocuments__button">
-        <i class="bx bx-search searchDocuments__icon"></i>
+        <i class="fa fa-search searchDocuments__icon"></i>
 	</div>
 </div>
-
+<section class="searchLoader">
+    <span class="searchLoader__loader"></span>
+    <p class="searchLoader__p">Buscando datos ...</p>
+</section>
 <section class="searchResults">
     <h3 class="searchResults__h3">Resultados</h3>
     <div class="searchResults__container"></div>
@@ -17,7 +21,8 @@
             class="paginationItems__button"
             id="pagPrev-button"
             aria-label="Previous page"
-            title="Pagina Anterior">
+            title="Pagina Anterior"
+            type="button">
             Anterior
         </button>
 
@@ -27,10 +32,11 @@
             class="paginationItems__button"
             id="pagNext-button"
             aria-label="Next page"
-            title="Pagina Siguiente">
+            title="Pagina Siguiente"
+            type="button">
             Siguiente
         </button>
     </nav>
 </section>
 
-<script src="/main.js" type="module"></script>
+<script src="/SiteAssets/matriz-ITA/Components/BuscadorNormatividad/main.js" type="module"></script>

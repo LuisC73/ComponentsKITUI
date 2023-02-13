@@ -32,7 +32,10 @@
             <i class="bx bx-search searchDocuments__icon"></i>
           </div>
         </div>
-
+        <section class="searchLoader">
+          <span class="searchLoader__loader"></span>
+          <p class="searchLoader__p">Buscando datos ...</p>
+        </section>
         <section class="searchResults">
           <h3 class="searchResults__h3">Resultados</h3>
           <div class="searchResults__container"></div>
@@ -42,6 +45,7 @@
               id="pagPrev-button"
               aria-label="Previous page"
               title="Pagina Anterior"
+              type="button"
             >
               Anterior
             </button>
@@ -53,6 +57,7 @@
               id="pagNext-button"
               aria-label="Next page"
               title="Pagina Siguiente"
+              type="button"
             >
               Siguiente
             </button>

@@ -33,16 +33,20 @@
   border: none;
   outline: none;
   cursor: pointer;
-  height: 2.5rem;
-  width: 2.5rem;
+  height: 31px;
+  width: 39px;
+  min-width: 39px;
+  padding: 0;
   border-radius: 0.2rem;
   font-family: "Work Sans", sans-serif;
   color: #3162c4;
   font-weight: 600;
+  transition: 0.5s;
 }
 
 .paginationItems__number:hover {
-  background: #fff;
+  background: #e6effd;
+  color: #3162c4;
 }
 
 .paginationItems__button.disabled {
