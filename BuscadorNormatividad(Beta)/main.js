@@ -1,10 +1,11 @@
-import paginationItems from "/SiteAssets/matriz-ITA/Components/BuscadorNormatividad/paginador/main.js";
+import paginationItems from "./prueba/data.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const searchInput = document.getElementById("searchDocument"),
     searchButton = document.querySelector(".searchDocuments__button"),
     results = document.querySelector(".searchResults"),
-    resultLoader = document.querySelector(".searchLoader");
+    resultLoader = document.querySelector(".searchLoader"),
+    resultError = document.querySelector(".searchError");
 
   searchButton.addEventListener("click", (e) => {
     let data = searchInput.value;
@@ -22,8 +23,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  const resultsContainer = document.querySelector(".searchResults__container"),
+    pagNumbers = document.querySelector(".paginationItems__numbers");
+
   async function searchDataDocuments(data) {
-    const module = "Transparencia",
+    const modulePage = "Transparencia",
       folder = "Normatividad",
       params = [
         "Title",
@@ -35,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "Clasificac_x00f3_n",
       ];
 
-    let ulrFetch = `${location.protocol}//${location.host}/${module}/_api/web/lists/getbytitle('${folder}')/items?$select=${params}&$top=2000&$filter=substringof('${data}',Title)`;
+    let ulrFetch = `${location.protocol}//${location.host}/${modulePage}/_api/web/lists/getbytitle('${folder}')/items?$select=${params}&$top=2000&$filter=substringof('${data}',Title)`;
 
     try {
       let data = await fetch(ulrFetch, {
@@ -45,19 +49,20 @@ document.addEventListener("DOMContentLoaded", () => {
         },
       });
       let resp = await data.json();
+      resultsContainer.innerHTML = ``;
+      pagNumbers.innerHTML = ``;
       resultsDataDocuments(resp);
     } catch (error) {
-      console.log(`error en consulta ${error}`);
-      results.classList.remove("searchResults--active");
+      drawSearchError(error);
     }
   }
-
-  const resultsContainer = document.querySelector(".searchResults__container");
 
   function resultsDataDocuments(resp) {
     let data = resp.d.results;
 
+    resultError.classList.remove(".searchError--active");
     resultLoader.classList.add("searchLoader--active");
+    results.classList.remove("searchResults--active");
 
     setTimeout(() => {
       resultLoader.classList.remove("searchLoader--active");
@@ -118,6 +123,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     //modal
     modalFunction();
+  }
+
+  function drawSearchError(msg) {
+    results.classList.remove("searchResults--active");
+    resultError.classList.add("searchError--active");
+    const spanMsg = document.querySelector(".searchError__span");
+
+    spanMsg.textContent = `${msg}`;
   }
 
   // Funcionalidad botones modal

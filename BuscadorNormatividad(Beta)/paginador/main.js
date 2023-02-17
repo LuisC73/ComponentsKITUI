@@ -5,20 +5,28 @@ export default function paginationItems(pagNumbers, pagItemContainer, pagItem) {
   const nextButton = document.getElementById("pagNext-button");
   const prevButton = document.getElementById("pagPrev-button");
 
-  const paginationLimit = 8;
+  //Ingresamos el limite de items para mostrar por pagina.
+  const paginationLimit = 5;
+  /*Calculamos a partir de la cantidad de items en total existentes y el limite ingresado, cuantas paginas
+  es necesario crear.*/
   const pageCount = Math.ceil(listItems.length / paginationLimit);
+  //Inicializamos con 1, indicando que la paginación inicia en esta pagina.
   let currentPage = 1;
 
+  //Funcion para desabilitar el boton solicitado.
   const disableButton = (button) => {
     button.classList.add("disabled");
     button.setAttribute("disabled", true);
   };
 
+  //Funcion para habilitar el boton solicitado.
   const enableButton = (button) => {
     button.classList.remove("disabled");
     button.removeAttribute("disabled");
   };
 
+  /*Funcion para activar y desactivar el boton de "Anterior" y "Siguiente", cuando sea el momento indicado,
+  Es decir desactivamos el boton de "Anterior" en la pagina inicial y el boton "Siguiente" en la pagina final */
   const handlePageButtonsStatus = () => {
     if (currentPage === 1) {
       disableButton(prevButton);
@@ -33,6 +41,7 @@ export default function paginationItems(pagNumbers, pagItemContainer, pagItem) {
     }
   };
 
+  //Funcion para activar el botón dependiendo si el numero coincide con la pagina.
   const handleActivePageNumber = () => {
     document.querySelectorAll(".paginationItems__number").forEach((button) => {
       button.classList.remove("active");
@@ -43,6 +52,7 @@ export default function paginationItems(pagNumbers, pagItemContainer, pagItem) {
     });
   };
 
+  //Funcion para crear los diferentes botones de numeración de las paginas.
   const appendPageNumber = (index) => {
     const pageNumber = document.createElement("button");
     pageNumber.className = "paginationItems__number";

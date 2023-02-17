@@ -1,38 +1,48 @@
 <link rel="stylesheet" href="/SiteAssets/matriz-ITA/Components/BuscadorNormatividad/style.css" />
 <link rel="stylesheet" href="/SiteAssets/matriz-ITA/Components/BuscadorNormatividad/paginador/style.css" />
 
-<div class="searchDocuments">
-    <label for="searchDocument" class="searchDocuments__label">Buscador</label>
-    <input type="text" class="searchDocuments__input" id="searchDocument" placeholder="Ej: normas"
-        autocomplete="off" autocorrect="off" />
-    <div class="searchDocuments__button">
-        <i class="fa fa-search searchDocuments__icon"></i>
-	</div>
-</div>
+<section class="searchDocuments">
+    <div class="searchDocuments__top">
+        <label for="searchDocument" class="searchDocuments__label">Buscador</label>
+        <select name="optionsSearch" class="searchDocuments__select">
+            <option value="Title" class="searchDocuments__option">Titulo</option>
+            <option value="Fecha" class="searchDocuments__option">Fecha</option>
+            <option value="A_x00f1_o" class="searchDocuments__option">Año</option>
+        </select>
+    </div>
+    <div class="searchDocuments__bottom">
+        <input type="text" class="searchDocuments__input" id="searchDocument" placeholder="Ej: normas"
+            autocomplete="off" autocorrect="off" />
+        <div class="searchDocuments__button">
+            <i class="fa fa-search searchDocuments__icon"></i>
+        </div>
+    </div>
+</section>
 <section class="searchLoader">
     <span class="searchLoader__loader"></span>
     <p class="searchLoader__p">Buscando datos ...</p>
 </section>
+<section class="searchError">
+    <div class="searchError__circleBorder">
+        <div class="searchError__circle">
+            <div class="searchError__error"></div>
+        </div>
+    </div>
+    <p class="searchError__p">Error en la busqueda</p>
+    <span class="searchError__span"></span>
+</section>
 <section class="searchResults">
     <h3 class="searchResults__h3">Resultados</h3>
-    <div class="searchResults__container"></div>
+    <ul class="searchResults__container"></ul>
     <nav class="paginationItems">
-        <button
-            class="paginationItems__button"
-            id="pagPrev-button"
-            aria-label="Previous page"
-            title="Pagina Anterior"
+        <button class="paginationItems__button" id="pagPrev-button" aria-label="Previous page" title="Pagina Anterior"
             type="button">
             Anterior
         </button>
 
         <div class="paginationItems__numbers"></div>
 
-        <button
-            class="paginationItems__button"
-            id="pagNext-button"
-            aria-label="Next page"
-            title="Pagina Siguiente"
+        <button class="paginationItems__button" id="pagNext-button" aria-label="Next page" title="Pagina Siguiente"
             type="button">
             Siguiente
         </button>

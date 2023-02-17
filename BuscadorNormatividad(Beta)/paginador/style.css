@@ -12,6 +12,7 @@
   bottom: 0;
   padding: 1rem 0;
   justify-content: center;
+  margin: 0 auto;
 }
 
 .paginationItems__button {
