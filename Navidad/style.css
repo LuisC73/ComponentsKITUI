@@ -1,0 +1,165 @@
+/* Inicio copo de nieve  */
+#canvas {
+    border: 1px solid black;
+    position: absolute;
+    z-index: 10000;
+  }
+  
+  #flake {
+    color: #00509d;
+    position: absolute;
+    font-size: 25px;
+    top: -50px;
+    z-index: 999;
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer */
+    -khtml-user-select: none; /* KHTML browsers (e.g. Konqueror) */
+    -webkit-user-select: none; /* Chrome, Safari, and Opera */
+    -webkit-touch-callout: none; /* Disable Android and iOS callouts*/
+    user-select: none;
+  }
+  
+  #page {
+    position: relative;
+  }
+  /* Fin copo de nieve */
+  
+  
+  /* Inicio de luces de navidad */
+
+  :root {
+    --globe-width: 12px;
+    --globe-height: 28px;
+    --globe-spacing: 40px;
+    --globe-spread: 3px;
+    --light-off-opacity: 0.4;
+  }
+
+  .lightrope {
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    margin: -15px 0 0 0;
+    padding: 0;
+    pointer-events: none;
+    width: 100%;
+    top: 0;
+    left: 0;
+  }
+  
+  .lightrope__li {
+    position: relative;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: block;
+    width: var(--globe-width);
+    height: var(--globe-height);
+    border-radius: 50%;
+    margin: calc(var(--globe-spacing) / 2);
+    display: inline-block;
+    background: rgba(95, 141, 78, 1);
+    box-shadow: 0px calc(var(--globe-height) / 6) calc(var(--globe-width) * 2px)
+      var(--globe-spread) rgba(95, 141, 78, 1);
+    animation-name: flash-1;
+    animation-duration: 2s;
+  }
+  
+  .lightrope__li:nth-child(2n + 1) {
+    background: rgba(1, 158, 255, 1);
+    box-shadow: 0px calc(var(--globe-height) / 6) calc(var(--globe-width) * 2px)
+      var(--globe-spread) rgba(1, 158, 255, 0.5);
+    animation-name: flash-2;
+    animation-duration: 0.4s;
+  }
+  .lightrope__li:nth-child(4n + 2) {
+    background: rgba(247, 0, 148, 1);
+    box-shadow: 0px calc(var(--globe-height) / 6) calc(var(--globe-width) * 2px)
+      var(--globe-spread) rgba(247, 0, 148, 1);
+    animation-name: flash-3;
+    animation-duration: 1.1s;
+  }
+  
+  .lightrope__li:nth-child(odd) {
+    animation-duration: 1.8s;
+  }
+  
+  .lightrope__li:nth-child(3n + 1) {
+    animation-duration: 1.4s;
+  }
+  
+  .lightrope__li:before {
+    content: "";
+    position: absolute;
+    background: #222;
+    width: calc(var(--globe-width) - 2px);
+    height: calc(var(--globe-height) / 3);
+    border-radius: 3px;
+    top: (0px - calc(var(--globe-height) / 6));
+    left: 1px;
+  }
+  
+  .lightrope__li:after {
+    content: "";
+    top: calc(0 - calc(var(--globe-height) / 2));
+    left: calc(var(--globe-width) - 3px);
+    position: absolute;
+    width: calc(var(--globe-spacing) + 12px);
+    height: calc(var(--globe-height) / 3 * 2px);
+    border-bottom: solid #222 2px;
+    border-radius: 50%;
+  }
+  
+  .lightrope__li:last-child:after {
+    content: none;
+  }
+  
+  .lightrope__li:first-child {
+    margin-left: -var(--globe-spacing);
+  }
+  
+  @keyframes flash-1 {
+    0%,
+    100% {
+      background: rgba(95, 141, 78, 1);
+      box-shadow: 0px calc(var(--globe-height) / 6) calc(var(--globe-width) * 2px)
+        var(--globe-spread) rgba(95, 141, 78, 1);
+    }
+    50% {
+      background: rgba(95, 141, 78, var(--light-off-opacity));
+      box-shadow: 0px calc(var(--globe-height) / 6) calc(var(--globe-width) * 2px)
+        var(--globe-spread) rgba(95, 141, 78, 0.2);
+    }
+  }
+  @keyframes flash-2 {
+    0%,
+    100% {
+      background: rgba(1, 158, 255, 1);
+      box-shadow: 0px calc(var(--globe-height) / 6) calc(var(--globe-width) * 2px)
+        var(--globe-spread) rgba(1, 158, 255, 1);
+    }
+    50% {
+      background: rgba(1, 158, 255, var(--light-off-opacity));
+      box-shadow: 0px calc(var(--globe-height) / 6) calc(var(--globe-width) * 2px)
+        var(--globe-spread) rgba(1, 158, 255, 0.2);
+    }
+  }
+  @keyframes flash-3 {
+    0%,
+    100% {
+      background: rgba(247, 0, 148, 1);
+      box-shadow: 0px calc(var(--globe-height) / 6) calc(var(--globe-width) * 2px)
+        var(--globe-spread) rgba(247, 0, 148, 1);
+    }
+    50% {
+      background: rgba(247, 0, 148, var(--light-off-opacity));
+      box-shadow: 0px calc(var(--globe-height) / 6) calc(var(--globe-width) * 2px)
+        var(--globe-spread) rgba(247, 0, 148, 0.2);
+    }
+  }
+  /* Fin de luces de navidad */
+  
