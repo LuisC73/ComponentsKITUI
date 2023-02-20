@@ -4,19 +4,19 @@ document.addEventListener("DOMContentLoaded", () => {
   let date_now = new Date().getTime(),
     date_christmas = new Date(`12/14/${now_year} 14:31:00`).getTime();
 
-  let differenceTime = date_christmas - date_now;
+  let difference_time = date_christmas - date_now;
 
   const seconds = 1000,
     minutes = seconds * 60,
     hours = minutes * 60,
     days = hours * 24;
 
-  let timeDays = Math.floor(differenceTime / days),
-    timeHours = Math.floor((differenceTime % days) / hours),
-    timeMinutes = Math.floor((differenceTime % hours) / minutes),
-    timeSeconds = Math.floor((differenceTime % minutes) / seconds);
+  let time_days = Math.floor(difference_time / days),
+    time_hours = Math.floor((difference_time % days) / hours),
+    time_minutes = Math.floor((difference_time % hours) / minutes),
+    time_seconds = Math.floor((difference_time % minutes) / seconds);
 
-  if (timeDays <= 0 && timeHours <= 0 && timeMinutes <= 0 && timeSeconds <= 0) {
+  if (time_days <= 0 && time_hours <= 0 && time_minutes <= 0 && time_seconds <= 0) {
     const fragment_christmas = document.createDocumentFragment(),
       container_christmas = document.querySelector(".lightrope");
 
