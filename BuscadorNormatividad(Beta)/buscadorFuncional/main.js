@@ -195,9 +195,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  function resultsDataDocuments(resp) {
-    console.log(resp);
+  function resultsDataDocuments(resp, filter = null) {
     let data = resp.d.results;
+    if (filter != null) data = resp;
 
     resultError.classList.remove("searchError--active");
     resultLoader.classList.add("searchLoader--active");
@@ -273,4 +273,20 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   searchDeleteButton.addEventListener("click", deleteSearchs);
+
+  let filters = document.querySelectorAll(".searchResults__p--option"),
+    yearNow = new Date().getFullYear;
+
+  filters.forEach((filter) => {
+    filter.addEventListener("click", () => {
+      if (filter.textContent === "Año actual") {
+        let dataFilter = dataInfo.filter((el) =>
+          el.año === `${yearNow}` ? el : ""
+        );
+        resultsDataDocuments(dataFilter, filter.textContent);
+      }else if(filter.textContent === "Recientes"){
+        
+      }
+    });
+  });
 });

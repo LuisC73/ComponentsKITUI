@@ -109,6 +109,44 @@ document.addEventListener("DOMContentLoaded", () => {
 
   searchDeleteButton.addEventListener("click", deleteSearchs);
 
+  let filters = document.querySelectorAll('.searchResults__p--option');
+
+  filters.forEach(filter => {
+    filter.addEventListener('click',() => {
+      if(filter.textContent === "Recientes"){
+        let dataFilter =  dataInfo.filter(el => el.año === "2023" ? el : "");
+        resultsContainer.innerHTML = "";
+        pagNumbers.innerHTML = "";
+        for (const i in dataFilter) {
+          let item = document.createElement("li");
+      
+          item.classList.add("searchResults__li");
+      
+          item.innerHTML = `
+            <figure class="searchResults__figure">
+              <img src="./img/pdf.png" alt="pdf" class="searchResults__img">
+              <figcaption class="searchResults__fig">6 Mb</figcaption>
+            </figure>
+            <div class="searchResults__content">
+              <p class="searchResults__p searchResults__p--transform">${dataInfo[i].clasf}</p>
+              <a href="#" class="searchResults__a">${dataInfo[i].title}</a>
+              <p class="searchResults__p">${dataInfo[i].des}</p>
+              <p class="searchResults__p searchResults__p--size"><span class="searchResults__span">Publicacion: Hace 6 horas</span> | <span>Expedición: ${dataInfo[i].fecha} de ${dataInfo[i].año}</span></p>
+            </div>
+            <div class="searchResults__buttons">
+              <a class="searchResults__btn" href="https://www.inirida-guainia.gov.co/Transparencia/Normatividad/Acuerdo%20N°011%20del%202005.pdf">Abrir</a>
+              <a class="searchResults__btn" href="https://www.inirida-guainia.gov.co/Transparencia/Normatividad/Acuerdo%20N°011%20del%202005.pdf" download>Descargar</a>
+            </div>
+          `;
+      
+          fragmentContent.appendChild(item);
+        }
+      
+        resultsContainer.appendChild(fragmentContent);        
+      }
+    })
+  })
+
   let mes = "4";
 
   // for (const i in MESES) {

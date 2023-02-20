@@ -216,6 +216,27 @@ body {
   box-shadow: 2px 2px 2px 2px #a83128;
 }
 
+.searchResults__filters{
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  column-gap: 10px;
+  margin: 30px 0 0 0;
+  padding: 0;
+}
+
+.searchResults__p--option{
+  font-weight: 700;
+  color: #c0272d;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.searchResults__p--option:hover{
+  text-decoration: underline;
+}
+
 /* Loader */
 
 .searchLoader {

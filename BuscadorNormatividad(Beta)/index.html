@@ -11,10 +11,9 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./paginador/style.css" />
-    <link
-      rel="stylesheet"
-      href="https://uicdn.toast.com/tui.pagination/latest/tui-pagination.css"
-    />
+    <link rel="stylesheet" href="https://uicdn.toast.com/tui.pagination/latest/tui-pagination.css" />
+
+
   </head>
 
   <body>
@@ -25,13 +24,13 @@
             <label for="searchDocument" class="searchDocuments__label">Buscador</label>
             <select name="optionsSearch" class="searchDocuments__select">
               <option value="Title" class="searchDocuments__option">
-                Por Titulo
+                Titulo
               </option>
               <option value="Fecha" class="searchDocuments__option">
-                Por Fecha
+                Fecha
               </option>
               <option value="A_x00f1_o" class="searchDocuments__option">
-                Por Año
+                Año
               </option>
             </select>
           </div>
@@ -67,9 +66,11 @@
             <h3 class="searchResults__h3">Resultados</h3>
             <button class="searchResults__reset">Borrar Datos</button>
           </div>
-          <div class="searchResults__bottom">
-            <p class="searchResults__p">Ordenar Por:</p>
-          </div>
+          <ul class="searchResults__filters">
+            <li class="searchResults__p">Ordenar Por:</li>
+            <li class="searchResults__p searchResults__p--option">Recientes</li>
+            <li class="searchResults__p searchResults__p--option">Año actual</li>
+          </ul>
           <ul class="searchResults__container"></ul>
           <nav class="paginationItems">
             <button
@@ -96,7 +97,7 @@
       </section>
     </main>
 
-    <script src="https://uicdn.toast.com/tui.pagination/latest/tui-pagination.js"></script>
     <script src="./prueba/main.js" type="module"></script>
+    <script src="https://uicdn.toast.com/tui.pagination/latest/tui-pagination.js"></script>
   </body>
 </html>
