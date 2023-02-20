@@ -28,7 +28,8 @@
   font-size: 14px;
 }
 
-.paginationItems__number {
+.paginationItems__number,
+.paginationItems__dots {
   font-size: 14px;
   background: none;
   border: none;
@@ -48,6 +49,11 @@
 .paginationItems__number:hover {
   background: #e6effd;
   color: #3162c4;
+}
+
+.paginationItems__dots {
+  cursor: none;
+  pointer-events: none;
 }
 
 .paginationItems__button.disabled {

@@ -1,15 +1,15 @@
 export default function paginationItems(pagNumbers, pagItemContainer, pagItem) {
   const paginationNumbers = document.querySelector(pagNumbers);
   const paginatedList = document.querySelector(pagItemContainer);
-  const listItems = paginatedList.querySelectorAll(pagItem);
+  const total_items = paginatedList.querySelectorAll(pagItem);
   const nextButton = document.getElementById("pagNext-button");
   const prevButton = document.getElementById("pagPrev-button");
 
   //Ingresamos el limite de items para mostrar por pagina.
-  const paginationLimit = 5;
+  const items_per_page = 5;
   /*Calculamos a partir de la cantidad de items en total existentes y el limite ingresado, cuantas paginas
   es necesario crear.*/
-  const pageCount = Math.ceil(listItems.length / paginationLimit);
+  const total_pages = Math.ceil(total_items.length / items_per_page);
   //Inicializamos con 1, indicando que la paginación inicia en esta pagina.
   let currentPage = 1;
 
@@ -34,7 +34,7 @@ export default function paginationItems(pagNumbers, pagItemContainer, pagItem) {
       enableButton(prevButton);
     }
 
-    if (pageCount === currentPage) {
+    if (total_pages === currentPage) {
       disableButton(nextButton);
     } else {
       enableButton(nextButton);
@@ -50,6 +50,10 @@ export default function paginationItems(pagNumbers, pagItemContainer, pagItem) {
         button.classList.add("active");
       }
     });
+
+    if (currentPage > 4) {
+      document.querySelector(".paginationItems__dots").classList.add("active");
+    }
   };
 
   //Funcion para crear los diferentes botones de numeración de las paginas.
@@ -63,9 +67,36 @@ export default function paginationItems(pagNumbers, pagItemContainer, pagItem) {
     paginationNumbers.appendChild(pageNumber);
   };
 
+  const appendDots = () => {
+    const dots = document.createElement("button");
+    dots.className = "paginationItems__dots";
+    dots.innerHTML = "...";
+    dots.setAttribute("aria-label", "More pages");
+
+    paginationNumbers.appendChild(dots);
+  };
+
+  const appendLastPage = (total_pages) => {
+    const pageNumber = document.createElement("button");
+    pageNumber.className = "paginationItems__number";
+    pageNumber.innerHTML = total_pages;
+    pageNumber.setAttribute("page-index", total_pages);
+    pageNumber.setAttribute("aria-label", "Page " + total_pages);
+
+    paginationNumbers.appendChild(pageNumber);
+  };
+
   const getPaginationNumbers = () => {
-    for (let i = 1; i <= pageCount; i++) {
-      appendPageNumber(i);
+    if (total_pages <= 4) {
+      for (let i = 1; i <= total_pages; i++) {
+        appendPageNumber(i);
+      }
+    } else {
+      for (let i = 1; i <= 4; i++) {
+        appendPageNumber(i);
+      }
+      appendDots();
+      appendLastPage(total_pages);
     }
   };
 
@@ -75,15 +106,22 @@ export default function paginationItems(pagNumbers, pagItemContainer, pagItem) {
     handleActivePageNumber();
     handlePageButtonsStatus();
 
-    const prevRange = (pageNum - 1) * paginationLimit;
-    const currRange = pageNum * paginationLimit;
+    const prevRange = (pageNum - 1) * items_per_page;
+    const currRange = pageNum * items_per_page;
 
-    listItems.forEach((item, index) => {
+    total_items.forEach((item, index) => {
       item.classList.add("hidden");
       if (index >= prevRange && index < currRange) {
         item.classList.remove("hidden");
       }
     });
+
+    const pagButtons = document.querySelectorAll(".paginationItems__number");
+    const firstButton = pagButtons[0];
+    const lastButton = pagButtons[pagButtons.length - 1];
+
+    console.log(firstButton);
+    console.log(lastButton);
   };
 
   getPaginationNumbers();
