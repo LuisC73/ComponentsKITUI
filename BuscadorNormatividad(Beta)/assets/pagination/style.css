@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@1,200&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;200;400;500;700&display=swap');
 
 .hidden {
   display: none;
@@ -20,7 +20,7 @@
   border: none;
   outline: none;
   font-family: "Work Sans", sans-serif;
-  font-weight: 600;
+  font-weight: 400;
   background: none;
   padding: 0 10px;
   color: #3162c4;
@@ -28,7 +28,8 @@
   font-size: 14px;
 }
 
-.paginationItems__number {
+.paginationItems__number,
+.paginationItems__dots {
   font-size: 14px;
   background: none;
   border: none;
@@ -48,6 +49,11 @@
 .paginationItems__number:hover {
   background: #e6effd;
   color: #3162c4;
+}
+
+.paginationItems__dots {
+  cursor: none;
+  pointer-events: none;
 }
 
 .paginationItems__button.disabled {

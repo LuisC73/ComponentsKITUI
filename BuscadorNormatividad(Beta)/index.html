@@ -5,15 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Buscador</title>
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
     <link
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./paginador/style.css" />
-    <link rel="stylesheet" href="https://uicdn.toast.com/tui.pagination/latest/tui-pagination.css" />
-
-
+    <link rel="stylesheet" href="./assets/pagination/style.css" />
   </head>
 
   <body>
@@ -29,7 +26,7 @@
               <option value="Fecha" class="searchDocuments__option">
                 Fecha
               </option>
-              <option value="A_x00f1_o" class="searchDocuments__option">
+              <option value="Ano" class="searchDocuments__option">
                 Año
               </option>
             </select>
@@ -39,9 +36,7 @@
               type="text"
               class="searchDocuments__input"
               id="searchDocument"
-              placeholder="Ej: normas"
-              autocomplete="off"
-              autocorrect="off"
+              placeholder="Ej: Normas"
             />
             <div class="searchDocuments__button">
               <i class="bx bx-search searchDocuments__icon"></i>
@@ -66,10 +61,10 @@
             <h3 class="searchResults__h3">Resultados</h3>
             <button class="searchResults__reset">Borrar Datos</button>
           </div>
-          <ul class="searchResults__filters">
-            <li class="searchResults__p">Ordenar Por:</li>
-            <li class="searchResults__p searchResults__p--option">Recientes</li>
-            <li class="searchResults__p searchResults__p--option">Año actual</li>
+          <ul class="searchResults__ul">
+            <li class="searchResults__liOption">Ordenar Por:</li>
+            <li class="searchResults__liOption searchResults__liOption--color">Recientes</li>
+            <li class="searchResults__liOption searchResults__liOption--color">Año actual</li>
           </ul>
           <ul class="searchResults__container"></ul>
           <nav class="paginationItems">
@@ -97,7 +92,6 @@
       </section>
     </main>
 
-    <script src="./prueba/main.js" type="module"></script>
-    <script src="https://uicdn.toast.com/tui.pagination/latest/tui-pagination.js"></script>
+    <script src="./assets/js/main.js" type="module"></script>
   </body>
 </html>
