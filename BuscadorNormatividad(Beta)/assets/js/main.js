@@ -17,14 +17,15 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   const regularExpressions = {
-    Title: /^[A-Za-z0-9\s]+$/g,
+    Title: /^[A-Za-z0-9\s]+$/i,
     Fecha: /^([0-2][0-9]|3[0-1])(\/|-)(0[1-9]|1[0-2])\2(\d{4})$/i,
-    Ano: /^[0-9]+$/g,
+    Ano: /^[0-9]{4}$/i,
   };
 
   const SEARCH_TYPES = new Set(["Title", "Fecha", "Ano"]);
 
   function validationSearch(data) {
+    console.log(data);
     if (data === "") {
       drawSearchError("El campo se encuentra vacio");
       return;
@@ -43,7 +44,8 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    validationDraw(dataInfo, null);
+    validationDraw(dataInfo);
+    filterSearch(dataInfo);
   }
 
   searchButton.addEventListener("click", (e) => {
@@ -131,9 +133,14 @@ document.addEventListener("DOMContentLoaded", () => {
   
       timeSeconds = timeSeconds < 10 ? "0" + timeSeconds : timeSeconds;
   
-      let AmPm = "";
-  
-      AmPm += timeDays >= 12 ? "pm" : "am";
+      let hour = parseInt(hourOld.split(":")[0].toString()),
+      minute = parseInt(hourOld.split(":")[1].toString()),
+      second = parseInt(hourOld.split(":")[2].toString());
+
+      let AmPm = hour >= 12 ? "pm" : "am";
+
+      hour = (hour % 12) || 12;
+      let finalTime = `${hour}:${minute}:${second} ${AmPm}` 
   
       const optionsDate = {
         weekday: "long",
@@ -149,7 +156,7 @@ document.addEventListener("DOMContentLoaded", () => {
       } else {
         let date = new Date(fullDateOld).toLocaleDateString("co-Co", optionsDate);
   
-        dateShow = `${date}, ${timeHours}:${timeMinutes}:${timeSeconds} ${AmPm}`;
+        dateShow = `${date}, ${finalTime}`;
       }
   
       return dateShow;
@@ -197,11 +204,11 @@ document.addEventListener("DOMContentLoaded", () => {
       link = data[i].FileRef != "" ? data[i].FileRef : "#",
       des = data[i].Descripci_x00f3_n != "" ? data[i].Descripci_x00f3_n : "Descripción",
       date = data[i].Fechaorden != "" ? data[i].Fechaorden : null,
-      dateModified = data[i].Modified != "" ? data[i].Fechaorden : null; 
+      dateModified = data[i].Modified != "" ? data[i].Modified : null; 
       
-      // convertDateSearch(date);
-      // convertTime(dateModified);
-
+      convertDateSearch(date);
+      convertTime(dateModified);
+      
       item.innerHTML = `
         <figure class="searchResults__figure">
           <img src="./assets/img/pdf_blue.png" alt="pdf" class="searchResults__img">
@@ -211,7 +218,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <p class="searchResults__p searchResults__p--transform">${clasf}</p>
           <a href="${link}" class="searchResults__a">${title} ${i}</a>
           <p class="searchResults__p">${des}</p>
-          <p class="searchResults__p searchResults__p--size"><span class="searchResults__span">Publicacion: ${dateShow}</span> | <span>Expedición:${fullDate}</span></p>
+          <p class="searchResults__p searchResults__p--size"><span class="searchResults__span">Publicacion: ${dateShow}</span> | <span>Expedición: ${fullDate}</span></p>
         </div>
         <div class="searchResults__buttons">
           <a class="searchResults__btn" href="${link}">Abrir</a>
@@ -233,6 +240,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function drawSearchError(msg) {
+    searchInput.value = "";
     results.classList.remove("searchResults--active");
     resultError.classList.add("searchError--active");
     searchInput.classList.add("searchDocuments__input--error");
@@ -260,19 +268,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
   searchDeleteButton.addEventListener("click", deleteSearchs);
 
-  let filters = document.querySelectorAll(".searchResults__p--option"),
+  let filters = document.querySelectorAll(".searchResults__liOption--color"),
     year_now = new Date().getFullYear();
 
-  filters.forEach((filter) => {
-    filter.addEventListener("click", () => {
-      if (filter.textContent === "Año actual") {
-        let dataFilter = dataInfo.filter((el) =>
-          el.A_x00f1_o === `${year_now}` ? el : ""
-        );
-        validationDraw(dataFilter);
-      } else if (filter.textContent === "Recientes") {
-        validationDraw(dataInfo);
-      }
-    });
-  });
+    function filterSearch(data){
+      filters.forEach((filter) => {
+        filter.addEventListener("click", () => {
+          if (filter.textContent === "Año actual") {
+            let dataFilter = data.filter((el) =>
+              el.A_x00f1_o === `${year_now}` ? el : ""
+            );
+            validationDraw(dataFilter);
+          } else if (filter.textContent === "Recientes") {
+            validationDraw(data);
+          }
+        });
+      });
+    }
 });
