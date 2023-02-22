@@ -1,5 +1,5 @@
-    <link rel="stylesheet" href="./assets/css/style.css" />
-    <link rel="stylesheet" href="./assets/pagination/style.css" />
+    <link rel="stylesheet" href="/SiteAssets/V2/Components/BuscadorNormatividad/assets/css/style.css" />
+    <link rel="stylesheet" href="/SiteAssets/V2/Components/BuscadorNormatividad/assets/pagination/style.css" />
 
     <section>
       <section class="searchDocuments">
@@ -9,10 +9,10 @@
             <option value="Title" class="searchDocuments__option">
               Titulo
             </option>
-            <option value="Fecha" class="searchDocuments__option">
+            <option value="Fechaorden" class="searchDocuments__option">
               Fecha
             </option>
-            <option value="Ano" class="searchDocuments__option">
+            <option value="A_x00f1_o" class="searchDocuments__option">
               Año
             </option>
           </select>
@@ -20,7 +20,7 @@
         <div class="searchDocuments__bottom">
           <input type="text" class="searchDocuments__input" id="searchDocument" placeholder="Ej: Normas" />
           <div class="searchDocuments__button">
-            <i class="bx bx-search searchDocuments__icon"></i>
+            <i class="fa fa-search searchDocuments__icon"></i>
           </div>
         </div>
       </section>
@@ -64,4 +64,4 @@
       </section>
     </section>
 
-    <script src="./assets/js/main.js" type="module"></script>
+    <script src="/SiteAssets/V2/Components/BuscadorNormatividad/assets/js/main.js" type="module"></script>
