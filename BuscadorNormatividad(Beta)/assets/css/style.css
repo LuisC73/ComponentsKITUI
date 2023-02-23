@@ -118,7 +118,7 @@ body {
   width: 100%;
   flex-direction: column;
   row-gap: 20px;
-  margin: 0;
+  margin: 20px 0 0 0;
   padding: 0;
 }
 
@@ -464,8 +464,4 @@ body {
     flex-direction: column;
     text-align: center;
   }
-}
-
-.hiddenItem {
-  display: none;
 }

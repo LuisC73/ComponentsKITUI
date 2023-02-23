@@ -42,7 +42,6 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    console.log(typeof data);
     searchDataDocuments(data);
   }
 
@@ -137,7 +136,6 @@ document.addEventListener("DOMContentLoaded", () => {
         second = parseInt(hourOld.split(":")[2].toString());
 
       let AmPm = hour >= 12 ? "pm" : "am";
-
       hour = hour % 12 || 12;
       let finalTime = `${hour}:${minute}:${second} ${AmPm}`;
 
@@ -159,10 +157,21 @@ document.addEventListener("DOMContentLoaded", () => {
         );
         dateShow = `${date}, ${finalTime}`;
       }
-
       return dateShow;
     } else {
       return "Fecha";
+    }
+  }
+
+  function bytesToSize(bytes) {
+    if(bytes != null){
+      const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+      if (bytes === 0) return 'n/a';
+      const i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)), 10);
+      if (i === 0) return `${bytes} ${sizes[i]})`;
+      return `${(bytes / (1024 ** i)).toFixed(1)} ${sizes[i]}`;
+    }else{
+      return `Tamaño`;
     }
   }
 
@@ -179,13 +188,13 @@ document.addEventListener("DOMContentLoaded", () => {
     pagNumbers = document.querySelector(".paginationItems__numbers");
 
   async function searchDataDocuments(data) {
-    console.log(data);
     const modulePage = "Transparencia",
       folder = "Normatividad",
       params = [
         "Title",
         "LinkFilename",
-        "FileRef",
+        "File/ServerRelativeUrl",
+        "File/Length",
         "Descripci_x00f3_n",
         "A_x00f1_o",
         "Clasificac_x00f3_n",
@@ -193,7 +202,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "Modified",
       ];
 
-    let ulrFetch = `${location.protocol}//${location.host}/${modulePage}/_api/web/lists/getbytitle('${folder}')/items?$select=${params}&$top=2000&$filter=substringof('${data}',${valueSearch})`;
+    let ulrFetch = `${location.protocol}//${location.host}/${modulePage}/_api/web/lists/getbytitle('${folder}')/items?$select=${params}&$top=2000&$filter=substringof('${data}',${valueSearch})&$expand=File`;
 
     try {
       let data = await fetch(ulrFetch, {
@@ -203,8 +212,6 @@ document.addEventListener("DOMContentLoaded", () => {
         },
       });
       let resp = await data.json();
-      resultsContainer.innerHTML = ``;
-      pagNumbers.innerHTML = ``;
       validationDraw(resp);
       filterSearch(resp);
     } catch (error) {
@@ -213,7 +220,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function resultsDataDocuments(data) {
-    console.log(data);
     searchInput.value = "";
     resultsContainer.innerHTML = "";
     pagNumbers.innerHTML = "";
@@ -233,24 +239,23 @@ document.addEventListener("DOMContentLoaded", () => {
       let item = document.createElement("li");
 
       item.classList.add("searchResults__li");
-
-      let size = data[i].size != "" ? data[i].size : "Tamaño",
-        clasf = data[i].Clasificac_x00f3_n != "" ? data[i].Clasificac_x00f3_n : "Clasificación",
+      
+      let clasf = data[i].Clasificac_x00f3_n != "" ? data[i].Clasificac_x00f3_n : "Clasificación",
         title = data[i].Title != "" ? data[i].Title : "Titulo",
-        link = data[i].FileRef != "" ? data[i].FileRef : "#",
+        link = data[i].File.ServerRelativeUrl != "" ? data[i].File.ServerRelativeUrl : "#",
         des = data[i].Descripci_x00f3_n != "" ? data[i].Descripci_x00f3_n : "Descripción",
         date = data[i].Fechaorden != "" ? data[i].Fechaorden : null,
-        dateModified = data[i].Modified != "" ? data[i].Modified : null;
+        dateModified = data[i].Modified != "" ? data[i].Modified : null,
+        fileSize = data[i].File.Length != "" ? data[i].File.Length : null;
 
+      fileSize = bytesToSize(fileSize)
       convertDateSearch(date);
       convertTime(dateModified);
-
-      // getPdfSize(`${data[i].FileRef}`);
 
       item.innerHTML = `
             <figure class="searchResults__figure">
               <img src="/SiteAssets/V2/Components/BuscadorNormatividad/assets/img/pdf_blue.png" alt="pdf" class="searchResults__img">
-              <figcaption class="searchResults__fig">${size}</figcaption>
+              <figcaption class="searchResults__fig">${fileSize}</figcaption>
             </figure>
             <div class="searchResults__content">
               <p class="searchResults__p searchResults__p--transform">${clasf}</p>
@@ -261,8 +266,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="searchResults__buttons">
               <a class="searchResults__btn" href="${link}">Abrir</a>
               <a class="searchResults__btn" href="${link}" download>Descargar</a>
-            </div>
-      `;
+            </div>`;
 
       fragmentContent.appendChild(item);
     }
@@ -306,16 +310,15 @@ document.addEventListener("DOMContentLoaded", () => {
   searchDeleteButton.addEventListener("click", deleteSearchs);
 
   let filters = document.querySelectorAll(".searchResults__liOption--color"),
-    year_now = new Date().getFullYear();
+    yearNow = new Date().getFullYear();
 
   function filterSearch(data) {
     let info = data.d.results;
     filters.forEach((filter) => {
       filter.addEventListener("click", () => {
-        console.log(data);
         if (filter.textContent === "Año actual") {
           let dataFilter = info.filter((el) =>
-            el.A_x00f1_o === `${year_now}` ? el : ""
+            el.A_x00f1_o === `${yearNow}` ? el : ""
           );
           if (dataFilter.length != 0) {
             resultsDataDocuments(dataFilter);

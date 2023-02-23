@@ -18,7 +18,7 @@
           </select>
         </div>
         <div class="searchDocuments__bottom">
-          <input type="text" class="searchDocuments__input" id="searchDocument" placeholder="Ej: Normas" />
+          <input type="text" class="searchDocuments__input" id="searchDocument" placeholder="Ej: Normas" autocomplete="off" />
           <div class="searchDocuments__button">
             <i class="fa fa-search searchDocuments__icon"></i>
           </div>
@@ -40,7 +40,7 @@
       <section class="searchResults">
         <div class="searchResults__top">
           <h3 class="searchResults__h3">Resultados</h3>
-          <button class="searchResults__reset">Borrar Datos</button>
+          <button class="searchResults__reset">Borrar Resultados</button>
         </div>
         <ul class="searchResults__ul">
           <li class="searchResults__liOption">Ordenar Por:</li>
