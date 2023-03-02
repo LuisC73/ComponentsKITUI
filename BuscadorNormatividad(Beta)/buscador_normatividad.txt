@@ -40,7 +40,7 @@
           <button class="searchResults__reset">Borrar Resultados</button>
         </div>
         <ul class="searchResults__ul">
-          <li class="searchResults__liOption">Ordenar Por:</li>
+          <li class="searchResults__liOption">Filtrar Por:</li>
           <li class="searchResults__liOption searchResults__liOption--color">Recientes</li>
           <li class="searchResults__liOption searchResults__liOption--color">Año actual</li>
         </ul>
