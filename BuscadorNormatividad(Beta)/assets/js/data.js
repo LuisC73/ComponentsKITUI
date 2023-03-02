@@ -2,8 +2,8 @@ const dataInfo = [
     {
       Title: "Articulo",
       Clasificac_x00f3_n: "Acuerdos",
-      Fechaorden: "2005-09-19T05:00:00Z",
-      Modified: "2018-04-11T14:34:39Z",
+      Fechaorden: "2023-02-28T05:00:00Z",
+      Modified: "2023-02-14T14:34:39Z",
       A_x00f1_o: "2005",
       Descripci_x00f3_n: "Por el cual se adopta el estatuto de rentas, de procedimiento y régimen sancionatorio tributario del municipio de Inírida.",
       FileRef: "https://www.inirida-guainia.gov.co/Transparencia/Normatividad/Acuerdo%20N°011%20del%202005.pdf"

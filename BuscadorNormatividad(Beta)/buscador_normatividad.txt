@@ -9,9 +9,6 @@
             <option value="Title" class="searchDocuments__option">
               Titulo
             </option>
-            <option value="Fecha" class="searchDocuments__option">
-              Fecha
-            </option>
             <option value="Ano" class="searchDocuments__option">
               Año
             </option>
