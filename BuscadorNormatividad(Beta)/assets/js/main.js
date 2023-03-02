@@ -17,11 +17,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const regularExpressions = {
     Title: /^[A-Za-z0-9\s]+$/i,
-    Fechaorden: /^([0-2][0-9]|3[0-1])(\/|-)(0[1-9]|1[0-2])\2(\d{4})$/i,
     A_x00f1_o: /^[0-9]{4}$/i,
   };
 
-  const SEARCH_TYPES = new Set(["Title", "Fechaorden", "A_x00f1_o"]);
+  const SEARCH_TYPES = new Set(["Title", "A_x00f1_o"]);
 
   function validationSearch(data) {
     if (data === "") {
@@ -74,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       let monthText = "";
 
-      const MESES = {
+      const MONTHS = {
         Enero: "01",
         Febrero: "02",
         Marzo: "03",
@@ -89,8 +88,8 @@ document.addEventListener("DOMContentLoaded", () => {
         Diciembre: "12",
       };
 
-      for (const i in MESES) {
-        if (month === MESES[i]) monthText = i;
+      for (const i in MONTHS) {
+        if (month === MONTHS[i]) monthText = i;
       }
 
       fullDate = `${days} de ${monthText} de ${year}`;
@@ -123,13 +122,8 @@ document.addEventListener("DOMContentLoaded", () => {
         hours = minutes * 60,
         days = hours * 24;
 
-      let timeDays = Math.floor(differenceTime / days),
-        timeHours = Math.floor((differenceTime % days) / hours),
-        timeMinutes = Math.floor((differenceTime % hours) / minutes),
-        timeSeconds = Math.floor((differenceTime % minutes) / seconds);
-
-      timeMinutes = timeMinutes < 10 ? "0" + timeMinutes : timeMinutes;
-      timeSeconds = timeSeconds < 10 ? "0" + timeSeconds : timeSeconds;
+      let daysDifference = Math.floor(differenceTime / days),
+        hoursDifference = Math.floor((differenceTime % days) / hours);
 
       let hour = parseInt(hourOld.split(":")[0].toString()),
         minute = parseInt(hourOld.split(":")[1].toString()),
@@ -146,10 +140,11 @@ document.addEventListener("DOMContentLoaded", () => {
         day: "numeric",
       };
 
-      if (timeDays < 2) {
-        dateShow = `Hace ${timeHours} Horas`;
-      } else if (timeDays < 5) {
-        dateShow = `Hace ${timeDays} Dias`;
+      if (daysDifference < 2) {
+        let time = hoursDifference != 1 ? "Horas" : "Hora";
+        dateShow = `Hace ${hoursDifference} ${time}`;
+      } else if (daysDifference < 5) {
+        dateShow = `Hace ${daysDifference} Dias`;
       } else {
         let date = new Date(fullDateOld).toLocaleDateString(
           "co-Co",
@@ -240,15 +235,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
       item.classList.add("searchResults__li");
       
-      let clasf = data[i].Clasificac_x00f3_n != "" ? data[i].Clasificac_x00f3_n : "Clasificación",
-        title = data[i].Title != "" ? data[i].Title : "Titulo",
-        link = data[i].File.ServerRelativeUrl != "" ? data[i].File.ServerRelativeUrl : "#",
-        des = data[i].Descripci_x00f3_n != "" ? data[i].Descripci_x00f3_n : "Descripción",
-        date = data[i].Fechaorden != "" ? data[i].Fechaorden : null,
-        dateModified = data[i].Modified != "" ? data[i].Modified : null,
-        fileSize = data[i].File.Length != "" ? data[i].File.Length : null;
+      let classification = data[i].Clasificac_x00f3_n,
+        title = data[i].Title,
+        urlFile = data[i].File.ServerRelativeUrl,
+        description = data[i].Descripci_x00f3_n,
+        date = data[i].Fechaorden,
+        dateModified = data[i].Modified,
+        fileSize = bytesToSize(data[i].File.Length);
 
-      fileSize = bytesToSize(fileSize)
       convertDateSearch(date);
       convertTime(dateModified);
 
@@ -258,14 +252,14 @@ document.addEventListener("DOMContentLoaded", () => {
               <figcaption class="searchResults__fig">${fileSize}</figcaption>
             </figure>
             <div class="searchResults__content">
-              <p class="searchResults__p searchResults__p--transform">${clasf}</p>
-              <a href="${link}" class="searchResults__a">${title}</a>
-              <p class="searchResults__p">${des}</p>
+              <p class="searchResults__p searchResults__p--transform">${classification}</p>
+              <a href="${urlFile}" class="searchResults__a">${title}</a>
+              <p class="searchResults__p">${description}</p>
               <p class="searchResults__p searchResults__p--size"><span class="searchResults__span">Publicacion: ${dateShow}</span> | <span>Expedición: ${fullDate}</span></p>
             </div>
             <div class="searchResults__buttons">
-              <a class="searchResults__btn" href="${link}">Abrir</a>
-              <a class="searchResults__btn" href="${link}" download>Descargar</a>
+              <a class="searchResults__btn" href="${urlFile}">Abrir</a>
+              <a class="searchResults__btn" href="${urlFile}" download>Descargar</a>
             </div>`;
 
       fragmentContent.appendChild(item);
@@ -326,7 +320,18 @@ document.addEventListener("DOMContentLoaded", () => {
             drawSearchError("No existen documentos con el filtro solicitado");
           }
         } else if (filter.textContent === "Recientes") {
-          validationDraw(data);
+          let dateNow = new Date();
+          dateNow = `${dateNow.getDate()}/${dateNow.getMonth()}/${dateNow.getFullYear()}`;
+          let dataFilter = info.filter((el) => {
+            let dateData = new Date(el.Modified);
+            dateData = `${dateData.getDate()}/${dateData.getMonth()}/${dateData.getFullYear()}`;
+            if (dateData === dateNow) return el;
+          });
+          if (dataFilter.length != 0) {
+            resultsDataDocuments(dataFilter);
+          } else {
+            drawSearchError("No existen documentos con el filtro solicitado");
+          }
         }
       });
     });
