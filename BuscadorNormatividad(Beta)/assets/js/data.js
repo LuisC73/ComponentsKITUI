@@ -1,18 +1,19 @@
 const dataInfo = [
     {
-      Title: "Articulo",
+      Title: "",
       Clasificac_x00f3_n: "Acuerdos",
       Fechaorden: "2023-02-28T05:00:00Z",
       Modified: "2023-02-14T14:34:39Z",
       A_x00f1_o: "2005",
       Descripci_x00f3_n: "Por el cual se adopta el estatuto de rentas, de procedimiento y régimen sancionatorio tributario del municipio de Inírida.",
-      FileRef: "https://www.inirida-guainia.gov.co/Transparencia/Normatividad/Acuerdo%20N°011%20del%202005.pdf"
+      FileRef: "https://www.inirida-guainia.gov.co/Transparencia/Normatividad/Acuerdo%20N°011%20del%202005.pdf",
+      size: 1440
     },
     {
       Title: "Articulo",
       Clasificac_x00f3_n: "Acuerdos",
-      Fechaorden: "2003-09-19T05:00:00Z",
-      Modified: "2018-04-11T14:34:39Z",
+      Fechaorden: "2023-03-02T05:00:00Z",
+      Modified: "2023-03-02T12:34:39Z",
       A_x00f1_o: "2023",
       Descripci_x00f3_n: "Por el cual se adopta el estatuto de rentas, de procedimiento y régimen sancionatorio tributario del municipio de Inírida.",
       FileRef: "https://www.inirida-guainia.gov.co/Transparencia/Normatividad/Acuerdo%20N°011%20del%202005.pdf"
@@ -20,7 +21,7 @@ const dataInfo = [
     {
       Title: "Articulo",
       Clasificac_x00f3_n: "Acuerdos",
-      Fechaorden: "2010-02-20T05:00:00Z",
+      Fechaorden: "2010-01-20T05:00:00Z",
       Modified: "2018-04-11T14:34:39Z",
       A_x00f1_o: "2023",
       Descripci_x00f3_n: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown",

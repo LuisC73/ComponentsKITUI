@@ -66,14 +66,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function convertDateSearch(date) {
     if (date != null) {
-      let dateFull = new Date(date)
+      let dateLocal = date.split("-");
 
-      let days = dateFull.getDate(),
-      month = dateFull.getMonth(),
-      year = dateFull.getFullYear(),
-      hour = dateFull.getTime();
-
-      console.log(month);
+      let days = dateLocal[2].split("T")[0].toString(),
+        month = dateLocal[1].toString(),
+        year = dateLocal[0].toString(),
+        hour = dateLocal[2].split("T")[1].split("Z")[0].toString();
 
       let monthText = "";
 
@@ -93,7 +91,6 @@ document.addEventListener("DOMContentLoaded", () => {
       };
 
       for (const i in MESES) {
-        console.log(MESES[i]);
         if (month === MESES[i]) monthText = i;
       }
 
@@ -128,11 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
         days = hours * 24;
 
       let timeDays = Math.floor(differenceTime / days),
-        timeHours = Math.floor((differenceTime % days) / hours),
-        timeMinutes = Math.floor((differenceTime % hours) / minutes),
-        timeSeconds = Math.floor((differenceTime % minutes) / seconds);
-
-      timeSeconds = timeSeconds < 10 ? "0" + timeSeconds : timeSeconds;
+        timeHours = Math.floor((differenceTime % days) / hours);
 
       let hour = parseInt(hourOld.split(":")[0].toString()),
         minute = parseInt(hourOld.split(":")[1].toString()),
@@ -151,7 +144,8 @@ document.addEventListener("DOMContentLoaded", () => {
       };
 
       if (timeDays < 2) {
-        dateShow = `Hace ${timeHours} Horas`;
+        let time = timeHours != 1 ? "Horas" : "Hora";
+        dateShow = `Hace ${timeHours} ${time}`;
       } else if (timeDays < 5) {
         dateShow = `Hace ${timeDays} Dias`;
       } else {
@@ -169,13 +163,35 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  const defaultValue = {
+    size: "Tamaño",
+    Clasificac_x00f3_n: "Clasificación",
+    Title: "Titulo",
+    FileRef: "#",
+    Descripci_x00f3_n: "Descripción",
+    Fechaorden: "Fecha",
+    Modified: "Ultima modificación"
+  };
+
+  function validationFields(data,defaultValue){
+    return data.map(item => {
+      const newItem = {};
+      Object.keys(defaultValue).forEach(key => {
+        newItem[key] = item[key] !== "" ? item[key] : defaultValue[key];
+      });
+      return newItem;
+    });
+  }
+
   function validationDraw(data) {
     if (data.length != 0) {
-      draw(data);
+      const newData = validationFields(data, defaultValue);
+      draw(newData);
     } else {
       drawSearchError("No se encontraron documentos");
     }
   }
+
 
   const resultsContainer = document.querySelector(".searchResults__container"),
     pagNumbers = document.querySelector(".paginationItems__numbers");
@@ -198,35 +214,28 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 2000);
 
     for (const i in data) {
+      console.log(data);
       let item = document.createElement("li");
 
       item.classList.add("searchResults__li");
 
-      let size = data[i].size != "" ? data[i].size : "Tamaño",
-      clasf = data[i].Clasificac_x00f3_n != "" ? data[i].Clasificac_x00f3_n : "Clasificación",
-      title = data[i].Title != "" ? data[i].Title : "Titulo",
-      link = data[i].FileRef != "" ? data[i].FileRef : "#",
-      des = data[i].Descripci_x00f3_n != "" ? data[i].Descripci_x00f3_n : "Descripción",
-      date = data[i].Fechaorden != "" ? data[i].Fechaorden : null,
-      dateModified = data[i].Modified != "" ? data[i].Modified : null; 
-
-      convertDateSearch(date);
-      convertTime(dateModified);
+      convertDateSearch(data[i].Fechaorden);
+      convertTime(data[i].Modified);
 
       item.innerHTML = `
         <figure class="searchResults__figure">
           <img src="./assets/img/pdf_blue.png" alt="pdf" class="searchResults__img">
-          <figcaption class="searchResults__fig">${size}</figcaption>
+          <figcaption class="searchResults__fig">${data[i].size}</figcaption>
         </figure>
         <div class="searchResults__content">
-          <p class="searchResults__p searchResults__p--transform">${clasf}</p>
-          <a href="${link}" class="searchResults__a">${title} ${i}</a>
-          <p class="searchResults__p">${des}</p>
+          <p class="searchResults__p searchResults__p--transform">${data[i].Clasificac_x00f3_n}</p>
+          <a href="${data[i].FileRef}" class="searchResults__a">${data[i].Title} ${i}</a>
+          <p class="searchResults__p">${data[i].Descripci_x00f3_n}</p>
           <p class="searchResults__p searchResults__p--size"><span class="searchResults__span">Publicacion: ${dateShow}</span> | <span>Expedición: ${fullDate}</span></p>
         </div>
         <div class="searchResults__buttons">
-          <a class="searchResults__btn" href="${link}">Abrir</a>
-          <a class="searchResults__btn" href="${link}" download>Descargar</a>
+          <a class="searchResults__btn" href="${data[i].FileRef}">Abrir</a>
+          <a class="searchResults__btn" href="${data[i].FileRef}" download>Descargar</a>
         </div>
       `;
 
@@ -284,13 +293,14 @@ document.addEventListener("DOMContentLoaded", () => {
           );
           validationDraw(dataFilter);
         } else if (filter.textContent === "Recientes") {
-          data.forEach(el => {
-            let date = new Date(el.Fechaorden);
-
-            console.log(date);
-            console.log(date.getDate());
-          })
-          // validationDraw(dataFilter);
+          let dateNow = new Date();
+          dateNow = `${dateNow.getDate()}/${dateNow.getMonth()}/${dateNow.getFullYear()}`;
+          let dataFilter = data.filter((el) => {
+            let dateData = new Date(el.Modified);
+            dateData = `${dateData.getDate()}/${dateData.getMonth()}/${dateData.getFullYear()}`;
+            if (dateData === dateNow) return el;
+          });
+          validationDraw(dataFilter);
         }
       });
     });
