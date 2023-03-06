@@ -18,17 +18,14 @@
       <section>
         <section class="searchDocuments">
           <div class="searchDocuments__top">
-            <label for="searchDocument" class="searchDocuments__label">Buscador</label>
+            <label for="searchDocument" class="searchDocuments__label"
+              >Buscador</label
+            >
             <select name="optionsSearch" class="searchDocuments__select">
               <option value="Title" class="searchDocuments__option">
                 Titulo
               </option>
-              <option value="Fecha" class="searchDocuments__option">
-                Fecha
-              </option>
-              <option value="Ano" class="searchDocuments__option">
-                Año
-              </option>
+              <option value="Ano" class="searchDocuments__option">Año</option>
             </select>
           </div>
           <div class="searchDocuments__bottom">
@@ -60,12 +57,22 @@
         <section class="searchResults">
           <div class="searchResults__top">
             <h3 class="searchResults__h3">Resultados</h3>
-            <button class="searchResults__reset">Borrar Datos</button>
+            <button class="searchResults__reset">Borrar Resultados</button>
           </div>
           <ul class="searchResults__ul">
-            <li class="searchResults__liOption">Ordenar Por:</li>
-            <li class="searchResults__liOption searchResults__liOption--color">Recientes</li>
-            <li class="searchResults__liOption searchResults__liOption--color">Año actual</li>
+            <li class="searchResults__liOption">Filtrar Por:</li>
+            <li class="searchResults__liOption searchResults__liOption--color">
+              Recientes
+            </li>
+            <li class="searchResults__liOption searchResults__liOption--color">
+              Año actual
+            </li>
+            <li class="searchResults__liOption searchResults__liOption--drop">
+              Clasificación
+              <ul class="searchResults__dropmenu">
+                <li class="searchResults__option searchResults__option--close"><i class="bx bx-x"></i></li>
+              </ul>
+            </li>
           </ul>
           <ul class="searchResults__container"></ul>
           <nav class="paginationItems">
@@ -74,7 +81,8 @@
               id="pagPrev-button"
               aria-label="Previous page"
               title="Pagina Anterior"
-              type="button">
+              type="button"
+            >
               Anterior
             </button>
 
@@ -85,7 +93,8 @@
               id="pagNext-button"
               aria-label="Next page"
               title="Pagina Siguiente"
-              type="button">
+              type="button"
+            >
               Siguiente
             </button>
           </nav>

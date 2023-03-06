@@ -44,6 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     validationDraw(dataInfo);
     filterSearch(dataInfo);
+    dropMenuData(dataInfo)
   }
 
   searchButton.addEventListener("click", (e) => {
@@ -170,13 +171,13 @@ document.addEventListener("DOMContentLoaded", () => {
     FileRef: "#",
     Descripci_x00f3_n: "Descripción",
     Fechaorden: "Fecha",
-    Modified: "Ultima modificación"
+    Modified: "Ultima modificación",
   };
 
-  function validationFields(data,defaultValue){
-    return data.map(item => {
+  function validationFields(data, defaultValue) {
+    return data.map((item) => {
       const newItem = {};
-      Object.keys(defaultValue).forEach(key => {
+      Object.keys(defaultValue).forEach((key) => {
         newItem[key] = item[key] !== "" ? item[key] : defaultValue[key];
       });
       return newItem;
@@ -191,7 +192,6 @@ document.addEventListener("DOMContentLoaded", () => {
       drawSearchError("No se encontraron documentos");
     }
   }
-
 
   const resultsContainer = document.querySelector(".searchResults__container"),
     pagNumbers = document.querySelector(".paginationItems__numbers");
@@ -214,7 +214,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 2000);
 
     for (const i in data) {
-      console.log(data);
       let item = document.createElement("li");
 
       item.classList.add("searchResults__li");
@@ -305,4 +304,50 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
+
+  const dropMenuContainer = document.querySelector('.searchResults__dropmenu');
+
+  function dropMenuData(data) {
+    let fragmentContent = document.createDocumentFragment();
+    const clasifications = [];
+
+    for (const i in data) {
+      clasifications.push(data[i].Clasificac_x00f3_n);
+    }
+
+
+  const resultado = {}
+    arr.forEach(el => (resultado[el] = resultado[el] + 1 || 1))
+
+    const clasfSet = new Set(clasifications);
+
+    let results = [...clasfSet];
+
+    results.forEach(el => {      
+     let dropItem = document.createElement('li');
+     dropItem.classList.add('searchResults__option');
+     dropItem.innerText = el;
+     fragmentContent.appendChild(dropItem);
+    })
+
+    dropMenuContainer.appendChild(fragmentContent);
+  }
+
+  function activeDropMenu(menu, state) {
+    if (state === "active") {
+      document.querySelector(`.${menu}`).classList.add(`${menu}--active`);
+    } else if (state === "desactive") {
+      document.querySelector(`.${menu}`).classList.remove(`${menu}--active`);
+    }
+  }
+  
+  //Delegación de eventos
+  document.addEventListener("click", (e) => {
+    if (e.target.matches(".searchResults__liOption--drop")) {
+      activeDropMenu("searchResults__dropmenu", "active");
+    }
+    if (e.target.matches(".searchResults__option--close")) {
+      activeDropMenu("searchResults__dropmenu", "desactive");
+    }
+  });
 });
