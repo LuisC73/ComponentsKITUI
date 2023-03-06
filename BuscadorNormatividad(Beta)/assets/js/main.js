@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     validationDraw(dataInfo);
     filterSearch(dataInfo);
-    dropMenuData(dataInfo)
+    dropMenuData(dataInfo);
   }
 
   searchButton.addEventListener("click", (e) => {
@@ -286,6 +286,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function filterSearch(data) {
     filters.forEach((filter) => {
       filter.addEventListener("click", () => {
+        console.log(filter.textContent);
         if (filter.textContent === "Año actual") {
           let dataFilter = data.filter((el) =>
             el.A_x00f1_o === `${year_now}` ? el : ""
@@ -305,7 +306,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  const dropMenuContainer = document.querySelector('.searchResults__dropmenu');
+  const dropMenuContainer = document.querySelector(".searchResults__dropmenu");
 
   function dropMenuData(data) {
     let fragmentContent = document.createDocumentFragment();
@@ -315,20 +316,27 @@ document.addEventListener("DOMContentLoaded", () => {
       clasifications.push(data[i].Clasificac_x00f3_n);
     }
 
+    const clasfCount = clasifications.reduce(
+      (prev, cur) => ((prev[cur] = prev[cur] + 1 || 1), prev),
+      {}
+    );
 
-  const resultado = {}
-    arr.forEach(el => (resultado[el] = resultado[el] + 1 || 1))
+    const clasfResult = {};
+
+    clasifications.forEach(
+      (el) => (clasfResult[el] = clasfResult[el] + 1 || 1)
+    );
 
     const clasfSet = new Set(clasifications);
 
     let results = [...clasfSet];
 
-    results.forEach(el => {      
-     let dropItem = document.createElement('li');
-     dropItem.classList.add('searchResults__option');
-     dropItem.innerText = el;
-     fragmentContent.appendChild(dropItem);
-    })
+    results.forEach((el) => {
+      let dropItem = document.createElement("li");
+      dropItem.classList.add("searchResults__option");
+      dropItem.innerText = `${el} (${clasfCount[el]})`;
+      fragmentContent.appendChild(dropItem);
+    });
 
     dropMenuContainer.appendChild(fragmentContent);
   }
@@ -340,7 +348,7 @@ document.addEventListener("DOMContentLoaded", () => {
       document.querySelector(`.${menu}`).classList.remove(`${menu}--active`);
     }
   }
-  
+
   //Delegación de eventos
   document.addEventListener("click", (e) => {
     if (e.target.matches(".searchResults__liOption--drop")) {

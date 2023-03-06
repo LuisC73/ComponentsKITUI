@@ -74,9 +74,23 @@ body {
 .searchDocuments__select {
   border: none;
   outline: none;
-  padding: 0 10px;
+  padding: 4px 20px 4px 4px;
   font-family: "Work Sans", sans-serif;
-  color: #4b4b4b;
+  background-color: #3366cc;
+  color: #fff;
+  border-radius: 6px;  
+  appearance: none;
+  border: 1px solid #fff;
+  text-align: start;
+  transition: 0.5s;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.searchDocuments__select:hover{
+  background-color: #fff;
+  border: 1px solid #3366cc;
+  color: #3366cc;
 }
 
 .searchDocuments__button {
