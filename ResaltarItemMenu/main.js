@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "notificaciones",
   ];
 
-  const [initItem] = document.querySelector('Selector[data-item="inicio"]');
+  const initItem = document.querySelector('Selector[data-item="inicio"]');
   const allMenuModule = [...document.querySelectorAll("Ingresar selector")];
 
   const toggleMenuActiveClass = (item) => {
