@@ -6,29 +6,35 @@ document.addEventListener("DOMContentLoaded", () => {
     "ciudadanos",
     "conectividad",
     "mimunicipio",
-    "NuestraAlcaldia",
+    "nuestraalcaldia",
     "proyectos",
     "notificaciones",
   ];
 
-  const allMenuModule = document.querySelectorAll(".Menuprincipal h2 a"),
-    initItem = document.querySelector(
-      '.Menuprincipal h2 a[data-item="inicio"]'
-    );
+  const [initItem] = document.querySelector('Selector[data-item="inicio"]');
+  const allMenuModule = [...document.querySelectorAll("Ingresar selector")];
 
-  const checkMenuItem = (allModules, windowUrl, itemsMenu) => {
-    allModules.forEach((element) => {
-      let modulePage = element.toLowerCase();
-      if (windowUrl.search(`/${modulePage}`) > -1) {
-        itemsMenu.forEach((item) => {
-          let textItem = item.dataset.item.toLowerCase();
-          if (textItem.search(modulePage) > -1) {
-            item.classList.toggle("menu__active")
-          }
-        });
+  const toggleMenuActiveClass = (item) => {
+    item.classList.toggle("menu__active");
+  };
+
+  const checkMenuItem = (modulePage, itemsMenu) => {
+    itemsMenu.forEach((item) => {
+      const textItem = item.dataset.item.toLowerCase();
+      if (textItem.includes(modulePage)) {
+        toggleMenuActiveClass(item);
       }
     });
   };
 
-  checkMenuItem(allModules, windowUrl, allMenuModule);
+  const checkMenuItems = () => {
+    allModules.forEach((element) => {
+      const modulePage = element.toLowerCase();
+      if (windowUrl.includes(`/${modulePage}`)) {
+        checkMenuItem(modulePage, allMenuModule);
+      }
+    });
+  };
+
+  checkMenuItems();
 });
