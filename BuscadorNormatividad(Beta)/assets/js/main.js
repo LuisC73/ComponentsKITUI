@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     validationDraw(dataInfo);
     filterSearch(dataInfo);
-    dropMenuData(dataInfo)
+    dropMenuData(dataInfo);
   }
 
   searchButton.addEventListener("click", (e) => {
@@ -194,7 +194,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const resultsContainer = document.querySelector(".searchResults__container"),
-    pagNumbers = document.querySelector(".paginationItems__numbers");
+    pagNumbers = document.querySelector(".pagination");
 
   //pruebas
   function draw(data) {
@@ -244,11 +244,7 @@ document.addEventListener("DOMContentLoaded", () => {
     resultsContainer.appendChild(fragmentContent);
 
     // Paginador
-    paginationItems(
-      ".paginationItems__numbers",
-      ".searchResults__container",
-      ".searchResults__li"
-    );
+    paginationItems(".pagination", ".searchResults__li");
   }
 
   function drawSearchError(msg) {
@@ -305,7 +301,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  const dropMenuContainer = document.querySelector('.searchResults__dropmenu');
+  const dropMenuContainer = document.querySelector(".searchResults__dropmenu");
 
   function dropMenuData(data) {
     let fragmentContent = document.createDocumentFragment();
@@ -315,20 +311,19 @@ document.addEventListener("DOMContentLoaded", () => {
       clasifications.push(data[i].Clasificac_x00f3_n);
     }
 
-
-  const resultado = {}
-    arr.forEach(el => (resultado[el] = resultado[el] + 1 || 1))
+    const resultado = {};
+    // arr.forEach((el) => (resultado[el] = resultado[el] + 1 || 1));
 
     const clasfSet = new Set(clasifications);
 
     let results = [...clasfSet];
 
-    results.forEach(el => {      
-     let dropItem = document.createElement('li');
-     dropItem.classList.add('searchResults__option');
-     dropItem.innerText = el;
-     fragmentContent.appendChild(dropItem);
-    })
+    results.forEach((el) => {
+      let dropItem = document.createElement("li");
+      dropItem.classList.add("searchResults__option");
+      dropItem.innerText = el;
+      fragmentContent.appendChild(dropItem);
+    });
 
     dropMenuContainer.appendChild(fragmentContent);
   }
@@ -340,7 +335,7 @@ document.addEventListener("DOMContentLoaded", () => {
       document.querySelector(`.${menu}`).classList.remove(`${menu}--active`);
     }
   }
-  
+
   //Delegación de eventos
   document.addEventListener("click", (e) => {
     if (e.target.matches(".searchResults__liOption--drop")) {
