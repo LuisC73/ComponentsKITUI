@@ -215,6 +215,162 @@ const dataInfo = [
       "https://www.inirida-guainia.gov.co/Transparencia/Normatividad/Acuerdo%20N°011%20del%202005.pdf",
     size: 3440,
   },
+  {
+    Title: "Articulo",
+    Clasificac_x00f3_n: "Decreto",
+    Fechaorden: "2005-09-19T06:00:00Z",
+    Modified: "2018-04-11T14:31:16Z",
+    A_x00f1_o: "2018",
+    Descripci_x00f3_n:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown",
+    FileRef:
+      "https://www.inirida-guainia.gov.co/Transparencia/Normatividad/Acuerdo%20N°011%20del%202005.pdf",
+    size: 3440,
+  },
+  {
+    Title: "Articulo",
+    Clasificac_x00f3_n: "Decreto",
+    Fechaorden: "2005-09-19T06:00:00Z",
+    Modified: "2018-04-11T14:31:16Z",
+    A_x00f1_o: "2018",
+    Descripci_x00f3_n:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown",
+    FileRef:
+      "https://www.inirida-guainia.gov.co/Transparencia/Normatividad/Acuerdo%20N°011%20del%202005.pdf",
+    size: 3440,
+  },
+  {
+    Title: "Articulo",
+    Clasificac_x00f3_n: "Decreto",
+    Fechaorden: "2005-09-19T06:00:00Z",
+    Modified: "2018-04-11T14:31:16Z",
+    A_x00f1_o: "2018",
+    Descripci_x00f3_n:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown",
+    FileRef:
+      "https://www.inirida-guainia.gov.co/Transparencia/Normatividad/Acuerdo%20N°011%20del%202005.pdf",
+    size: 3440,
+  },
+  {
+    Title: "Articulo",
+    Clasificac_x00f3_n: "Decreto",
+    Fechaorden: "2005-09-19T06:00:00Z",
+    Modified: "2018-04-11T14:31:16Z",
+    A_x00f1_o: "2018",
+    Descripci_x00f3_n:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown",
+    FileRef:
+      "https://www.inirida-guainia.gov.co/Transparencia/Normatividad/Acuerdo%20N°011%20del%202005.pdf",
+    size: 3440,
+  },
+  {
+    Title: "Articulo",
+    Clasificac_x00f3_n: "Decreto",
+    Fechaorden: "2005-09-19T06:00:00Z",
+    Modified: "2018-04-11T14:31:16Z",
+    A_x00f1_o: "2018",
+    Descripci_x00f3_n:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown",
+    FileRef:
+      "https://www.inirida-guainia.gov.co/Transparencia/Normatividad/Acuerdo%20N°011%20del%202005.pdf",
+    size: 3440,
+  },
+  {
+    Title: "Articulo",
+    Clasificac_x00f3_n: "Decreto",
+    Fechaorden: "2005-09-19T06:00:00Z",
+    Modified: "2018-04-11T14:31:16Z",
+    A_x00f1_o: "2018",
+    Descripci_x00f3_n:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown",
+    FileRef:
+      "https://www.inirida-guainia.gov.co/Transparencia/Normatividad/Acuerdo%20N°011%20del%202005.pdf",
+    size: 3440,
+  },
+  {
+    Title: "Articulo",
+    Clasificac_x00f3_n: "Decreto",
+    Fechaorden: "2005-09-19T06:00:00Z",
+    Modified: "2018-04-11T14:31:16Z",
+    A_x00f1_o: "2018",
+    Descripci_x00f3_n:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown",
+    FileRef:
+      "https://www.inirida-guainia.gov.co/Transparencia/Normatividad/Acuerdo%20N°011%20del%202005.pdf",
+    size: 3440,
+  },
+  {
+    Title: "Articulo",
+    Clasificac_x00f3_n: "Decreto",
+    Fechaorden: "2005-09-19T06:00:00Z",
+    Modified: "2018-04-11T14:31:16Z",
+    A_x00f1_o: "2018",
+    Descripci_x00f3_n:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown",
+    FileRef:
+      "https://www.inirida-guainia.gov.co/Transparencia/Normatividad/Acuerdo%20N°011%20del%202005.pdf",
+    size: 3440,
+  },
+  {
+    Title: "Articulo",
+    Clasificac_x00f3_n: "Decreto",
+    Fechaorden: "2005-09-19T06:00:00Z",
+    Modified: "2018-04-11T14:31:16Z",
+    A_x00f1_o: "2018",
+    Descripci_x00f3_n:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown",
+    FileRef:
+      "https://www.inirida-guainia.gov.co/Transparencia/Normatividad/Acuerdo%20N°011%20del%202005.pdf",
+    size: 3440,
+  },
+  {
+    Title: "Articulo",
+    Clasificac_x00f3_n: "Decreto",
+    Fechaorden: "2005-09-19T06:00:00Z",
+    Modified: "2018-04-11T14:31:16Z",
+    A_x00f1_o: "2018",
+    Descripci_x00f3_n:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown",
+    FileRef:
+      "https://www.inirida-guainia.gov.co/Transparencia/Normatividad/Acuerdo%20N°011%20del%202005.pdf",
+    size: 3440,
+  },
+  {
+    Title: "Articulo",
+    Clasificac_x00f3_n: "Decreto",
+    Fechaorden: "2005-09-19T06:00:00Z",
+    Modified: "2018-04-11T14:31:16Z",
+    A_x00f1_o: "2018",
+    Descripci_x00f3_n:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown",
+    FileRef:
+      "https://www.inirida-guainia.gov.co/Transparencia/Normatividad/Acuerdo%20N°011%20del%202005.pdf",
+    size: 3440,
+  },
+  {
+    Title: "Articulo",
+    Clasificac_x00f3_n: "Decreto",
+    Fechaorden: "2005-09-19T06:00:00Z",
+    Modified: "2018-04-11T14:31:16Z",
+    A_x00f1_o: "2018",
+    Descripci_x00f3_n:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown",
+    FileRef:
+      "https://www.inirida-guainia.gov.co/Transparencia/Normatividad/Acuerdo%20N°011%20del%202005.pdf",
+    size: 3440,
+  },
+  {
+    Title: "Articulo",
+    Clasificac_x00f3_n: "Decreto",
+    Fechaorden: "2005-09-19T06:00:00Z",
+    Modified: "2018-04-11T14:31:16Z",
+    A_x00f1_o: "2018",
+    Descripci_x00f3_n:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown",
+    FileRef:
+      "https://www.inirida-guainia.gov.co/Transparencia/Normatividad/Acuerdo%20N°011%20del%202005.pdf",
+    size: 3440,
+  },
 ];
 
 export default dataInfo;
