@@ -194,7 +194,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const resultsContainer = document.querySelector(".searchResults__container"),
-    pagNumbers = document.querySelector(".paginationItems__numbers");
+    pagNumbers = document.querySelector(".pagination");
 
   //pruebas
   function draw(data) {
@@ -244,11 +244,7 @@ document.addEventListener("DOMContentLoaded", () => {
     resultsContainer.appendChild(fragmentContent);
 
     // Paginador
-    paginationItems(
-      ".paginationItems__numbers",
-      ".searchResults__container",
-      ".searchResults__li"
-    );
+    paginationItems(".pagination", ".searchResults__li");
   }
 
   function drawSearchError(msg) {
