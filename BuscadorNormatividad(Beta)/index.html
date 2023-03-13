@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Buscador</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/pagination/style.css" />
+  </head>
+
+  <body>
+    <main>
+      <section>
+        <section class="searchDocuments">
+          <div class="searchDocuments__top">
+            <label for="searchDocument" class="searchDocuments__label"
+              >Buscador</label
+            >
+            <select name="optionsSearch" class="searchDocuments__select">
+              <option value="Title" class="searchDocuments__option">
+                Titulo
+              </option>
+              <option value="Ano" class="searchDocuments__option">Año</option>
+            </select>
+          </div>
+          <div class="searchDocuments__bottom">
+            <input
+              type="text"
+              class="searchDocuments__input"}
+              id="searchDocument"
+              placeholder="Ej: Normas"
+              autocomplete="off"
+            />
+            <div class="searchDocuments__button">
+              <i class="bx bx-search searchDocuments__icon"></i>
+            </div>
+          </div>
+        </section>
+        <section class="searchLoader">
+          <span class="searchLoader__loader"></span>
+          <p class="searchLoader__p">Buscando datos ...</p>
+        </section>
+        <section class="searchError">
+          <div class="searchError__circleBorder">
+            <div class="searchError__circle">
+              <div class="searchError__error"></div>
+            </div>
+          </div>
+          <p class="searchError__p">Error en la busqueda</p>
+          <span class="searchError__span"></span>
+        </section>
+        <section class="searchResults">
+          <div class="searchResults__top">
+            <h3 class="searchResults__h3">Resultados</h3>
+            <button class="searchResults__reset">Borrar Resultados</button>
+          </div>
+          <ul class="searchResults__ul">
+            <li class="searchResults__liOption">Filtrar Por:</li>
+            <li class="searchResults__liOption searchResults__liOption--color">
+              Recientes
+            </li>
+            <li class="searchResults__liOption searchResults__liOption--color">
+              Año actual
+            </li>
+            <li class="searchResults__liOption searchResults__liOption--drop">
+              Clasificación
+              <ul class="searchResults__dropmenu">
+                <li class="searchResults__option searchResults__option--close">
+                  <i class="bx bx-x"></i>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="searchResults__container"></ul>
+          <ul class="pagination"></ul>
+        </section>
+      </section>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="./assets/js/main.js" type="module"></script>
+  </body>
+</html>

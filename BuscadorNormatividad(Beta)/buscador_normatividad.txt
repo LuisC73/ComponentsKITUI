@@ -1,5 +1,5 @@
-    <link rel="stylesheet" href="/SiteAssets/V2/Components/BuscadorNormatividad/assets/css/style.css" />
-    <link rel="stylesheet" href="/SiteAssets/V2/Components/BuscadorNormatividad/assets/pagination/style.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/pagination/style.css" />
 
     <section>
       <section class="searchDocuments">
@@ -9,15 +9,15 @@
             <option value="Title" class="searchDocuments__option">
               Titulo
             </option>
-            <option value="A_x00f1_o" class="searchDocuments__option">
+            <option value="Ano" class="searchDocuments__option">
               Año
             </option>
           </select>
         </div>
         <div class="searchDocuments__bottom">
-          <input type="text" class="searchDocuments__input" id="searchDocument" placeholder="Ej: Normas" autocomplete="off" />
+          <input type="text" class="searchDocuments__input" id="searchDocument" placeholder="Ej: Normas" />
           <div class="searchDocuments__button">
-            <i class="fa fa-search searchDocuments__icon"></i>
+            <i class="bx bx-search searchDocuments__icon"></i>
           </div>
         </div>
       </section>
@@ -37,10 +37,10 @@
       <section class="searchResults">
         <div class="searchResults__top">
           <h3 class="searchResults__h3">Resultados</h3>
-          <button class="searchResults__reset">Borrar Resultados</button>
+          <button class="searchResults__reset">Borrar Datos</button>
         </div>
         <ul class="searchResults__ul">
-          <li class="searchResults__liOption">Filtrar Por:</li>
+          <li class="searchResults__liOption">Ordenar Por:</li>
           <li class="searchResults__liOption searchResults__liOption--color">Recientes</li>
           <li class="searchResults__liOption searchResults__liOption--color">Año actual</li>
         </ul>
@@ -61,4 +61,4 @@
       </section>
     </section>
 
-    <script src="/SiteAssets/V2/Components/BuscadorNormatividad/assets/js/main.js" type="module"></script>
+    <script src="./assets/js/main.js" type="module"></script>

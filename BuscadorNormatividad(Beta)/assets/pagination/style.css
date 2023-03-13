@@ -1,66 +1,68 @@
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;200;400;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;200;400;500;700&display=swap");
 
-.hidden {
-  display: none;
+.pagination {
+  text-align: center;
+  margin: 30px 30px 60px;
+  user-select: none;
 }
 
-.paginationItems {
-  width: fit-content;
-  display: flex;
-  align-items: center;
-  position: relative;
-  bottom: 0;
-  padding: 1rem 0;
-  justify-content: center;
-  margin: 0 auto;
-}
-
-.paginationItems__button {
-  text-decoration: underline;
-  border: none;
-  outline: none;
-  font-family: "Work Sans", sans-serif;
-  font-weight: 400;
-  background: none;
-  padding: 0 10px;
-  color: #3162c4;
+.pagination li {
+  display: inline-block;
+  margin: 5px;
   cursor: pointer;
-  font-size: 14px;
+  box-shadow: 0 5px 25px rgb(1 1 1 / 10%);
 }
 
-.paginationItems__number,
-.paginationItems__dots {
-  font-size: 14px;
-  background: none;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  height: 31px;
-  width: 39px;
-  min-width: 39px;
-  padding: 0;
-  border-radius: 0.2rem;
-  font-family: "Work Sans", sans-serif;
-  color: #3162c4;
-  font-weight: 600;
-  transition: 0.5s;
-}
-
-.paginationItems__number:hover {
-  background: #e6effd;
-  color: #3162c4;
-}
-
-.paginationItems__dots {
-  cursor: none;
-  pointer-events: none;
-}
-
-.paginationItems__button.disabled {
-  color: #bababa;
-}
-
-.paginationItems__number.active {
+.pagination li a {
   color: #fff;
-  background: #3162c4;
+  text-decoration: none;
+  font-size: 1.2em;
+  line-height: 45px;
+}
+
+.previous-page,
+.next-page {
+  background-color: #0ab1ce;
+  width: 80px;
+  border-radius: 45px;
+  -webkit-border-radius: 45px;
+  -moz-border-radius: 45px;
+  -ms-border-radius: 45px;
+  -o-border-radius: 45px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+}
+
+.previous-page:hover {
+  transform: translateX(-5px);
+  -webkit-transform: translateX(-5px);
+  -moz-transform: translateX(-5px);
+  -ms-transform: translateX(-5px);
+  -o-transform: translateX(-5px);
+}
+
+.next-page:hover {
+  transform: translateX(5px);
+  -webkit-transform: translateX(5px);
+  -moz-transform: translateX(5px);
+  -ms-transform: translateX(5px);
+  -o-transform: translateX(5px);
+}
+
+.current-page,
+.dots {
+  background: #ccc;
+  width: 45px;
+}
+
+.active {
+  background-color: #0ab1ce;
+}
+
+.disable {
+  background: #ccc;
 }

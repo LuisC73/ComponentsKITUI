@@ -1,4 +1,5 @@
-import paginationItems from "/SiteAssets/V2/Components/BuscadorNormatividad/assets/pagination/main.js";
+import paginationItems from "../pagination/main.js";
+import dataInfo from "./data.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const searchInput = document.querySelector(".searchDocuments__input"),
@@ -17,10 +18,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const regularExpressions = {
     Title: /^[A-Za-z0-9\s]+$/i,
-    A_x00f1_o: /^[0-9]{4}$/i,
+    Ano: /^[0-9]{4}$/i,
   };
 
-  const SEARCH_TYPES = new Set(["Title", "A_x00f1_o"]);
+  const SEARCH_TYPES = new Set(["Title", "Ano"]);
 
   function validationSearch(data) {
     if (data === "") {
@@ -41,7 +42,9 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    searchDataDocuments(data);
+    validationDraw(dataInfo);
+    filterSearch(dataInfo);
+    dropMenuData(dataInfo);
   }
 
   searchButton.addEventListener("click", (e) => {
@@ -73,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       let monthText = "";
 
-      const MONTHS = {
+      const MESES = {
         Enero: "01",
         Febrero: "02",
         Marzo: "03",
@@ -88,8 +91,8 @@ document.addEventListener("DOMContentLoaded", () => {
         Diciembre: "12",
       };
 
-      for (const i in MONTHS) {
-        if (month === MONTHS[i]) monthText = i;
+      for (const i in MESES) {
+        if (month === MESES[i]) monthText = i;
       }
 
       fullDate = `${days} de ${monthText} de ${year}`;
@@ -122,14 +125,15 @@ document.addEventListener("DOMContentLoaded", () => {
         hours = minutes * 60,
         days = hours * 24;
 
-      let daysDifference = Math.floor(differenceTime / days),
-        hoursDifference = Math.floor((differenceTime % days) / hours);
+      let timeDays = Math.floor(differenceTime / days),
+        timeHours = Math.floor((differenceTime % days) / hours);
 
       let hour = parseInt(hourOld.split(":")[0].toString()),
         minute = parseInt(hourOld.split(":")[1].toString()),
         second = parseInt(hourOld.split(":")[2].toString());
 
       let AmPm = hour >= 12 ? "pm" : "am";
+
       hour = hour % 12 || 12;
       let finalTime = `${hour}:${minute}:${second} ${AmPm}`;
 
@@ -140,84 +144,65 @@ document.addEventListener("DOMContentLoaded", () => {
         day: "numeric",
       };
 
-      if (daysDifference < 2) {
-        let time = hoursDifference != 1 ? "Horas" : "Hora";
-        dateShow = `Hace ${hoursDifference} ${time}`;
-      } else if (daysDifference < 5) {
-        dateShow = `Hace ${daysDifference} Dias`;
+      if (timeDays < 2) {
+        let time = timeHours != 1 ? "Horas" : "Hora";
+        dateShow = `Hace ${timeHours} ${time}`;
+      } else if (timeDays < 5) {
+        dateShow = `Hace ${timeDays} Dias`;
       } else {
         let date = new Date(fullDateOld).toLocaleDateString(
           "co-Co",
           optionsDate
         );
+
         dateShow = `${date}, ${finalTime}`;
       }
+
       return dateShow;
     } else {
       return "Fecha";
     }
   }
 
-  function bytesToSize(bytes) {
-    if(bytes != null){
-      const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
-      if (bytes === 0) return 'n/a';
-      const i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)), 10);
-      if (i === 0) return `${bytes} ${sizes[i]})`;
-      return `${(bytes / (1024 ** i)).toFixed(1)} ${sizes[i]}`;
-    }else{
-      return `Tamaño`;
-    }
+  const defaultValue = {
+    size: "Tamaño",
+    Clasificac_x00f3_n: "Clasificación",
+    Title: "Titulo",
+    FileRef: "#",
+    Descripci_x00f3_n: "Descripción",
+    Fechaorden: "Fecha",
+    Modified: "Ultima modificación",
+  };
+
+  function validationFields(data, defaultValue) {
+    return data.map((item) => {
+      const newItem = {};
+      Object.keys(defaultValue).forEach((key) => {
+        newItem[key] = item[key] !== "" ? item[key] : defaultValue[key];
+      });
+      return newItem;
+    });
   }
 
-  function validationDraw(resp) {
-    let data = resp.d.results;
+  function validationDraw(data) {
     if (data.length != 0) {
-      resultsDataDocuments(data);
+      const newData = validationFields(data, defaultValue);
+      draw(newData);
     } else {
       drawSearchError("No se encontraron documentos");
     }
   }
 
   const resultsContainer = document.querySelector(".searchResults__container"),
-    pagNumbers = document.querySelector(".paginationItems__numbers");
+    pagNumbers = document.querySelector(".pagination");
 
-  async function searchDataDocuments(data) {
-    const modulePage = "Transparencia",
-      folder = "Normatividad",
-      params = [
-        "Title",
-        "LinkFilename",
-        "File/ServerRelativeUrl",
-        "File/Length",
-        "Descripci_x00f3_n",
-        "A_x00f1_o",
-        "Clasificac_x00f3_n",
-        "Fechaorden",
-        "Modified",
-      ];
-
-    let ulrFetch = `${location.protocol}//${location.host}/${modulePage}/_api/web/lists/getbytitle('${folder}')/items?$select=${params}&$top=2000&$filter=substringof('${data}',${valueSearch})&$expand=File`;
-
-    try {
-      let data = await fetch(ulrFetch, {
-        method: "GET",
-        headers: {
-          Accept: "application/json; odata=verbose",
-        },
-      });
-      let resp = await data.json();
-      validationDraw(resp);
-      filterSearch(resp);
-    } catch (error) {
-      drawSearchError(error);
-    }
-  }
-
-  function resultsDataDocuments(data) {
+  //pruebas
+  function draw(data) {
     searchInput.value = "";
     resultsContainer.innerHTML = "";
     pagNumbers.innerHTML = "";
+
+    const fragmentContent = document.createDocumentFragment();
 
     resultError.classList.remove("searchError--active");
     resultLoader.classList.add("searchLoader--active");
@@ -228,39 +213,30 @@ document.addEventListener("DOMContentLoaded", () => {
       results.classList.add("searchResults--active");
     }, 2000);
 
-    const fragmentContent = document.createDocumentFragment();
-
     for (const i in data) {
       let item = document.createElement("li");
 
       item.classList.add("searchResults__li");
-      
-      let classification = data[i].Clasificac_x00f3_n,
-        title = data[i].Title,
-        urlFile = data[i].File.ServerRelativeUrl,
-        description = data[i].Descripci_x00f3_n,
-        date = data[i].Fechaorden,
-        dateModified = data[i].Modified,
-        fileSize = bytesToSize(data[i].File.Length);
 
-      convertDateSearch(date);
-      convertTime(dateModified);
+      convertDateSearch(data[i].Fechaorden);
+      convertTime(data[i].Modified);
 
       item.innerHTML = `
-            <figure class="searchResults__figure">
-              <img src="/SiteAssets/V2/Components/BuscadorNormatividad/assets/img/pdf_blue.png" alt="pdf" class="searchResults__img">
-              <figcaption class="searchResults__fig">${fileSize}</figcaption>
-            </figure>
-            <div class="searchResults__content">
-              <p class="searchResults__p searchResults__p--transform">${classification}</p>
-              <a href="${urlFile}" class="searchResults__a">${title}</a>
-              <p class="searchResults__p">${description}</p>
-              <p class="searchResults__p searchResults__p--size"><span class="searchResults__span">Publicacion: ${dateShow}</span> | <span>Expedición: ${fullDate}</span></p>
-            </div>
-            <div class="searchResults__buttons">
-              <a class="searchResults__btn" href="${urlFile}">Abrir</a>
-              <a class="searchResults__btn" href="${urlFile}" download>Descargar</a>
-            </div>`;
+        <figure class="searchResults__figure">
+          <img src="./assets/img/pdf_blue.png" alt="pdf" class="searchResults__img">
+          <figcaption class="searchResults__fig">${data[i].size}</figcaption>
+        </figure>
+        <div class="searchResults__content">
+          <p class="searchResults__p searchResults__p--transform">${data[i].Clasificac_x00f3_n}</p>
+          <a href="${data[i].FileRef}" class="searchResults__a">${data[i].Title} ${i}</a>
+          <p class="searchResults__p">${data[i].Descripci_x00f3_n}</p>
+          <p class="searchResults__p searchResults__p--size"><span class="searchResults__span">Publicacion: ${dateShow}</span> | <span>Expedición: ${fullDate}</span></p>
+        </div>
+        <div class="searchResults__buttons">
+          <a class="searchResults__btn" href="${data[i].FileRef}">Abrir</a>
+          <a class="searchResults__btn" href="${data[i].FileRef}" download>Descargar</a>
+        </div>
+      `;
 
       fragmentContent.appendChild(item);
     }
@@ -268,14 +244,11 @@ document.addEventListener("DOMContentLoaded", () => {
     resultsContainer.appendChild(fragmentContent);
 
     // Paginador
-    paginationItems(
-      ".paginationItems__numbers",
-      ".searchResults__container",
-      ".searchResults__li"
-    );
+    paginationItems(".pagination", ".searchResults__li");
   }
 
   function drawSearchError(msg) {
+    searchInput.value = "";
     results.classList.remove("searchResults--active");
     resultError.classList.add("searchError--active");
     searchInput.classList.add("searchDocuments__input--error");
@@ -304,36 +277,72 @@ document.addEventListener("DOMContentLoaded", () => {
   searchDeleteButton.addEventListener("click", deleteSearchs);
 
   let filters = document.querySelectorAll(".searchResults__liOption--color"),
-    yearNow = new Date().getFullYear();
+    year_now = new Date().getFullYear();
 
   function filterSearch(data) {
-    let info = data.d.results;
     filters.forEach((filter) => {
       filter.addEventListener("click", () => {
         if (filter.textContent === "Año actual") {
-          let dataFilter = info.filter((el) =>
-            el.A_x00f1_o === `${yearNow}` ? el : ""
+          let dataFilter = data.filter((el) =>
+            el.A_x00f1_o === `${year_now}` ? el : ""
           );
-          if (dataFilter.length != 0) {
-            resultsDataDocuments(dataFilter);
-          } else {
-            drawSearchError("No existen documentos con el filtro solicitado");
-          }
+          validationDraw(dataFilter);
         } else if (filter.textContent === "Recientes") {
           let dateNow = new Date();
           dateNow = `${dateNow.getDate()}/${dateNow.getMonth()}/${dateNow.getFullYear()}`;
-          let dataFilter = info.filter((el) => {
+          let dataFilter = data.filter((el) => {
             let dateData = new Date(el.Modified);
             dateData = `${dateData.getDate()}/${dateData.getMonth()}/${dateData.getFullYear()}`;
             if (dateData === dateNow) return el;
           });
-          if (dataFilter.length != 0) {
-            resultsDataDocuments(dataFilter);
-          } else {
-            drawSearchError("No existen documentos con el filtro solicitado");
-          }
+          validationDraw(dataFilter);
         }
       });
     });
   }
+
+  const dropMenuContainer = document.querySelector(".searchResults__dropmenu");
+
+  function dropMenuData(data) {
+    let fragmentContent = document.createDocumentFragment();
+    const clasifications = [];
+
+    for (const i in data) {
+      clasifications.push(data[i].Clasificac_x00f3_n);
+    }
+
+    const resultado = {};
+    // arr.forEach((el) => (resultado[el] = resultado[el] + 1 || 1));
+
+    const clasfSet = new Set(clasifications);
+
+    let results = [...clasfSet];
+
+    results.forEach((el) => {
+      let dropItem = document.createElement("li");
+      dropItem.classList.add("searchResults__option");
+      dropItem.innerText = el;
+      fragmentContent.appendChild(dropItem);
+    });
+
+    dropMenuContainer.appendChild(fragmentContent);
+  }
+
+  function activeDropMenu(menu, state) {
+    if (state === "active") {
+      document.querySelector(`.${menu}`).classList.add(`${menu}--active`);
+    } else if (state === "desactive") {
+      document.querySelector(`.${menu}`).classList.remove(`${menu}--active`);
+    }
+  }
+
+  //Delegación de eventos
+  document.addEventListener("click", (e) => {
+    if (e.target.matches(".searchResults__liOption--drop")) {
+      activeDropMenu("searchResults__dropmenu", "active");
+    }
+    if (e.target.matches(".searchResults__option--close")) {
+      activeDropMenu("searchResults__dropmenu", "desactive");
+    }
+  });
 });
