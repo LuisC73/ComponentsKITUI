@@ -44,7 +44,7 @@ export default function paginationItems(pagContent, itemPagination) {
 
     let totalpages = Math.ceil(numberOfItems / limitPerPage);
 
-    let paginationSize = 5; // How many page elements visible in the pagination
+    let paginationSize = 7; // How many page elements visible in the pagination
 
     let currentPage;
 

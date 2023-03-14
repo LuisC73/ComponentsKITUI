@@ -10,18 +10,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const SearchSelect = document.querySelector(".searchDocuments__select");
 
+  const inputDate = document.querySelector(".searchDocuments__date");
+
   let valueSearch = SearchSelect.value;
 
   SearchSelect.addEventListener("change", () => {
     valueSearch = SearchSelect.value;
+
+    if (valueSearch === "Fechaorden") {
+      inputDate.classList.add("searchDocuments__date--active");
+    } else {
+      inputDate.classList.remove("searchDocuments__date--active");
+    }
+  });
+
+  inputDate.addEventListener("change", () => {
+    let data = inputDate.value.split("-").reverse().join("/");
+    searchInput.value = data;
   });
 
   const regularExpressions = {
     Title: /^[A-Za-z0-9\s]+$/i,
     Ano: /^[0-9]{4}$/i,
+    Fechaorden: /^([0-2][0-9]|3[0-1])(\/|-)(0[1-9]|1[0-2])\2(\d{4})$/i,
   };
 
-  const SEARCH_TYPES = new Set(["Title", "Ano"]);
+  const SEARCH_TYPES = new Set(["Title", "Ano", "Fechaorden"]);
 
   function validationSearch(data) {
     if (data === "") {
@@ -330,7 +344,9 @@ document.addEventListener("DOMContentLoaded", () => {
     results.forEach((el) => {
       let dropItem = document.createElement("li");
       dropItem.classList.add("searchResults__option");
+
       dropItem.innerText = `${el} (${clasfCount[el]})`;
+
       fragmentContent.appendChild(dropItem);
     });
 
