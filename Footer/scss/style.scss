@@ -1,0 +1,299 @@
+$color-font: #5c5c5c;
+$color-municipio: #39b54a;
+$color-gov: #1d59c9;
+
+@mixin grid($numCol, $widthCol, $gap: 0) {
+  display: grid;
+  grid-template-columns: repeat($numCol, $widthCol);
+  gap: $gap;
+}
+
+@mixin flex($justify, $align, $direction, $gap: 0) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $direction;
+  gap: $gap;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.footerWeb {
+  position: relative;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: $color-municipio;
+  font-family: "Montserrat", sans-serif;
+
+  &__topSpace {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 7%;
+    background: #fff;
+    z-index: 0;
+  }
+
+  &__container {
+    position: relative;
+    width: 85%;
+    margin: 30px auto 0;
+    background-color: #fff;
+    padding: 3% 5%;
+    border: 1px solid #e7e7e7;
+    z-index: 1;
+    box-sizing: border-box;
+  }
+
+  &__wrapperCol {
+    @include grid(1, auto, 20px);
+
+    &--gap {
+      margin-top: 20px;
+    }
+  }
+
+  &__title {
+    font-size: 16px;
+    margin: 0 0 5px 0;
+    font-weight: bold;
+    color: $color-municipio;
+  }
+
+  &__p {
+    margin: 0;
+    color: $color-font;
+    font-size: 13px;
+    line-height: 22px;
+    text-align: start;
+    font-family: "Work Sans", sans-serif;
+
+    &--social {
+      line-height: normal;
+    }
+  }
+
+  &__figure {
+    margin: 0;
+    padding: 0;
+    justify-self: start;
+  }
+
+  &__img {
+    width: 50px;
+    height: 50px;
+
+    &:last-child {
+      margin-left: 15px;
+    }
+  }
+
+  &__a {
+    display: inline-flex;
+    align-items: center;
+    color: $color-font;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: 0.5s;
+
+    &:hover {
+      font-weight: bold;
+    }
+  }
+
+  &__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    margin-right: 5px;
+    border: 1px solid transparent;
+    border-radius: 50%;
+    background: $color-municipio;
+    color: #fff;
+    transition: 0.5s;
+    vertical-align: middle;
+
+    &:hover {
+      background: #fff;
+      color: $color-municipio;
+      border-color: $color-municipio;
+    }
+  }
+
+  &__text {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  &__flex {
+    margin-top: 20px;
+    @include flex(space-between, flex-start, column, 10px);
+  }
+
+  &__option {
+    position: relative;
+    padding: 0;
+    border: none;
+    outline: none;
+    min-width: max-content;
+    border-radius: 0px;
+    background-color: #fff;
+    font-family: "Work Sans", sans-serif;
+    font-size: 13px;
+    color: $color-font;
+    font-weight: bold;
+    text-align: start;
+    text-decoration: underline;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $color-municipio;
+      color: #fff;
+
+      .footerWeb__ul {
+        visibility: visible;
+        opacity: 1;
+        pointer-events: all;
+      }
+    }
+  }
+
+  &__ul {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    list-style: none;
+    width: max-content;
+    height: max-content;
+    margin: 0;
+    padding: 10px 8px;
+    border: 1px solid #e7e7e7;
+    background-color: #fff;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.5s;
+    @include flex(space-between, flex-start, column, 10px);
+
+    &:hover {
+      visibility: visible;
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+
+  &__li {
+    display: block;
+    width: 100%;
+
+    & a {
+      display: block;
+      width: 100%;
+      font-weight: normal;
+    }
+  }
+
+  &__firma {
+    width: 85%;
+    margin: 10px auto;
+    font-size: 13px;
+    color: #fff;
+    @include flex(flex-end, center, row, 10px);
+  }
+
+  &__empresaImg {
+    width: 55px;
+  }
+
+  &__p--size {
+    color: inherit;
+  }
+
+  &__gov {
+    width: 100vw;
+    background-color: $color-gov;
+    padding: 30px 0;
+  }
+
+  &__govImages {
+    width: 85%;
+    margin: 0 auto;
+    @include flex(flex-start, center, row, 10px);
+  }
+
+  &__govImg {
+    width: 60px;
+
+    &--width {
+      width: auto;
+    }
+  }
+
+  &__line {
+    width: 1px;
+    height: 66px;
+    display: inline-block;
+    background: #fff;
+  }
+}
+
+@media (min-width: 930px) {
+  .footerWeb {
+    &__container {
+      width: 85%;
+      margin: 30px auto 0;
+      padding: 50px 60px;
+    }
+
+    &__wrapperCol {
+      @include grid(2, 1fr, 0);
+
+      &--gap {
+        row-gap: 15px;
+        margin-top: 20px;
+      }
+    }
+
+    &__figure {
+      margin: 0;
+      padding: 0;
+      justify-self: end;
+    }
+
+    &__text {
+      width: 60%;
+    }
+
+    &__flex {
+      width: 80%;
+      margin-top: 40px;
+      @include flex(flex-start, center, row, 20px);
+    }
+
+    &__firma {
+      width: 1140px;
+    }
+
+    &__govImages {
+      width: 1140px;
+    }
+  }
+}
+
+@media (min-width: 1251px) {
+  .footerWeb {
+    &__container {
+      width: 1140px;
+      max-width: 1140px;
+    }
+  }
+}
