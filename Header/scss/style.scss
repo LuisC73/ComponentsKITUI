@@ -1,0 +1,263 @@
+$color-font: #333;
+$color-municipio: #39b54a;
+
+@mixin flex($justify, $align, $direction, $gap: 0) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $direction;
+  gap: $gap;
+}
+
+.headerWeb {
+  width: 100%;
+  max-width: 1140px;
+  min-width: 320px;
+  margin: 0 auto;
+  font-family: "Montserrat", sans-serif;
+  box-sizing: border-box;
+  @include flex(center, center, column, 10px);
+
+  &__top {
+    width: 100%;
+    padding: 20px;
+    @include flex(center, center, column, 10px);
+  }
+
+  &__content {
+    width: 100%;
+    @include flex(center, center, column, 10px);
+  }
+
+  &__texts {
+    @include flex(center, center, column, 2px);
+  }
+
+  &__title {
+    font-size: 16px;
+    font-weight: 500;
+    color: $color-font;
+    width: 80%;
+    text-align: center;
+  }
+
+  &__p {
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    text-align: center;
+    font-weight: 400;
+    color: $color-font;
+    font-weight: 300;
+    font-family: "Work Sans", sans-serif;
+  }
+
+  &__logos {
+    @include flex(center, center, row, 20px);
+  }
+
+  &__img {
+    width: 45px;
+
+    &--width {
+      width: 65px;
+    }
+  }
+
+  &__aut {
+    margin: 10px 0 0 0;
+    display: block;
+    font-size: 14px;
+    font-weight: 400;
+    color: $color-font;
+    text-decoration: none;
+    text-align: center;
+    font-family: "Work Sans", sans-serif;
+
+    &:hover {
+      color: $color-font;
+      text-decoration: underline;
+      font-weight: bold;
+    }
+
+    &:visited {
+      color: $color-font;
+    }
+  }
+
+  &__searchContainer {
+    position: relative;
+    width: 100%;
+    height: max-content;
+    @include flex(center, center, column, 10px);
+  }
+}
+
+// Buscador google
+
+div#___gcse_0 {
+  width: 100%;
+  max-width: 400px;
+  margin: 0;
+
+  div.gsc-control {
+    width: 100%;
+  }
+
+  td.gsc-input {
+    @include flex(center, center, column, 10px);
+  }
+
+  div.gsc-input-box {
+    width: 100%;
+    max-width: 400px;
+    height: 40px;
+    padding: 0 16px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    border: 1px solid #c9c9c9;
+
+    transition: 0.5s;
+
+    &:hover {
+      box-shadow: 2px 2px 2px 2px #e6fde7;
+      border-color: $color-municipio;
+    }
+  }
+
+  table.gstl_50.gsc-input {
+    height: 100%;
+  }
+
+  div.gsc-control-cse {
+    padding: 0;
+    border: 0;
+  }
+
+  input#gsc-i-id1 {
+    background-image: none !important;
+    font-family: "Work Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+  }
+
+  td.gsc-search-button {
+    position: relative;
+  }
+
+  td.gsc-input,
+  td.gsib_a {
+    padding: 0;
+  }
+
+  div#gsc-input-box {
+    border: 1px solid #c9c9c9;
+  }
+
+  button.gsc-search-button-v2 {
+    position: absolute;
+    top: calc(50% - 16px);
+    right: 8px;
+    width: 32px;
+    height: 32px;
+    padding: 10px;
+    border-radius: 50%;
+    background-color: $color-municipio;
+    border: $color-municipio;
+    outline: none;
+    cursor: pointer;
+    transition: 0.5s;
+    @include flex(center, center, column, 0px);
+
+    &:hover {
+      background-color: #2a7b35;
+    }
+  }
+
+  div.gsst_b {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: calc(50% + 4px);
+    right: 50px;
+  }
+}
+
+@media (min-width: 930px) {
+  .headerWeb {
+    width: 930px;
+
+    &__top {
+      padding: 20px 0;
+      @include flex(space-between, center, row, 20px);
+    }
+
+    &__content {
+      width: 60%;
+      @include flex(center, center, row, 30px);
+    }
+
+    &__texts {
+      @include flex(flex-start, flex-start, column, 2px);
+    }
+
+    &__title {
+      width: 100%;
+      text-align: start;
+      font-size: 21px;
+    }
+
+    &__p {
+      text-align: start;
+    }
+
+    &__logos {
+      @include flex(center, center, row, 8px);
+    }
+
+    &__img {
+      width: 50px;
+
+      &--width {
+        width: 60px;
+      }
+    }
+
+    &__aut {
+      margin-top: 0;
+    }
+
+    &__searchContainer {
+      width: 40%;
+      @include flex(flex-end, flex-end, column, 20px);
+    }
+  }
+
+  td.gsc-input {
+    @include flex(flex-end, flex-end, column, 10px);
+  }
+}
+
+@media (min-width: 600px) {
+  .headerWeb {
+    width: 600px;
+  }
+}
+
+@media (min-width: 800px) {
+  .headerWeb {
+    width: 700px;
+  }
+}
+
+@media (min-width: 1025px) {
+  .headerWeb {
+    width: 980px;
+  }
+}
+
+@media (min-width: 1251px) {
+  .headerWeb {
+    width: 1140px;
+  }
+}
