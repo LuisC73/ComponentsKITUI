@@ -19,7 +19,7 @@
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-.carrouselButton {
+.carrouselButtons__button {
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -34,20 +34,20 @@
   transition: 0.4s;
 }
 
-.carrouselButton:hover {
+.carrouselButtons__button:hover {
   background-color: transparent;
   font-weight: bold;
 }
 
-.carrouselButton#pauseButton:hover {
+.carrouselButtons__button#pauseButton:hover {
   color: #b72020;
 }
 
-.carrouselButton#playButton:hover {
+.carrouselButtons__button#playButton:hover {
   color: #39b54a;
 }
 
-.carusel__span {
+.carrouselButtons__span {
   margin: 0 0 0 14px;
 }
 
@@ -86,6 +86,15 @@
   .sliderHomeWeb {
     width: 1140px;
   }
+}
+
+#ctl00_ContentPlaceHolderSlider_g_63300fd5_f77d_4861_82b7_b3b77ad439a1_ctl00_Slider
+  img {
+  width: 100%;
+}
+
+.carousel-indicators {
+  bottom: 0;
 }
 
 /* Fin control de sliders */
