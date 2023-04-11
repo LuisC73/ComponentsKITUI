@@ -210,7 +210,7 @@ body {
   width: auto;
 }
 .footerWeb__line {
-  width: 1px;
+  width: 2px;
   height: 66px;
   display: inline-block;
   background: #fff;

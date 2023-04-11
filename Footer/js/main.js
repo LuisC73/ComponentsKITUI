@@ -1,26 +1,19 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const yearCopy = document.querySelector(".footerWeb__year");
+  const yearCopy = document.querySelector(".footerWeb__year"),
+    lastModifiedWeb = document.getElementById("lastModifiedWeb");
 
-  let yearNow = new Date().getFullYear();
-
-  yearCopy.textContent = yearNow;
+  yearCopy.textContent = new Date().getFullYear();
 
   let lastModifiedDate = document.lastModified;
-
-  const lastModifiedWeb = document.getElementById("lastModifiedWeb");
 
   function convertDateWeb(date) {
     if (date != null) {
       let dateLocal = date.split("/");
 
-      console.log(dateLocal);
-
       let days = dateLocal[1].toString(),
         month = dateLocal[0].toString(),
         year = dateLocal[2].split(" ")[0].toString(),
         hour = dateLocal[2].split(" ")[1].toString();
-
-      console.log(hour);
 
       let monthText = "";
 
@@ -54,11 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       let fullDate = `${monthText} ${days} ${year}, ${finalTime}`;
 
-      console.log(fullDate);
-
       lastModifiedWeb.textContent = fullDate;
-    } else {
-      return "Fecha";
     }
   }
 
