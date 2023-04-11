@@ -1,14 +1,4 @@
-/* Inicio Fuentes Matriz ITA */
-
-@font-face {
-  font-family: "Montserrat-Regular";
-  src: url("/SiteAssets/V2/fonts/Montserrat-Regular.ttf");
-}
-
-@font-face {
-  font-family: "WorkSans-Regular";
-  src: url("/SiteAssets/V2/fonts/WorkSans-Regular.ttf");
-}
+@import url(https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700|Work+Sans:400,700&display=swap);
 
 h1,
 h2,
@@ -18,7 +8,7 @@ h5,
 h6,
 .titulos,
 .titulos1 {
-  font-family: "Montserrat-Regular", sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .titulos,
@@ -43,11 +33,11 @@ a,
 button,
 span,
 div {
-  font-family: "WorkSans-Regular", sans-serif;
+  font-family: "Work Sans", sans-serif;
 }
 
 td {
-  font-family: "WorkSans-Regular", sans-serif;
+  font-family: "Work Sans", sans-serif;
 }
 
 #ctl00_PlaceHolderMain_g_f82eaf10_0cd0_4885_90b8_4595555cb7d1_ctl00_divPregunta,
@@ -55,5 +45,3 @@ td {
 p {
   font-size: 14px;
 }
-
-/* Fin Fuentes Matriz ITA */
