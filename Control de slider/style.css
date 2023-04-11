@@ -3,9 +3,15 @@
 .sliderHomeWeb {
   position: relative;
   width: 90%;
-  height: max-content;
+  height: 278px;
   overflow: hidden;
   margin: 0 auto;
+}
+
+#ctl00_ContentPlaceHolderSlider_g_63300fd5_f77d_4861_82b7_b3b77ad439a1_ctl00_Slider
+  .item
+  img {
+  height: 230px;
 }
 
 /* Inicio control de sliders */
@@ -36,11 +42,10 @@
 
 .carrouselButtons__button:hover {
   background-color: transparent;
-  font-weight: bold;
 }
 
 .carrouselButtons__button#pauseButton:hover {
-  color: #b72020;
+  color: #df3434;
 }
 
 .carrouselButtons__button#playButton:hover {
@@ -49,6 +54,18 @@
 
 .carrouselButtons__span {
   margin: 0 0 0 14px;
+  font-weight: bold;
+  letter-spacing: 0.2px;
+}
+
+#ctl00_ContentPlaceHolderSlider_g_63300fd5_f77d_4861_82b7_b3b77ad439a1_ctl00_Slider
+  img {
+  width: 100%;
+}
+
+.carousel-indicators {
+  bottom: 0;
+  left: 75%;
 }
 
 @media (min-width: 600px) {
@@ -58,6 +75,17 @@
 
   .sliderHomeWeb {
     width: 600px;
+    height: max-content;
+  }
+
+  #ctl00_ContentPlaceHolderSlider_g_63300fd5_f77d_4861_82b7_b3b77ad439a1_ctl00_Slider
+    .item
+    img {
+    height: 400px;
+  }
+
+  .carousel-indicators {
+    left: 50%;
   }
 }
 @media (min-width: 800px) {
@@ -86,15 +114,6 @@
   .sliderHomeWeb {
     width: 1140px;
   }
-}
-
-#ctl00_ContentPlaceHolderSlider_g_63300fd5_f77d_4861_82b7_b3b77ad439a1_ctl00_Slider
-  img {
-  width: 100%;
-}
-
-.carousel-indicators {
-  bottom: 0;
 }
 
 /* Fin control de sliders */
