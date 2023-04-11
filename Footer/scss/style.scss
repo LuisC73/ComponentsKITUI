@@ -97,6 +97,7 @@ body {
   &__a {
     display: inline-flex;
     align-items: center;
+    width: fit-content;
     color: $color-font;
     text-decoration: none;
     text-transform: capitalize;
@@ -251,15 +252,17 @@ body {
     &__container {
       width: 85%;
       margin: 30px auto 0;
-      padding: 50px 60px;
+      padding: 75px 60px;
     }
 
     &__wrapperCol {
-      @include grid(2, 1fr, 0);
+      grid-template-columns: 60% 40%;
+      gap: 0;
 
       &--gap {
+        grid-template-columns: repeat(2, auto);
         row-gap: 15px;
-        margin-top: 20px;
+        margin-top: 40px;
       }
     }
 
@@ -271,20 +274,22 @@ body {
 
     &__text {
       width: 60%;
+      margin-top: 30px;
     }
 
     &__flex {
       width: 80%;
       margin-top: 40px;
       @include flex(flex-start, center, row, 20px);
+      flex-wrap: wrap;
     }
 
     &__firma {
-      width: 1140px;
+      width: 85%;
     }
 
     &__govImages {
-      width: 1140px;
+      width: 85%;
     }
   }
 }
@@ -292,6 +297,16 @@ body {
 @media (min-width: 1251px) {
   .footerWeb {
     &__container {
+      width: 1140px;
+      max-width: 1140px;
+    }
+
+    &__firma {
+      width: 1140px;
+      max-width: 1140px;
+    }
+
+    &__govImages {
       width: 1140px;
       max-width: 1140px;
     }

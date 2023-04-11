@@ -71,6 +71,7 @@ body {
 .footerWeb__a {
   display: inline-flex;
   align-items: center;
+  width: fit-content;
   color: #5c5c5c;
   text-decoration: none;
   text-transform: capitalize;
@@ -219,16 +220,16 @@ body {
   .footerWeb__container {
     width: 85%;
     margin: 30px auto 0;
-    padding: 50px 60px;
+    padding: 75px 60px;
   }
   .footerWeb__wrapperCol {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 60% 40%;
     gap: 0;
   }
   .footerWeb__wrapperCol--gap {
+    grid-template-columns: repeat(2, auto);
     row-gap: 15px;
-    margin-top: 20px;
+    margin-top: 40px;
   }
   .footerWeb__figure {
     margin: 0;
@@ -237,6 +238,7 @@ body {
   }
   .footerWeb__text {
     width: 60%;
+    margin-top: 30px;
   }
   .footerWeb__flex {
     width: 80%;
@@ -246,16 +248,25 @@ body {
     align-items: center;
     flex-direction: row;
     gap: 20px;
+    flex-wrap: wrap;
   }
   .footerWeb__firma {
-    width: 1140px;
+    width: 85%;
   }
   .footerWeb__govImages {
-    width: 1140px;
+    width: 85%;
   }
 }
 @media (min-width: 1251px) {
   .footerWeb__container {
+    width: 1140px;
+    max-width: 1140px;
+  }
+  .footerWeb__firma {
+    width: 1140px;
+    max-width: 1140px;
+  }
+  .footerWeb__govImages {
     width: 1140px;
     max-width: 1140px;
   }
