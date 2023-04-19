@@ -1,0 +1,76 @@
+/* Responsive Internas */
+
+@media (max-width: 800px) {
+  #internal {
+    padding: 0;
+  }
+
+  #internal h2 {
+    font-size: 18px;
+    padding: 0;
+    text-align: center;
+    margin-top: 60px;
+    width: 280px;
+  }
+
+  .ms-webpart-zone div {
+    width: 390px;
+    max-width: 400px;
+    min-width: 290px;
+    margin: 0 auto;
+  }
+
+  .ms-rteStyle-Texto_Normal,
+  .ms-rteStyle-Subtitulo {
+    width: 380px;
+    display: block;
+    font-size: 14px !important;
+  }
+
+  #MSOZoneCell_WebPartWPQ1 table {
+    /* width: 320px;
+    max-width: 320px; */
+    width: 100%;
+    height: 100%;
+    display: block;
+    overflow-x: auto;
+    margin: 0 auto;
+    padding: 10px 0 40px 0;
+  }
+
+  #MSOZoneCell_WebPartWPQ1 thead {
+    display: none;
+  }
+
+  #MSOZoneCell_WebPartWPQ1 tr:nth-of-type(2n) {
+    background-color: inherit;
+  }
+
+  #MSOZoneCell_WebPartWPQ1 tr td:first-child {
+    background: #f0f0f0;
+    font-weight: bold;
+    font-size: 14px;
+    margin-top: 20px;
+  }
+
+  #MSOZoneCell_WebPartWPQ1 tbody td {
+    display: block;
+    text-align: center;
+  }
+}
+
+@media (max-width: 400px) {
+  .ms-webpart-zone div {
+    width: 290px;
+    max-width: 320px;
+    min-width: 290px;
+    margin: 0 auto;
+  }
+
+  .ms-rteStyle-Texto_Normal,
+  .ms-rteStyle-Subtitulo {
+    width: 288px;
+    display: block;
+    font-size: 14px !important;
+  }
+}
