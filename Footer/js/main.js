@@ -1,19 +1,22 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const yearCopy = document.querySelector(".footerWeb__year"),
-    lastModifiedWeb = document.getElementById("lastModifiedWeb");
+  function yearCopyright() {
+    const yearCopy = document.querySelector(".footerWeb__year");
 
-  yearCopy.textContent = new Date().getFullYear();
+    yearCopy.textContent = new Date().getFullYear();
+  }
+
+  const lastModifiedWeb = document.getElementById("lastModifiedWeb");
 
   let lastModifiedDate = document.lastModified;
 
-  function convertDateWeb(date) {
-    if (date != null) {
-      let dateLocal = date.split("/");
+  function convertDateWeb(lastModified) {
+    if (lastModified != null) {
+      let dateModified = lastModified.split("/");
 
-      let days = dateLocal[1].toString(),
-        month = dateLocal[0].toString(),
-        year = dateLocal[2].split(" ")[0].toString(),
-        hour = dateLocal[2].split(" ")[1].toString();
+      let days = dateModified[1].toString(),
+        month = dateModified[0].toString(),
+        year = dateModified[2].split(" ")[0].toString(),
+        hour = dateModified[2].split(" ")[1].toString();
 
       let monthText = "";
 
@@ -36,20 +39,39 @@ document.addEventListener("DOMContentLoaded", () => {
         if (month === MONTHS[i]) monthText = i;
       }
 
-      let hourWeb = parseInt(hour.split(":")[0].toString()),
-        minuteWeb = parseInt(hour.split(":")[1].toString());
+      let hourModified = parseInt(hour.split(":")[0].toString()),
+        minuteModified = parseInt(hour.split(":")[1].toString());
 
-      minuteWeb = minuteWeb < 10 ? `0${minuteWeb}` : minuteWeb;
+      minuteModified = minuteModified < 10 ? `0${minuteModified}` : minuteModified;
 
-      let AmPm = hourWeb >= 12 ? "pm" : "am";
-      hourWeb = hourWeb % 12 || 12;
-      finalTime = `${hourWeb}:${minuteWeb} ${AmPm}`;
+      let AmPm = hourModified >= 12 ? "pm" : "am";
+      hourModified = hourModified % 12 || 12;
+      finalTime = `${hourModified}:${minuteModified} ${AmPm}`;
+
+      let dateNow = new Date();
+
+      let hourNow = dateNow.getHours(),
+        minutesNow = dateNow.getMinutes();
 
       let fullDate = `${monthText} ${days} ${year}, ${finalTime}`;
+
+      let differenceHour = hourNow - hourModified;
+
+      console.log(differenceHour);
+
+      if (differenceHour < 11) {
+        let differenceTime = minuteModified - minutesNow;
+        fullDate = `Hace ${differenceTime} ${differenceTime > 1 ? "Minutos" : "Minuto"}`;
+
+        if (minuteModified >= 60) {
+          fullDate = `Hace ${differenceHour} ${differenceHour > 1 ? "Hora" : "Hora"}`;
+        }
+      }
 
       lastModifiedWeb.textContent = fullDate;
     }
   }
 
+  yearCopyright();
   convertDateWeb(lastModifiedDate);
 });
