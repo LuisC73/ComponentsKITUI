@@ -13,7 +13,11 @@
     width: 280px;
   }
 
-  .ms-webpart-zone div {
+  .ms-rtestate-field {
+    width: 275px;
+  }
+
+  .ms-webpart-zone .ms-rtestate-field div {
     width: 390px;
     max-width: 400px;
     min-width: 290px;
@@ -23,17 +27,17 @@
   .ms-rteStyle-Texto_Normal,
   .ms-rteStyle-Subtitulo {
     width: 380px;
-    display: block;
+    display: inline;
     font-size: 14px !important;
   }
 
   #MSOZoneCell_WebPartWPQ1 table {
     /* width: 320px;
-    max-width: 320px; */
+      max-width: 320px; */
     width: 100%;
     height: 100%;
     display: block;
-    overflow-x: auto;
+    overflow: auto;
     margin: 0 auto;
     padding: 10px 0 40px 0;
   }
@@ -55,22 +59,121 @@
 
   #MSOZoneCell_WebPartWPQ1 tbody td {
     display: block;
-    text-align: center;
+    text-align: start;
+  }
+
+  #MSOZoneCell_WebPartWPQ1 td.ms-gb {
+    height: max-content;
+  }
+
+  #internal .ms-rteStyle-Texto_Normal img,
+  #internal span img,
+  #internal .ms-rtestate-field > img {
+    width: 100% !important;
+    height: auto !important;
+    object-fit: cover;
+    margin: 0 !important;
+  }
+
+  /* Noticias */
+
+  .blog-posts div.post {
+    height: max-content;
+  }
+
+  .blog-posts .post a {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .blog-posts .post div.image {
+    width: 100%;
+    height: 20%;
+  }
+
+  .blog-posts .post div.content {
+    width: 100%;
+    height: 40%;
+  }
+
+  /* Tramites */
+
+  div.sky-tabs-pos-left > label,
+  div.sky-tabs-pos-right > label,
+  div.sky-tabs label {
+    float: none;
+    width: 100% !important;
+  }
+
+  div.sky-tabs-pos-left > ul {
+    margin-left: 0 !important;
+  }
+
+  div.sky-tabs-pos-left > ul li {
+    padding: 10px 0;
+  }
+
+  div.sky-tabs .typography p {
+    width: 90%;
+  }
+
+  .ms-webpart-zone .ms-rtestate-field .service-block {
+    width: 100%;
+    max-width: 280px;
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0;
+    margin: 10px 0 0 0;
+    overflow: hidden;
+  }
+
+  div.service-block div.service-block-content,
+  div.service-block div.service-block-title,
+  div.service-block div.service-block-icon {
+    width: 100%;
+    max-width: 221px;
+    min-width: 120px;
+  }
+
+  .icon-wrapper.icon-border-radius.fa-3x {
+    max-width: 70px;
+    min-width: 60px;
+  }
+
+  /* Tramites Pago */
+
+  .ms-webpart-zone .panel-primary.accordion,
+  .ms-webpart-zone .panel-primary.accordion div {
+    width: 100%;
+    max-width: 260px;
+    min-width: 240px;
+  }
+
+  #DivTramites .accordion .panel-heading {
+    height: max-content;
+  }
+
+  .panel.panel-primary.accordion {
+    margin-top: 15px;
   }
 }
 
 @media (max-width: 400px) {
-  .ms-webpart-zone div {
-    width: 290px;
+  .ms-webpart-zone .ms-rtestate-field div {
+    width: 280px;
     max-width: 320px;
-    min-width: 290px;
+    min-width: 280px;
     margin: 0 auto;
   }
 
   .ms-rteStyle-Texto_Normal,
   .ms-rteStyle-Subtitulo {
     width: 288px;
-    display: block;
+    display: inline;
     font-size: 14px !important;
+    line-height: normal !important;
   }
 }
