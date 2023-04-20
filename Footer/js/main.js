@@ -57,7 +57,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const hoursDiff = Math.floor(minutesDiff / 60);
     const daysDiff = Math.floor(hoursDiff / 24);
 
-    if (daysDiff < 1) {
+    if (minutesDiff === 0) {
+      /* `lastModifiedWeb.textContent = `Hace un momento`;` está configurando el contenido de texto del HTML
+      elemento con el ID "lastModifiedWeb" a la cadena "Hace un momento", Esto se usa para indicar que la página fue modificada recientemente */
+      lastModifiedWeb.textContent = `Hace un momento`;
+    } else if (daysDiff < 1 && hoursDiff < 1) {
+      /* Este código establece el contenido de texto del elemento HTML con el ID "lastModifiedWeb" en un
+      cadena que indica hace cuánto tiempo se modificó el documento por última vez. Si la diferencia horaria es menor
+      de un día, mostrará la diferencia horaria en minutos, ya sea como "X minutos" o "X minutos"
+      dependiendo de si la diferencia horaria es superior a un minuto o no. La cadena "Hace" es
+      añadido antes de la diferencia horaria para indicar que sucedió en el pasado. */
+      const timeAgo = minutesDiff > 1 ? `${minutesDiff} minutos` : `${minutesDiff} minutos`;
+      lastModifiedWeb.textContent = `Hace ${timeAgo}`;
+    } else if (daysDiff < 1 && hoursDiff > 1) {
       /* Este código establece el contenido de texto del elemento HTML con el ID "lastModifiedWeb" en un
      cadena que indica hace cuánto tiempo se modificó el documento por última vez. Si la diferencia horaria es
      menos de un día, mostrará la diferencia horaria en horas, ya sea como "X horas" o "X
