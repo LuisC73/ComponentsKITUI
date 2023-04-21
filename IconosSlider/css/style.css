@@ -1,0 +1,73 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700|Work+Sans:400,700&display=swap);
+body {
+		font-family: "Work Sans", sans-serif;
+}
+
+.iconsHomeWeb {
+		position: relative;
+		width: 95%;
+		min-width: 288px;
+		max-width: 1140px;
+		margin: 0 auto;
+		padding: 0;
+		box-sizing: border-box;
+		overflow: hidden;
+}
+.iconsHomeWeb__ul {
+		width: 999px;
+		display: flex;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		overflow: hidden;
+}
+.iconsHomeWeb__button {
+		position: absolute;
+		top: calc(50% - 20px);
+		width: 30px;
+		height: 30px;
+		border: none;
+		outline: none;
+		background-color: rgba(228, 228, 228, 0.8941176471);
+		z-index: 2;
+}
+.iconsHomeWeb__button--left {
+		left: 5px;
+}
+.iconsHomeWeb__button--right {
+		right: 5px;
+}
+.iconsHomeWeb__li {
+		width: 100%;
+		max-width: 400px;
+		height: 140px;
+}
+.iconsHomeWeb__card {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		padding: 20px;
+		border-radius: 18px;
+		background: #1488cc;
+		text-decoration: none;
+		box-sizing: border-box;
+		display: flex;
+		justify-content: center;
+		align-items: flex-start;
+		flex-direction: column;
+		gap: 5px;
+}
+.iconsHomeWeb__p {
+		color: #fff;
+		font-size: 25px;
+		letter-spacing: 0.1px;
+}
+.iconsHomeWeb__icon {
+		position: absolute;
+		right: 0;
+		bottom: -5px;
+		color: #2b32b2;
+		font-size: 20px;
+		opacity: 0.6;
+}
