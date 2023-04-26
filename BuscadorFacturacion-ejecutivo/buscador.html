@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Buscador Facturacion</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;500&family=Work+Sans:wght@100;300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./Assets/css/style-search.css" />
+  </head>
+  <body>
+    <main>
+      <section class="search-web">
+        <h1 class="search-web__title">Buscador</h1>
+        <section class="search-web__input-container">
+          <label for="SearchProfile" class="search-web__label">
+            <input type="text" placeholder="Ej: norma" id="SearchData" class="search-web__input" />
+          </label>
+          <button class="search-web__button-search" id="SearchButton">
+            <i class="fa fa-search search-web__icon-search" aria-hidden="true"></i>
+          </button>
+        </section>
+        <section class="search-web__wrapper">
+          <div class="search-web__header">
+            <h2 class="search-web__h2">Resultados</h2>
+            <button class="search-web__clear">Borrar Resultados</button>
+          </div>
+          <article class="search-web__card">
+            <figure class="search-web__img-container">
+              <img src="./Assets/img/i-pdf.png" alt="" class="search-web__img" />
+              <figcaption class="search-web__caption">2 Mb</figcaption>
+            </figure>
+            <div class="search-web__content-card">
+              <h3 class="search-web__category">Titulo</h3>
+              <a href="#" class="search-web__link">Enlace</a>
+              <p class="search-web__texts">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum, iste?
+              </p>
+              <div class="search-web__group">
+                <p class="search-web__p">Publicado</p>
+                <span class="search-web__line"></span>
+                <p class="search-web__p">Expedicion</p>
+              </div>
+            </div>
+            <div class="search-web__group search-web__group--direction">
+              <a href="#" class="search-web__button">Abrir</a>
+              <a href="#" class="search-web__button" download>Descargar</a>
+            </div>
+          </article>
+          <article class="search-web__card">
+            <figure class="search-web__img-container">
+              <img src="./Assets/img/i-pdf.png" alt="" class="search-web__img" />
+              <figcaption class="search-web__caption">2 Mb</figcaption>
+            </figure>
+            <div class="search-web__content-card">
+              <h3 class="search-web__category">Titulo</h3>
+              <a href="#" class="search-web__link">Enlace</a>
+              <p class="search-web__texts">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum, iste?
+              </p>
+              <div class="search-web__group">
+                <p class="search-web__p">Publicado</p>
+                <span class="search-web__line"></span>
+                <p class="search-web__p">Expedicion</p>
+              </div>
+            </div>
+            <div class="search-web__group search-web__group--direction">
+              <a href="#" class="search-web__button">Abrir</a>
+              <a href="#" class="search-web__button" download>Descargar</a>
+            </div>
+          </article>
+        </section>
+        <section class="paginationWeb"></section>
+      </section>
+    </main>
+
+    <script src="https://kit.fontawesome.com/547d00b976.js"></script>
+    <script src="./Assets/js/main-search.js"></script>
+  </body>
+</html>

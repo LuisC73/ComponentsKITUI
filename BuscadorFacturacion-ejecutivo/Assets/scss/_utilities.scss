@@ -4,6 +4,8 @@ $color-primary: #62cdff;
 $color-secundary: #97deff;
 $color-white: #fff;
 $color-black: #000;
+$color-font: #333;
+$radius-button: 5px;
 
 @mixin flex($justify, $align, $direction, $gap: 0) {
   display: flex;

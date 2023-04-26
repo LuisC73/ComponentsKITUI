@@ -1,0 +1,249 @@
+@use "./utilities" as *;
+
+.search-web {
+  width: 95%;
+  max-width: 1140px;
+  margin: 0 auto;
+  height: auto;
+  font-family: $font-secundary;
+  box-sizing: border-box;
+
+  &__title {
+    margin: 10px 0;
+    font-size: 21px;
+    font-family: $font-primary;
+    font-weight: 700;
+    text-align: center;
+    color: $color-font;
+
+    @include responsive("Desktop") {
+      font-size: 22px;
+      text-align: start;
+    }
+  }
+
+  &__input-container {
+    position: relative;
+    width: 100%;
+    height: 40px;
+  }
+
+  &__input {
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 220px;
+    height: 100%;
+    padding: 0 16px;
+    border: 1px solid #c9c9c9;
+    outline: none;
+    border-radius: $radius-button;
+    font-size: 12px;
+    font-family: $font-secundary;
+    color: #4b4b4b;
+    transition: 0.5s ease-in-out;
+
+    &:hover {
+      box-shadow: 2px 2px 2px 2px #b0b9de;
+      border-color: $color-primary;
+    }
+  }
+
+  &__button-search {
+    position: absolute;
+    top: calc(50% - 17.5px);
+    right: 5px;
+    width: 35px;
+    height: 35px;
+    border: 1px solid #fff;
+    outline: none;
+    border-radius: 50%;
+    background-color: $color-primary;
+    color: #fff;
+    transition: 0.5s ease-out;
+    cursor: pointer;
+    @include flex(center, center, row, 0);
+
+    &:hover {
+      transform: scale(1.02);
+      border-color: $color-secundary;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 40px;
+  }
+
+  &__header {
+    width: 100%;
+    height: 40px;
+    border-bottom: 1px solid $color-secundary;
+    @include flex(space-between, center, row, 0px);
+  }
+
+  &__h2 {
+    font-size: 20px;
+    font-family: $font-primary;
+    font-weight: bolder;
+    color: $color-font;
+  }
+
+  &__clear {
+    border: 0;
+    border-bottom: 1px solid transparent;
+    outline: none;
+    background-color: transparent;
+    font-size: 15px;
+    font-family: $font-secundary;
+    color: $color-font;
+    cursor: pointer;
+
+    &:hover {
+      border-color: $color-font;
+      color: $color-secundary;
+    }
+  }
+
+  &__card {
+    display: grid;
+    place-content: center;
+    place-items: center;
+    grid-template-columns: 1fr;
+    grid-template-rows: 150px 1fr 150px;
+    padding: 20px;
+    transition: 0.4s ease-out;
+    box-sizing: border-box;
+
+    &:not(:first-of-type) {
+      border-top: 2px solid #e4e4e4;
+
+      &:hover {
+        border-top: 2px solid $color-secundary;
+      }
+    }
+
+    @include responsive("Tablet") {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+    }
+
+    @include responsive("Desktop") {
+      grid-template-columns: 1fr 3fr 1fr;
+      grid-template-rows: 1fr;
+    }
+
+    &:hover {
+      transform: scale(1.01);
+      box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    }
+  }
+
+  &__img-container {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    text-align: center;
+    @include flex(flex-start, center, row, 10px);
+
+    @include responsive("Tablet") {
+      @include flex(center, center, column, 10px);
+    }
+
+    @include responsive("Desktop") {
+      @include flex(center, center, column, 10px);
+    }
+  }
+
+  &__img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+  }
+
+  &__caption {
+    font-size: 16px;
+    color: $color-font;
+  }
+
+  &__content-card {
+    @include flex(center, flex-start, column, 5px);
+  }
+
+  &__category {
+    margin: 0 0 8px 0;
+    font-size: 18px;
+    font-weight: 400;
+    font-family: $font-secundary;
+    text-align: start;
+    color: $color-font;
+  }
+
+  &__link {
+    font-size: 19px;
+    text-decoration: underline;
+    color: $color-primary;
+  }
+
+  &__texts {
+    margin: 8px 0;
+    font-size: 18px;
+    line-height: 28px;
+    text-align: start;
+    color: $color-font;
+  }
+
+  &__group {
+    width: 100%;
+    height: 100%;
+    margin: 8px 0;
+    @include flex(center, flex-start, column, 10px);
+
+    &--direction {
+      @include flex(center, center, column, 15px);
+    }
+
+    @include responsive("Tablet") {
+      &--direction {
+        grid-column: 1 / 3;
+      }
+    }
+
+    @include responsive("Desktop") {
+      @include flex(flex-start, center, row, 10px);
+
+      &--direction {
+        grid-column: 3 / 4;
+        @include flex(center, center, column, 15px);
+      }
+    }
+  }
+
+  &__p {
+    margin: 0;
+    color: $color-font;
+    font-size: 16px;
+  }
+
+  &__line {
+    display: none;
+    width: 1px;
+    height: 12px;
+    background-color: $color-font;
+
+    @include responsive("Desktop") {
+      display: inline;
+    }
+  }
+
+  &__button {
+    width: 100%;
+    height: 40px;
+    background-color: $color-primary;
+    border-radius: $radius-button;
+    text-decoration: none;
+    color: $color-white;
+    @include flex(center, center, row, 0px);
+  }
+}
