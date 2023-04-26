@@ -64,6 +64,11 @@ $color-municipio: #39b54a;
     }
   }
 
+  &__wrapper {
+    width: 100%;
+    @include flex(center, center, column);
+  }
+
   &__aut {
     margin: 10px 0 0 0;
     display: block;
@@ -221,6 +226,16 @@ div#___gcse_0 {
       &--width {
         width: 60px;
       }
+    }
+
+    &__line {
+      width: 1px;
+      height: 12px;
+      background-color: $color-font;
+    }
+
+    &__wrapper {
+      @include flex(flex-end, center, row, 10px);
     }
 
     &__aut {
