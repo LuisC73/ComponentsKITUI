@@ -42,7 +42,8 @@ document.addEventListener("DOMContentLoaded", () => {
     /* Esta línea de código comprueba si el usuario se ha desplazado hasta la parte superior de la página (donde `scrollTop`
     es igual a 0) y si es así, establece la opacidad del elemento `scrollButton` a 1, haciéndolo
     visible. */
-    if (pageContainer.scrollTop == 0) scrollButton.style.opacity = "1";
+
+    if (pageContainer.scrollTop > 0) scrollButton.style.opacity = "1";
   });
 
   scrollButton.addEventListener("click", () => {
