@@ -1,0 +1,7 @@
+  <section class="acordeon-normativa">
+    <h3 class="acordeon-normativa__title">Acordeon Normativa</h3>
+    <div id="AcordeonContent" class="acordeon-normativa__wrapper"></div>
+  </section>
+  
+  
+  <script src="/Scripts/AcordeonNormativa/acordeonNormativa.js"></script>
