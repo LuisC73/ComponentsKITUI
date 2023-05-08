@@ -1,31 +1,30 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700|Work+Sans:400,700&display=swap);
-* {
-		margin: 0;
-		padding: 0;
-		box-sizing: border-box;
-}
-
 .acordeon-web {
 		width: clamp(288px, 100%, 1280px);
 		padding: 20px 0;
 		margin: 0 auto;
+		box-sizing: border-box;
 }
 .acordeon-web__ul {
 		width: 100%;
-		margin-top: 40px;
-		box-sizing: border-box;
+		margin-top: 20px;
+		padding: 0;
+		margin-bottom: 0;
 		border-radius: 2px;
 		overflow: hidden;
+		box-sizing: border-box;
 }
 .acordeon-web__title {
 		font-family: "Montserrat", sans-serif;
 }
 .acordeon-web__content {
-		background: #183059;
-		overflow: hidden;
 		max-height: 0;
-		transition: all 0.7s ease-in-out;
+		padding: 0;
+		margin-bottom: 0;
+		list-style: none;
+		background: #e2e2e2;
 		overflow: hidden;
+		transition: all 0.5s ease-in-out;
 		box-sizing: border-box;
 }
 .acordeon-web__content--active {
@@ -35,6 +34,15 @@
 .acordeon-web__ul {
 		list-style: none;
 }
+.acordeon-web__link {
+		color: #008e4c;
+		text-decoration: none;
+		font-size: 18px;
+}
+.acordeon-web__link:hover {
+		color: #000;
+		text-decoration: underline;
+}
 .acordeon-web__item {
 		font-family: "Work sans", sans-serif;
 }
@@ -42,9 +50,11 @@
 		position: relative;
 		display: block;
 		width: 100%;
+		margin-top: 2px;
 		clear: both;
-		background: #276fbf;
+		background: #f3f3f3;
 		transition: 0.5s;
+		box-sizing: border-box;
 }
 .acordeon-web__item--parent::after {
 		content: "+";
@@ -52,18 +62,28 @@
 		top: 20px;
 		right: 10px;
 		font-size: 21px;
-		color: #fff;
+		color: #008e4c;
 }
 .acordeon-web__item--parent:hover {
-		background-color: #279af1;
+		background-color: #008e4c;
 		box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
+.acordeon-web__item--parent:hover::after {
+		color: #fff;
+}
+.acordeon-web__item--parent:hover > a {
+		color: #fff;
+}
 .acordeon-web__item--parent--active {
-		background-color: #279af1;
+		background-color: #008e4c;
 		box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 .acordeon-web__item--parent--active::after {
 		content: "-";
+		color: #fff;
+}
+.acordeon-web__item--parent--active > a.acordeon-web__link {
+		color: #fff;
 }
 .acordeon-web__item--parent a {
 		position: relative;
@@ -71,15 +91,7 @@
 		padding: 20px;
 		font-size: 18px;
 		font-weight: 300;
-		color: #fff;
+		color: #008e4c;
 		text-decoration: none;
-}
-.acordeon-web__link {
-		color: #fff;
-		text-decoration: none;
-		font-size: 18px;
-}
-.acordeon-web__link:hover {
-		color: #fff;
-		text-decoration: underline;
+		box-sizing: border-box;
 }

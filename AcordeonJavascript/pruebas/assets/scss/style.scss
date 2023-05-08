@@ -1,22 +1,19 @@
 @use "./utilities" as *;
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 .acordeon-web {
   width: clamp(288px, 100%, 1280px);
   padding: 20px 0;
   margin: 0 auto;
+  box-sizing: border-box;
 
   &__ul {
     width: 100%;
-    margin-top: 40px;
-    box-sizing: border-box;
+    margin-top: 20px;
+    padding: 0;
+    margin-bottom: 0;
     border-radius: 2px;
     overflow: hidden;
+    box-sizing: border-box;
   }
 
   &__title {
@@ -24,11 +21,13 @@
   }
 
   &__content {
+    max-height: 0;
+    padding: 0;
+    margin-bottom: 0;
+    list-style: none;
     background: $color-secundary;
     overflow: hidden;
-    max-height: 0;
-    transition: all 0.7s ease-in-out;
-    overflow: hidden;
+    transition: all 0.5s ease-in-out;
     box-sizing: border-box;
 
     &--active {
@@ -41,6 +40,17 @@
     list-style: none;
   }
 
+  &__link {
+    color: $color-terciary;
+    text-decoration: none;
+    font-size: 18px;
+
+    &:hover {
+      color: #000;
+      text-decoration: underline;
+    }
+  }
+
   &__item {
     font-family: $font-secundary;
 
@@ -48,9 +58,11 @@
       position: relative;
       display: block;
       width: 100%;
+      margin-top: 2px;
       clear: both;
       background: $color-primary;
       transition: 0.5s;
+      box-sizing: border-box;
 
       &::after {
         content: "+";
@@ -58,12 +70,20 @@
         top: 20px;
         right: 10px;
         font-size: 21px;
-        color: #fff;
+        color: $color-terciary;
       }
 
       &:hover {
         background-color: $color-terciary;
         box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+      }
+
+      &:hover::after {
+        color: #fff;
+      }
+
+      &:hover > a {
+        color: #fff;
       }
 
       &--active {
@@ -72,6 +92,11 @@
 
         &::after {
           content: "-";
+          color: #fff;
+        }
+
+        & > a.acordeon-web__link {
+          color: #fff;
         }
       }
 
@@ -81,20 +106,10 @@
         padding: 20px;
         font-size: 18px;
         font-weight: 300;
-        color: #fff;
+        color: $color-terciary;
         text-decoration: none;
+        box-sizing: border-box;
       }
-    }
-  }
-
-  &__link {
-    color: #fff;
-    text-decoration: none;
-    font-size: 18px;
-
-    &:hover {
-      color: #fff;
-      text-decoration: underline;
     }
   }
 }
