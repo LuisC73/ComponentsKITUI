@@ -1,0 +1,100 @@
+@use "./utilities" as *;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.acordeon-web {
+  width: clamp(288px, 100%, 1280px);
+  padding: 20px 0;
+  margin: 0 auto;
+
+  &__ul {
+    width: 100%;
+    margin-top: 40px;
+    box-sizing: border-box;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  &__title {
+    font-family: $font-primary;
+  }
+
+  &__content {
+    background: $color-secundary;
+    overflow: hidden;
+    max-height: 0;
+    transition: all 0.7s ease-in-out;
+    overflow: hidden;
+    box-sizing: border-box;
+
+    &--active {
+      display: block;
+      max-height: 200px;
+    }
+  }
+
+  &__ul {
+    list-style: none;
+  }
+
+  &__item {
+    font-family: $font-secundary;
+
+    &--parent {
+      position: relative;
+      display: block;
+      width: 100%;
+      clear: both;
+      background: $color-primary;
+      transition: 0.5s;
+
+      &::after {
+        content: "+";
+        position: absolute;
+        top: 20px;
+        right: 10px;
+        font-size: 21px;
+        color: #fff;
+      }
+
+      &:hover {
+        background-color: $color-terciary;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+      }
+
+      &--active {
+        background-color: $color-terciary;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+        &::after {
+          content: "-";
+        }
+      }
+
+      & a {
+        position: relative;
+        display: block;
+        padding: 20px;
+        font-size: 18px;
+        font-weight: 300;
+        color: #fff;
+        text-decoration: none;
+      }
+    }
+  }
+
+  &__link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+
+    &:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+  }
+}
