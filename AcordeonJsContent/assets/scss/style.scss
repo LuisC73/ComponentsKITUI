@@ -1,0 +1,175 @@
+@use "./utilities" as *;
+
+.acordeon-web {
+  width: clamp(288px, 100%, 1280px);
+  padding: 20px 0;
+  margin: 0 auto;
+  box-sizing: border-box;
+
+  &__ul {
+    width: 100%;
+    margin-top: 20px;
+    padding: 0;
+    margin-bottom: 0;
+    border-radius: 2px;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+
+  &__title {
+    font-family: $font-primary;
+  }
+
+  &__content {
+    max-height: 0;
+    padding: 0;
+    margin-bottom: 0;
+    list-style: none;
+    background: $color-white;
+    overflow: hidden;
+    transition: 0.5s ease-in-out;
+    box-sizing: border-box;
+
+    &--active {
+      display: block;
+      max-height: max-content;
+    }
+  }
+
+  &__ul {
+    list-style: none;
+  }
+
+  &__link {
+    display: block;
+    width: 100%;
+    padding: 20px;
+    font-size: 17px;
+    text-decoration: none;
+    color: inherit;
+    box-sizing: border-box;
+
+    &:hover {
+      color: #000;
+      text-decoration: underline;
+    }
+  }
+
+  &__icon {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border: 1px solid $color-font;
+    border-radius: 50%;
+    background: url("../icons/open-icon.svg") center/cover no-repeat;
+    box-sizing: border-box;
+    transition: 0.4s ease-in-out;
+  }
+
+  &__item {
+    font-family: $font-secundary;
+
+    &--parent {
+      position: relative;
+      display: block;
+      width: 100%;
+      margin-top: 2px;
+      background: $color-white;
+      border-bottom: 2px solid #e4e4e4;
+      color: #838383;
+      border-radius: 2px 2px 0 0;
+      transition: 0.5s ease-in-out;
+      box-sizing: border-box;
+
+      & > a.acordeon-web__link {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        column-gap: 10px;
+        font-weight: 700;
+      }
+
+      &--active {
+        background: $color-bg;
+        border-left: 4px solid $color-primary;
+        color: $color-black;
+
+        & > a i {
+          background: url("../icons/close-icon.svg") center/cover no-repeat;
+          background-color: $color-primary;
+          border-color: $color-primary;
+        }
+
+        & ul {
+          background-color: $color-bg;
+        }
+      }
+
+      & ul li:not(.acordeon-web__item--parent) a {
+        position: relative;
+        padding-left: 25px;
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: calc(50% - 10px);
+          left: 0;
+          width: 20px;
+          height: 20px;
+          background: url("../icons/item-icon.svg") center/cover no-repeat;
+        }
+      }
+    }
+  }
+
+  &__text-content {
+    padding: 10px 20px;
+    box-sizing: border-box;
+  }
+
+  &__text-title {
+    font-size: 18px;
+    font-family: $font-primary;
+    margin: 0 0 10px 0;
+    color: $color-primary;
+  }
+
+  &__p {
+    margin: 0;
+    padding: 0;
+    font-size: 17px;
+    line-height: 20px;
+    font-family: $font-secundary;
+    font-weight: 300;
+    color: $color-black;
+    list-style: circle;
+  }
+
+  &__figure {
+    width: 320px;
+    height: max-content;
+    margin: 10px auto 10px 20px;
+    overflow: hidden;
+  }
+
+  &__fig {
+    font-size: 17px;
+    font-weight: 600;
+    font-family: $font-secundary;
+    color: $color-primary;
+    text-align: center;
+    margin: 0 0 10px 0;
+  }
+
+  &__img {
+    width: 100%;
+    height: 310px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  & a:hover {
+    color: inherit;
+  }
+}

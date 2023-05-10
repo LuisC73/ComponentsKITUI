@@ -1,0 +1,7 @@
+<link rel="stylesheet" href="/Scripts/AcordeonNormativa/acordeonNormativa.css" />
+
+<section class="acordeon-web" id="AcordeonContent">
+  <h3 class="acordeon-web__title">Acordeón Normativa</h3>
+</section>
+  
+<script src="/Scripts/AcordeonNormativa/acordeonNormativa.js"></script>
