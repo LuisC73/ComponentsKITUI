@@ -23,6 +23,8 @@ document.addEventListener("DOMContentLoaded", () => {
       li.classList.add("acordeon-web__item");
       li.setAttribute("data-item", IdPrincipal);
 
+      if (IdPadre === null) li.classList.add("acordeon-web__item--parent");
+
       if (TipoContenido === typesContet.NORMAL) {
         const link = document.createElement("a");
         link.classList.add("acordeon-web__link");

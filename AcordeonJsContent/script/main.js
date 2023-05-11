@@ -75,6 +75,12 @@ document.addEventListener("DOMContentLoaded", () => {
       li.classList.add("acordeon-web__item");
       li.setAttribute("data-item", IdPrincipal);
 
+      /* Este código verifica si el elemento actual que se está iterando en la matriz `data` tiene un `null`
+      valor para la propiedad `IdPadre`. Si lo hace, agrega la clase CSS
+      `acordeon-web__item--parent` al elemento `li`, lo que indica que es un elemento principal en el
+      estructura de acordeón. */
+      if (IdPadre === null) li.classList.add("acordeon-web__item--parent");
+
       /* Este bloque de código crea diferentes tipos de contenido según el valor del
       Propiedad `TipoContenido` de cada objeto en el arreglo `data`. Si `TipoContenido` es igual a
       `typesContet.NORMAL`, crea un elemento link con las propiedades `Title` y `Enlace` y
