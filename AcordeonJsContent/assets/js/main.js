@@ -5,82 +5,101 @@ import data from "./data.js";
 document.addEventListener("DOMContentLoaded", () => {
   const containerAcordeon = document.getElementById("AcordeonContent");
 
-  function drawAcordeon(data) {
+  const typesContet = Object.freeze({
+    NORMAL: "Normal",
+    TEXT: "Texto",
+    IMAGE: "Imagen",
+  });
+
+  const organizeData = (data) => {
     // const data = response.d.results;
 
-    const typesContet = Object.freeze({
-      NORMAL: "Normal",
-      TEXT: "Texto",
-      IMAGE: "Imagen",
+    const organizedData = [];
+    const parentIdMap = {};
+
+    data.forEach((node) => {
+      if (node.IdPadre === null) {
+        organizedData.push(node);
+      } else {
+        parentIdMap[node.IdPadre] = parentIdMap[node.IdPadre] || [];
+        parentIdMap[node.IdPadre].push(node);
+      }
     });
 
-    const ul = document.createElement("ul");
-    ul.classList.add("acordeon-web__ul");
+    organizedData.forEach((parentNode) => {
+      parentNode.children = parentIdMap[parentNode.IdPrincipal] || [];
+    });
+
+    organizedData.sort((a, b) => a.Orden - b.Orden);
+
+    return organizedData;
+  };
+
+  function createParentsAcordeon(info) {
+    const containerList = document.createElement("ul");
+    containerList.classList.add("acordeon-web__ul");
     const fragmentDocument = document.createDocumentFragment();
 
-    for (const { Title, IdPrincipal, Enlace, IdPadre, TipoContenido, Contenido } of data) {
-      const li = document.createElement("li");
-      li.classList.add("acordeon-web__item");
-      li.setAttribute("data-item", IdPrincipal);
+    for (const { Title, Enlace, IdPadre, children } of info) {
+      const element = document.createElement("li");
+      element.classList.add("acordeon-web__item");
+      element.innerHTML = `<a class="acordeon-web__link" href="${Enlace}">${Title}</a>`;
 
-      if (IdPadre === null) li.classList.add("acordeon-web__item--parent");
+      if (IdPadre === null) element.classList.add("acordeon-web__item--parent");
 
-      if (TipoContenido === typesContet.NORMAL) {
-        const link = document.createElement("a");
-        link.classList.add("acordeon-web__link");
-        link.textContent = Title;
-        link.href = Enlace;
-        li.appendChild(link);
-      } else if (TipoContenido === typesContet.TEXT) {
-        const paragraphContainer = document.createElement("div");
-        paragraphContainer.classList.add("acordeon-web__text-content");
-        const title = document.createElement("h2");
-        title.classList.add("acordeon-web__text-title");
-        title.textContent = Title;
-        const paragraph = document.createElement("p");
-        paragraph.classList.add("acordeon-web__p");
-        paragraph.innerHTML = Contenido;
-        paragraphContainer.appendChild(title);
-        paragraphContainer.appendChild(paragraph);
-        li.appendChild(paragraphContainer);
-      } else if (TipoContenido === typesContet.IMAGE) {
-        const imageContainer = document.createElement("figure");
-        const imageTitle = document.createElement("figcaption");
-        imageTitle.classList.add("acordeon-web__fig");
-        imageContainer.classList.add("acordeon-web__figure");
-        const image = document.createElement("img");
-        image.classList.add("acordeon-web__img");
-        image.alt = Title;
-        image.src = Contenido;
-        imageTitle.textContent = Title;
-        imageContainer.appendChild(image);
-        imageContainer.insertBefore(imageTitle, image);
-        li.appendChild(imageContainer);
-      }
-
-      if (IdPadre === null) {
-        ul.appendChild(li);
-        fragmentDocument.appendChild(ul);
-      } else {
-        const parent = fragmentDocument.querySelector(`li[data-item="${IdPadre}"]`);
-        parent.classList.add("acordeon-web__item--parent");
-        if (parent) {
-          let ulChild = parent.querySelector("ul");
-          if (!ulChild) {
-            ulChild = document.createElement("ul");
-            ulChild.classList.add("acordeon-web__content");
-            parent.appendChild(ulChild);
-          }
-          ulChild.appendChild(li);
-        }
-      }
+      containerList.appendChild(element);
+      fragmentDocument.appendChild(containerList);
+      if (children.length !== 0) createTreeAcordeon(children, element);
     }
+
     containerAcordeon.appendChild(fragmentDocument);
   }
 
-  function addIcon() {
-    const allParent = document.querySelectorAll(".acordeon-web__item--parent > a");
+  function createTreeAcordeon(children, parent) {
+    let ulChild = parent.querySelector("ul");
 
+    if (!ulChild) {
+      ulChild = document.createElement("ul");
+      ulChild.classList.add("acordeon-web__content");
+      parent.appendChild(ulChild);
+    }
+
+    const fragmentTree = document.createDocumentFragment();
+
+    for (const { Title, Enlace, TipoContenido, Contenido } of children) {
+      const element = document.createElement("li");
+      element.classList.add("acordeon-web__item");
+
+      switch (TipoContenido) {
+        case typesContet.NORMAL:
+          element.innerHTML = `<a class="acordeon-web__link" href="${Enlace}">${Title}</a>`;
+          break;
+        case typesContet.TEXT:
+          element.innerHTML = `
+            <div class="acordeon-web__text-content">
+              <h2 class="acordeon-web__text-title">${Title}</h2>
+              <p class="acordeon-web__p">${Contenido}</p>
+            </div>`;
+          break;
+        case typesContet.IMAGE:
+          element.innerHTML = `
+            <figure class="acordeon-web__figure">
+              <img class="acordeon-web__img" src="${Contenido}" alt="${Title}">
+              <figcaption class="acordeon-web__fig">${Title}</figcaption>
+            </figure>`;
+          break;
+        default:
+          console.log("Tipo de Contenido no reconocido");
+      }
+
+      fragmentTree.appendChild(element);
+    }
+
+    ulChild.appendChild(fragmentTree);
+  }
+
+  function addIconItemParent() {
+    const allParent = document.querySelectorAll(".acordeon-web__item--parent > a");
     allParent.forEach((el) => {
       const icon = document.createElement("i");
       icon.classList.add("acordeon-web__icon");
@@ -88,19 +107,20 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  function toggleAcordeon() {
+  function handleToggleAcordeon() {
     const parentItems = document.querySelectorAll(".acordeon-web__item--parent a");
-
     parentItems.forEach((item) => {
       item.addEventListener("click", () => {
         let content = item.nextElementSibling;
-        content.classList.toggle("acordeon-web__content--active");
-        item.parentNode.classList.toggle("acordeon-web__item--parent--active");
+        if (content !== null) {
+          content.classList.toggle("acordeon-web__content--active");
+          item.parentNode.classList.toggle("acordeon-web__item--parent--active");
+        }
       });
     });
   }
 
-  drawAcordeon(data);
-  addIcon();
-  toggleAcordeon();
+  createParentsAcordeon(organizeData(data));
+  addIconItemParent();
+  handleToggleAcordeon();
 });

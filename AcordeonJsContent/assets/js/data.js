@@ -6,6 +6,8 @@ const data = [
     IdPadre: null,
     TipoContenido: "Normal",
     Contenido: "",
+    Imagen: "",
+    Orden: 3,
   },
   {
     Title: "Datos de contacto",
@@ -14,6 +16,8 @@ const data = [
     IdPadre: null,
     TipoContenido: "Normal",
     Contenido: "",
+    Imagen: "",
+    Orden: 2,
   },
   {
     Title: "Hijo del Padre 1",
@@ -22,6 +26,8 @@ const data = [
     IdPadre: 1,
     TipoContenido: "Normal",
     Contenido: "",
+    Imagen: "",
+    Orden: 1,
   },
   {
     Title: "SOBRE EL ORGANISMO:",
@@ -29,7 +35,9 @@ const data = [
     Enlace: "#",
     IdPadre: 1,
     TipoContenido: "Texto",
-    Contenido: `Definición: Sistema de orden estratégico gerencial que integra un conjunto de planes, métodos, principios, normas, procesos, procedimientos y mecanismos encargados de verificar y evaluar todas las actividades y operaciones que se desarrollan en una organización; también que los recursos y la información sean administrados de forma ordenada y veras, adoptando el marco de las normas constitucionales y las políticas trazadas por la dirección.​`,
+    Contenido: `Definición: Sistema de orden estratégico gerencial​`,
+    Imagen: "",
+    Orden: 3,
   },
   {
     Title: "Hijo del Padre 2",
@@ -37,7 +45,10 @@ const data = [
     Enlace: "#",
     IdPadre: 2,
     TipoContenido: "Imagen",
-    Contenido: "https://dlcdnrog.asus.com/rog/media/166370403263.webp",
+    Contenido:
+      "https://marketplace.canva.com/EAFJd1mhO-c/1/0/900w/canva-colorful-watercolor-painting-phone-wallpaper-qq02VzvX2Nc.jpg",
+    Imagen: "",
+    Orden: 1,
   },
   {
     Title: "Hijo del Padre 2",
@@ -45,7 +56,9 @@ const data = [
     Enlace: "#",
     IdPadre: 2,
     TipoContenido: "Normal",
+    Contenido: "",
     Imagen: "",
+    Orden: 3,
   },
   {
     Title: "Hijo del Hijo 2",
@@ -53,7 +66,9 @@ const data = [
     Enlace: "#",
     IdPadre: 6,
     TipoContenido: "Normal",
+    Contenido: "",
     Imagen: "",
+    Orden: 1,
   },
   {
     Title: "Hijo del padre 1",
@@ -61,7 +76,9 @@ const data = [
     Enlace: "#",
     IdPadre: 1,
     TipoContenido: "Normal",
+    Contenido: "",
     Imagen: "",
+    Orden: 1,
   },
   {
     Title: "Hijo del Padre 2",
@@ -70,6 +87,7 @@ const data = [
     IdPadre: 2,
     TipoContenido: "Imagen",
     Contenido: "https://dlcdnrog.asus.com/rog/media/166370403263.webp",
+    Orden: 2,
   },
   {
     Title: "Padre 3",
@@ -78,6 +96,7 @@ const data = [
     IdPadre: null,
     TipoContenido: "Normal",
     Contenido: "",
+    Orden: 3,
   },
 ];
 
