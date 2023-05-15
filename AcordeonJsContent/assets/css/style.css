@@ -1,151 +1,155 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700|Work+Sans:400,700&display=swap);
 .acordeon-web {
-  width: clamp(288px, 100%, 1280px);
-  padding: 20px 0;
-  margin: 0 auto;
-  box-sizing: border-box;
+		width: clamp(288px, 100%, 1280px);
+		padding: 20px 0;
+		margin: 0 auto;
+		box-sizing: border-box;
 }
 .acordeon-web__ul {
-  width: 100%;
-  margin-top: 20px;
-  padding: 0;
-  margin-bottom: 0;
-  border-radius: 2px;
-  overflow: hidden;
-  box-sizing: border-box;
+		width: 100%;
+		margin-top: 20px;
+		padding: 0;
+		margin-bottom: 0;
+		border-radius: 2px;
+		overflow: hidden;
+		box-sizing: border-box;
 }
 .acordeon-web__title {
-  font-family: "Montserrat", sans-serif;
+		font-family: "Montserrat", sans-serif;
 }
 .acordeon-web__content {
-  max-height: 0;
-  padding: 0;
-  margin-bottom: 0;
-  list-style: none;
-  background: #fff;
-  overflow: hidden;
-  transition: 0.5s ease-in-out;
-  box-sizing: border-box;
+		max-height: 0;
+		padding: 0;
+		margin-bottom: 0;
+		list-style: none;
+		background: #fff;
+		overflow: hidden;
+		transition: 0.5s ease-in-out;
+		box-sizing: border-box;
 }
 .acordeon-web__content--active {
-  display: block;
-  max-height: max-content;
+		display: block;
+		max-height: max-content;
+}
+.acordeon-web__content--gallery {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(280px, 392px));
 }
 .acordeon-web__ul {
-  list-style: none;
+		list-style: none;
 }
 .acordeon-web__link {
-  display: block;
-  width: 100%;
-  padding: 20px;
-  font-size: 17px;
-  text-decoration: none;
-  color: inherit;
-  box-sizing: border-box;
+		display: block;
+		width: 100%;
+		padding: 20px;
+		font-size: 17px;
+		text-decoration: none;
+		color: inherit;
+		box-sizing: border-box;
 }
 .acordeon-web__link:hover {
-  color: #000;
-  text-decoration: underline;
+		color: #000;
+		text-decoration: underline;
 }
 .acordeon-web__icon {
-  display: inline-block;
-  width: 30px;
-  height: 30px;
-  border: 1px solid #9fa4b4;
-  border-radius: 50%;
-  background: url("../icons/open-icon.svg") center/cover no-repeat;
-  box-sizing: border-box;
-  transition: 0.4s ease-in-out;
+		display: inline-block;
+		width: 30px;
+		height: 30px;
+		border: 1px solid #9fa4b4;
+		border-radius: 50%;
+		background: url("../icons/open-icon.svg") center/cover no-repeat;
+		box-sizing: border-box;
+		transition: 0.4s ease-in-out;
 }
 .acordeon-web__item {
-  font-family: "Work sans", sans-serif;
+		font-family: "Work sans", sans-serif;
 }
 .acordeon-web__item--parent {
-  position: relative;
-  display: block;
-  width: 100%;
-  margin-top: 2px;
-  background: #fff;
-  border-bottom: 2px solid #e4e4e4;
-  color: #838383;
-  border-radius: 2px 2px 0 0;
-  transition: 0.5s ease-in-out;
-  box-sizing: border-box;
+		position: relative;
+		display: block;
+		width: 100%;
+		margin-top: 2px;
+		background: #fff;
+		border-bottom: 2px solid #e4e4e4;
+		color: #838383;
+		border-radius: 2px 2px 0 0;
+		transition: 0.5s ease-in-out;
+		box-sizing: border-box;
 }
 .acordeon-web__item--parent > a.acordeon-web__link {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  column-gap: 10px;
-  font-weight: 700;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+		column-gap: 10px;
+		font-weight: 700;
 }
 .acordeon-web__item--parent--active {
-  background: #f7f7f7;
-  border-left: 4px solid #1d267d;
-  color: #000;
+		background: #f7f7f7;
+		border-left: 4px solid #1d267d;
+		color: #000;
 }
 .acordeon-web__item--parent--active > a i {
-  background: url("../icons/close-icon.svg") center/cover no-repeat;
-  background-color: #1d267d;
-  border-color: #1d267d;
+		background: url("../icons/close-icon.svg") center/cover no-repeat;
+		background-color: #1d267d;
+		border-color: #1d267d;
 }
 .acordeon-web__item--parent--active ul {
-  background-color: #f7f7f7;
+		background-color: #f7f7f7;
 }
 .acordeon-web__item--parent ul li:not(.acordeon-web__item--parent) a {
-  position: relative;
-  padding-left: 25px;
+		position: relative;
+		padding-left: 25px;
 }
 .acordeon-web__item--parent ul li:not(.acordeon-web__item--parent) a::after {
-  content: "";
-  position: absolute;
-  top: calc(50% - 10px);
-  left: 0;
-  width: 20px;
-  height: 20px;
-  background: url("../icons/item-icon.svg") center/cover no-repeat;
+		content: "";
+		position: absolute;
+		top: calc(50% - 10px);
+		left: 0;
+		width: 20px;
+		height: 20px;
+		background: url("../icons/item-icon.svg") center/cover no-repeat;
 }
 .acordeon-web__text-content {
-  padding: 10px 20px;
-  box-sizing: border-box;
+		padding: 10px 20px;
+		box-sizing: border-box;
 }
 .acordeon-web__text-title {
-  font-size: 18px;
-  font-family: "Montserrat", sans-serif;
-  margin: 0 0 10px 0;
-  color: #1d267d;
+		font-size: 18px;
+		font-family: "Montserrat", sans-serif;
+		margin: 0 0 10px 0;
+		color: #1d267d;
 }
 .acordeon-web__p {
-  margin: 0;
-  padding: 0;
-  font-size: 17px;
-  line-height: 20px;
-  font-family: "Work sans", sans-serif;
-  font-weight: 300;
-  color: #000;
-  list-style: circle;
+		margin: 0;
+		padding: 0;
+		font-size: 17px;
+		line-height: 20px;
+		font-family: "Work sans", sans-serif;
+		font-weight: 300;
+		color: #000;
+		list-style: circle;
 }
 .acordeon-web__figure {
-  width: 320px;
-  height: max-content;
-  margin: 10px auto 10px 20px;
-  overflow: hidden;
+		width: 320px;
+		height: max-content;
+		margin: 10px auto 10px 20px;
+		overflow: hidden;
 }
 .acordeon-web__fig {
-  font-size: 17px;
-  font-weight: 600;
-  font-family: "Work sans", sans-serif;
-  color: #1d267d;
-  text-align: center;
-  margin: 0 0 10px 0;
+		font-size: 17px;
+		font-weight: 600;
+		font-family: "Work sans", sans-serif;
+		color: #1d267d;
+		text-align: center;
+		margin: 0 0 10px 0;
 }
 .acordeon-web__img {
-  width: 100%;
-  height: 310px;
-  object-fit: cover;
-  border-radius: 8px;
+		width: 100%;
+		height: 310px;
+		object-fit: cover;
+		border-radius: 8px;
 }
 .acordeon-web a:hover {
-  color: inherit;
+		color: inherit;
 }

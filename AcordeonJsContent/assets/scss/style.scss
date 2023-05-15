@@ -34,6 +34,11 @@
       display: block;
       max-height: max-content;
     }
+
+    &--gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 392px));
+    }
   }
 
   &__ul {

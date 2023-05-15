@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
     return organizedData;
   };
 
-  function createParentsAcordeon(info) {
+  function createParentsAccordion(info) {
     const containerList = document.createElement("ul");
     containerList.classList.add("acordeon-web__ul");
     const fragmentDocument = document.createDocumentFragment();
@@ -47,15 +47,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (IdPadre === null) element.classList.add("acordeon-web__item--parent");
 
+      const childrenInfo = children.sort((a, b) => a.Orden - b.Orden);
+
       containerList.appendChild(element);
       fragmentDocument.appendChild(containerList);
-      if (children.length !== 0) createTreeAcordeon(children, element);
+      if (children.length !== 0) createTreeAccordion(childrenInfo, element);
     }
 
     containerAcordeon.appendChild(fragmentDocument);
   }
 
-  function createTreeAcordeon(children, parent) {
+  function createTreeAccordion(children, parent) {
     let ulChild = parent.querySelector("ul");
 
     if (!ulChild) {
@@ -96,6 +98,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     ulChild.appendChild(fragmentTree);
+    addGalleryParent(ulChild);
+  }
+
+  function addGalleryParent(parent) {
+    const images = parent.querySelectorAll("img");
+
+    if (images.length > 1) parent.classList.add("acordeon-web__content--gallery");
   }
 
   function addIconItemParent() {
@@ -107,7 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  function handleToggleAcordeon() {
+  function handleToggleAccordion() {
     const parentItems = document.querySelectorAll(".acordeon-web__item--parent a");
     parentItems.forEach((item) => {
       item.addEventListener("click", () => {
@@ -120,7 +129,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  createParentsAcordeon(organizeData(data));
+  createParentsAccordion(organizeData(data));
   addIconItemParent();
-  handleToggleAcordeon();
+  handleToggleAccordion();
 });
