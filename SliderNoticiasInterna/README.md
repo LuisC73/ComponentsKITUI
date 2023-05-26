@@ -12,7 +12,7 @@
 
 ### Sobre el proyecto
 
-- El proposito de este repositorio es encontrar con facilidad los diferentes componentes utilizados diariamente en los portales web de los diferentes municipios. Te podras mover por diferentes ramas donde se encontrarar los componentes correspondientes.
+- Carrusel de imagenes que se puede incluir en una plantilla interna de noticias.
 
 ## Como instalarlo
 

@@ -1,0 +1,168 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700|Work+Sans:400,700&display=swap);
+
+::root {
+  --color-button-primary: #b3005e;
+  --color-button-secondary: #3f0071;
+  --color-button-terciary: #2d46b9;
+}
+
+.floatButtonBottom {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  width: 35px;
+  height: 35px;
+}
+.floatButtonBottom * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.floatButtonBottom__button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  border-radius: 50%;
+  background-color: var(--color-button-primary);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  font-size: 16px;
+  color: #fff;
+  cursor: pointer;
+}
+.floatButtonBottom__button:hover {
+  background-color: var(--color-button-secondary);
+  animation: heartbeat 1.5s ease-in-out infinite both;
+}
+.floatButtonBottom__button:hover span {
+  opacity: 1;
+}
+.floatButtonBottom__button i {
+  pointer-events: none;
+  transition: 0.6s ease-in-out;
+}
+.floatButtonBottom__button--active {
+  background-color: var(--color-button-secondary);
+}
+.floatButtonBottom__button--active i {
+  transform: rotate(135deg) translate(0px, 0px);
+}
+.floatButtonBottom__tooltip {
+  position: absolute;
+  right: -50%;
+  transform: translateX(100%);
+  width: max-content;
+  min-height: 25px;
+  padding: 6px;
+  border-radius: 2px;
+  background-color: #2d2727;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  font-size: 13px;
+  font-family: "Work Sans", sans-serif;
+  color: #fff;
+  transition: 0.6s ease-in-out;
+  pointer-events: none;
+}
+.floatButtonBottom__tooltip--one {
+  opacity: 0;
+}
+.floatButtonBottom__options {
+  position: absolute;
+  bottom: 140%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  width: 35px;
+  height: max-content;
+  list-style: none;
+  opacity: 0;
+  transform: scaleY(0);
+  transform-origin: 0% 100%;
+  transition: 0.3s ease-in-out;
+}
+.floatButtonBottom__options--active {
+  transform: scaleY(1);
+  opacity: 1;
+}
+.floatButtonBottom__btn {
+  position: relative;
+}
+.floatButtonBottom__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 40% 60% 70% 30%/40% 50% 60% 50%;
+  background-color: var(--color-button-terciary);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  font-size: 16px;
+  text-decoration: none;
+  color: #fff;
+  animation: morph 5s linear infinite;
+  transition: all 0.6s ease-in-out;
+}
+.floatButtonBottom__link:hover {
+  background-color: var(--color-button-secondary);
+}
+.floatButtonBottom__link:hover span {
+  transform: translateX(105%);
+}
+.floatButtonBottom__link:visited {
+  color: #fff;
+}
+.floatButtonBottom__icon {
+  color: #fff;
+}
+
+@keyframes morph {
+  0%,
+  100% {
+    border-radius: 40% 60% 70% 30%/40% 40% 60% 50%;
+  }
+  34% {
+    border-radius: 70% 30% 50% 50%/30% 30% 70% 70%;
+  }
+  67% {
+    border-radius: 100% 60% 60% 100%/100% 100% 60% 60%;
+  }
+}
+@keyframes heartbeat {
+  from {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transform-origin: center center;
+    transform-origin: center center;
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+  10% {
+    -webkit-transform: scale(0.91);
+    transform: scale(0.91);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  17% {
+    -webkit-transform: scale(0.98);
+    transform: scale(0.98);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+  33% {
+    -webkit-transform: scale(0.87);
+    transform: scale(0.87);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  45% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+}
