@@ -6,13 +6,17 @@
 - [Css]
 - [JavaScript]
 
+### Visualización
+
+![acordeon](https://github.com/LuisC73/ComponentsKITUI/assets/80079884/3b4a62e9-8f21-49f9-982a-b9b6b30b4a64)
+
 ### Sobre el proyecto
 
-- Acordeon realizado con js puro, el cual nos permite varias de contenido entre enlaces, texto y imagenes, permitiendo mediante un sistema basico de ordamiento en arbol que cada elemento padre contenga varios elementos hijos.
+- Acordeón realizado con JS puro, el cual nos permite varias de contenido entre enlaces, texto e imágenes, permitiendo mediante un sistema básico de ordenamiento en árbol que cada elemento padre contenga varios elementos hijos.
 
 ## Como instalarlo
 
-- Para su implementación, pegar la carpeta principal y llamar el documento de texto "acordeon.txt" en un editor de contenido de sharepoint, de ser necesario actualizar el llamado de los archivos css y javascript, ademas actualizar la ubicación de los icons ingresando al archivo style.css
+- Para su implementación, pegar la carpeta principal y llamar el documento de texto "acordeon.txt" en un editor de contenido de SharePoint, de ser necesario actualizar el llamado de los archivos CSS y JavaScript, además actualizar la ubicación de los iconos ingresando al archivo style.css
 
 ```bash
 # Clonar o descargar el repositorio
