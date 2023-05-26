@@ -24,6 +24,7 @@
   align-items: center;
   justify-content: center;
   width: 100%;
+  min-width: 35px;
   height: 100%;
   border: none;
   outline: none;
@@ -109,6 +110,7 @@
 }
 .floatButtonBottom__link:hover {
   background-color: var(--color-button-secondary);
+  text-decoration: none;
 }
 .floatButtonBottom__link:hover span {
   transform: translateX(105%);
