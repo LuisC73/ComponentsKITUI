@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /** Se define un array llamado allModules que contiene los nombres de módulos. */
   const allModules = [
+    "inicio", // borrar este dato si la pagina no cuenta con botón de inicio
     "transparencia",
     "ciudadanos",
     "conectividad",
@@ -13,11 +14,15 @@ document.addEventListener("DOMContentLoaded", () => {
     "normativa",
   ];
 
-  /** Se obtiene el primer elemento que coincide con el selector 'Selector[data-item="inicio"]' y se almacena en la variable initItem. */
-  const initItem = document.querySelector('Selector[data-item="inicio"]');
+  /** Se obtiene el primer elemento que coincide con el selector y se almacena en la variable initItem. */
+  const initItem = document.querySelector("#main-menu li h2");
   /** Se obtienen todos los elementos que coinciden con el selector especificado y se almacenan en la variable allMenuModule como un array. */
   const allMenuModule = [...document.querySelectorAll("#main-menu li h2")];
 
+  /**
+   * La función agrega un atributo de elemento de datos a cada elemento en allMenuModule con el correspondiente
+   * módulo de allModules.
+   */
   const addDatasetItem = () => {
     allMenuModule.forEach((item, itemIndex) => {
       allModules.forEach((module, moduleIndex) => {
