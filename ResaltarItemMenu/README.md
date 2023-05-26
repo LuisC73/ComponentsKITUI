@@ -1,4 +1,4 @@
-<h1 align="center">💻 Componentes KITUI ✌</h1>
+<h1 align="center">💻 Resaltar Items Menu Principal ✌</h1>
 
 ### Herramientas Utilizadas
 
