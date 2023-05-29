@@ -1,6 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700|Work+Sans:400,700&display=swap);
 
-::root {
+:root {
   --color-button-primary: #b3005e;
   --color-button-secondary: #3f0071;
   --color-button-terciary: #2d46b9;
@@ -12,6 +12,7 @@
   left: 10px;
   width: 35px;
   height: 35px;
+  z-index: 9;
 }
 .floatButtonBottom * {
   margin: 0;
