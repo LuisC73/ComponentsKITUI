@@ -24,6 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.addEventListener("click", (e) => {
     if (e.target.classList.contains("floatButtonBottom__button")) {
+      e.preventDefault();
       containerButtons.classList.toggle("floatButtonBottom__options--active");
       e.target.classList.toggle("floatButtonBottom__button--active");
     }
